@@ -192,4 +192,4 @@ if [[ -o zle ]]; then
     [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
 fi
 
-alias config='/usr/bin/git --git-dir=/home/dokxid/.cfg/ --work-tree=/home/dokxid'
+alias config='/usr/bin/git -C /home/dokxid/dotfiles'

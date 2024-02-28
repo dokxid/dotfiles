@@ -13,6 +13,7 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    -- "hyprlang",
   },
   indent = {
     enable = true,
