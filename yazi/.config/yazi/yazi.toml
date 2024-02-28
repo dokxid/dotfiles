@@ -1,0 +1,34 @@
+[manager]
+show_hidden    = true
+linemode       = "size"
+ratio          = [1,5,2]
+scrolloff      = 8
+sort_by        = "alphabetical"
+sort_sensitive = false
+sort_reverse   = false
+sort_dir_first = true
+show_symlink   = true
+
+[opener]
+archive = [
+	{ exec = 'unar "$1"', desc = "Extract here" },
+]
+text = [
+	{ exec = 'nvim "$@"', block = true },
+]
+image = [
+  { exec = 'imv "$@"' }
+]
+
+[open]
+rules = [
+	{ mime = "text/*", use = "text" },
+	{ mime = "image/*", use = "image" },
+
+	# { mime = "application/json", use = "text" },
+	{ name = "*.json", use = "text" },
+	{ name = "*.toml", use = "text" },
+
+	# Multiple openers for a single rule
+	{ name = "*.html", use = [ "browser", "text" ] },
+]
