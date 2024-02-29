@@ -31,4 +31,7 @@ rules = [
 
 	# Multiple openers for a single rule
 	{ name = "*.html", use = [ "browser", "text" ] },
+
+  # archive files
+  { name = "*.zip", use = "archive" }
 ]
