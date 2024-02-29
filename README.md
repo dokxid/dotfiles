@@ -2,6 +2,11 @@
 
 these are my dotfiles, feel free to explore
 
+<details open>
+  <summary>open me for the hyprland preview</summary>
+  <img src="https://github.com/dokxid/dotfiles/assets/24466519/94f7e57e-a924-491a-aac5-cf0e499a873b" alt="preview image" />
+</details>
+
 ## included configs
 ### shells
 - bash
