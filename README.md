@@ -1,4 +1,4 @@
-# my arch linux & macos dotfiles
+# my dotfiles
 
 these are my dotfiles, feel free to explore
 

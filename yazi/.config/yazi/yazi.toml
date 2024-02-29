@@ -1,7 +1,7 @@
 [manager]
 show_hidden    = true
 linemode       = "size"
-ratio          = [1,5,2]
+ratio          = [1,5,4]
 scrolloff      = 8
 sort_by        = "alphabetical"
 sort_sensitive = false
