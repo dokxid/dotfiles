@@ -192,4 +192,12 @@ if [[ -o zle ]]; then
     [[ "${+functions[compdef]}" -ne 0 ]] && \compdef __zoxide_z_complete z
 fi
 
+# yazi prompt, see: https://github.com/Sonico98/yazi-prompt.sh
+YAZI_TERM=""
+if [ -n "$YAZI_LEVEL" ]; then
+	YAZI_TERM="|  Yazi terminal: "
+fi
+PS1="$PS1$YAZI_TERM"
+
+# alias for my dotfiles repo
 alias config='/usr/bin/git -C /home/dokxid/dotfiles'
