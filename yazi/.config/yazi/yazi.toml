@@ -26,6 +26,7 @@ rules = [
 	{ mime = "image/*", use = "image" },
 
 	# { mime = "application/json", use = "text" },
+  { name = "LICENSE", use = "text" },
 	{ name = "*.json", use = "text" },
 	{ name = "*.toml", use = "text" },
 
