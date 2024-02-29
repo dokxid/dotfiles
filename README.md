@@ -1,6 +1,6 @@
-# dotfiles
+# my arch linux & macos dotfiles
 
-these are just my dotfiles, feel free to explore
+these are my dotfiles, feel free to explore
 
 ## included configs
 ### shells
