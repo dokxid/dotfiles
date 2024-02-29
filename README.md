@@ -20,6 +20,8 @@ these are my dotfiles, feel free to explore
 - hyprland (hypr/keybinds.conf)
 ### ide / text editor
 - nvim
+### artstations
+- blender
 ### media viewers / utilities
 - imv
 - mpDris2
