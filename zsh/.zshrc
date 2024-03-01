@@ -27,7 +27,7 @@ DISABLE_LS_COLORS="false"
 DISABLE_AUTO_TITLE="false"
 
 # uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="false"
+ENABLE_CORRECTION="true"
 
 # uncomment the following line to display RED dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
