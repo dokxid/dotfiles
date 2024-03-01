@@ -1,11 +1,62 @@
 local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
+---@class NvPluginSpec
 local plugins = {
 
+	-- suda
 	{
 		"lambdalisue/suda.vim",
+	},
+
+	-- catppuccin
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
 		lazy = false,
+		priority = 1000,
+		config = function()
+			require("custom.configs.catppuccin")
+			vim.cmd("colorscheme catppuccin-mocha")
+		end,
+	},
+
+	-- transparent
+	{
+		"xiyaowong/transparent.nvim",
+		lazy = true,
+	},
+
+	-- nvim-rooter
+	{
+		"notjedi/nvim-rooter.lua",
+		lazy = false,
+		config = function()
+			require("nvim-rooter").setup({
+				rooter_patterns = { ".git", ".hg", ".svn", ".config" },
+				trigger_patterns = { "*" },
+				manual = false,
+				fallback_to_parent = false,
+			})
+		end,
+	},
+
+	-- venv-selector
+	{
+		"linux-cultist/venv-selector.nvim",
+		dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
+		opts = {
+			-- Your options go here
+			-- name = "venv",
+			-- auto_refresh = false
+		},
+		event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+		keys = {
+			-- Keymap to open VenvSelector to pick a venv.
+			{ "<leader>vs", "<cmd>VenvSelect<cr>" },
+			-- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
+			{ "<leader>vc", "<cmd>VenvSelectCached<cr>" },
+		},
 	},
 
 	-- telescope-z
