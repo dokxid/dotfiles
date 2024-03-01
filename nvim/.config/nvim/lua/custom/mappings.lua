@@ -2,6 +2,12 @@
 ---@class MappingsTable
 local M = {}
 
+M.disabled = {
+	n = {
+		["<leader>v"] = "",
+	},
+}
+
 M.general = {
 	n = {
 		[";"] = { ":", "enter command mode", opts = { nowait = true } },
@@ -9,6 +15,7 @@ M.general = {
 		--  format with conform
 		["<leader>fm"] = {
 			function()
+				---@diagnostic disable-next-line: different-requires
 				require("conform").format()
 			end,
 			"formatting",
@@ -29,6 +36,7 @@ M.misc = {
 		["<leader>ff"] = { ":NvimTreeFocus <CR> :Telescope zoxide list <CR>", "open zoxide" },
 		["<leader>fd"] = { ":Telescope find_files <CR>", "open telescope" },
 		["<leader>cv"] = { "<C-V>", "enter visual block mode" },
+		["<leader>v"] = { ":ZenMode <CR>", "toggle zenmode" },
 		["\\"] = {
 			function()
 				require("ufo").peekFoldedLinesUnderCursor()
