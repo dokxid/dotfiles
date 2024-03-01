@@ -27,7 +27,7 @@ DISABLE_LS_COLORS="false"
 DISABLE_AUTO_TITLE="false"
 
 # uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # uncomment the following line to display RED dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -228,4 +228,6 @@ esac
 # zprof
 
 # eval ssh-agent at terminal start
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
 eval $(ssh-agent)
