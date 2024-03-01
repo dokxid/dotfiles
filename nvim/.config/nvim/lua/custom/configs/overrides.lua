@@ -15,15 +15,15 @@ M.treesitter = {
 		-- "hyprlang",
 	},
 	indent = {
-		enable = true,
+		enable = false,
 		-- disable = {
 		--   "python"
 		-- },
 	},
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
 }
 
 M.mason = {
@@ -44,10 +44,10 @@ M.mason = {
 		"clangd",
 		"clang-format",
 
-    -- python stuff
-    "black",
-    "isort",
-    "pyright",
+		-- python stuff
+		"black",
+		"isort",
+		"pyright",
 	},
 	ui = {
 		keymaps = {

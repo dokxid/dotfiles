@@ -5,9 +5,7 @@ local overrides = require("custom.configs.overrides")
 local plugins = {
 
 	-- suda
-	{
-		"lambdalisue/suda.vim",
-	},
+	{ "lambdalisue/suda.vim" },
 
 	-- catppuccin
 	{
@@ -22,9 +20,41 @@ local plugins = {
 	},
 
 	-- transparent
+	{ "xiyaowong/transparent.nvim" },
+
+	-- follow-md-links
+	{ "jghauser/follow-md-links.nvim", lazy = false },
+
+	-- nvim-lspimport
+	{ "stevanmilic/nvim-lspimport" },
+
+	-- fm-nvim (yazi fork)
+	{ "is0n/fm-nvim" },
+
+	-- glow.nvim
 	{
-		"xiyaowong/transparent.nvim",
-		lazy = true,
+		"ellisonleao/glow.nvim",
+		-- lazy = false,
+		config = true,
+		cmd = "Glow",
+	},
+
+	-- rainbow delimiter
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		lazy = false,
+	},
+
+	-- eagle
+	{
+		"soulis-1256/eagle.nvim",
+		lazy = false,
+		config = function()
+			require("eagle").setup({
+				-- override the default values found in config.lua
+			})
+			vim.o.mousemoveevent = true
+		end,
 	},
 
 	-- nvim-rooter
@@ -48,7 +78,7 @@ local plugins = {
 		opts = {
 			-- Your options go here
 			-- name = "venv",
-			-- auto_refresh = false
+			auto_refresh = true,
 		},
 		event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
 		keys = {
