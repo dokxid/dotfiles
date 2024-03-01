@@ -7,7 +7,6 @@ local plugins = {
 	-- suda
 	{ "lambdalisue/suda.vim" },
 
-	-- catppuccin
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -30,6 +29,32 @@ local plugins = {
 
 	-- fm-nvim (yazi fork)
 	{ "is0n/fm-nvim" },
+
+	-- dropbar (note: requires neovim >0.10.0)
+	{
+		"Bekaboo/dropbar.nvim",
+		-- optional, but required for fuzzy finder support
+		lazy = false,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"nvim-telescope/telescope-fzf-native.nvim",
+		},
+	},
+
+	-- barbecue (use this for dropbar fallback)
+	{
+		"utilyre/barbecue.nvim",
+		enabled = false,
+		name = "barbecue",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		opts = {
+			-- configurations go here
+		},
+	},
 
 	-- glow.nvim
 	{
