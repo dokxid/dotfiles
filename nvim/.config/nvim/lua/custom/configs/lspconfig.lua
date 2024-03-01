@@ -12,6 +12,7 @@ local servers = {
   "tailwindcss",
   "volar",
   "eslint",
+  "pyright"
 }
 
 lspconfig.eslint.setup {

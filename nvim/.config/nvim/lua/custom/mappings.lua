@@ -22,7 +22,10 @@ M.misc = {
   n = {
     ["<leader>n"] = { ":ASToggle <CR>", "toggle auto save" },
     ["<leader>ld"] = { ":Lazy <CR>", "lazy" },
+    ["<leader>e"] = { ":NvimTreeToggle <CR>", "toggle tree" },
     ["<leader>pp"] = { ":Telescope workspaces <CR>", "open session" },
+    ["<leader>ff"] = { ":NvimTreeFocus <CR> :Telescope zoxide list <CR>", "open zoxide" },
+    ["<leader>fd"] = { ":Telescope find_files <CR>", "open telescope" },
     ["<leader>cv"] = { "<C-V>", "enter visual block mode" },
     ["\\"] = {
 	    function()

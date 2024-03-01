@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# uncomment below line for zsh profiler
+# zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -58,6 +61,13 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Download Znap, if it's not there yet. see https://github.com/marlonrichert/zsh-snap
+# [[ -r ~/.zsh/repos/znap/znap.zsh ]] ||
+#     git clone --depth 1 -- \
+#         https://github.com/marlonrichert/zsh-snap.git ~/.zsh/repos/znap
+# source ~/.zsh/repos/znap/znap.zsh  # Start Znap
+# znap source marlonrichert/zsh-autocomplete  # this plugin is painfully slow and recaches on shell boot, keeping line to fix it later
+
 # yazi helper, see: https://yazi-rs.github.io/docs/quick-start#shell-wrapper
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
@@ -83,7 +93,7 @@ function command_not_found_handler {
         printf "${bright}$1${reset} may be found in the following packages:\n"
         local pkg
         for entry in "${entries[@]}"
-        do
+      do
             # (repo package version file)
             local fields=(
                 ${(0)entry}
@@ -201,3 +211,18 @@ PS1="$PS1$YAZI_TERM"
 
 # alias for my dotfiles repo
 alias config='/usr/bin/git -C /home/dokxid/dotfiles'
+
+# pnpm
+export PNPM_HOME="/home/dokxid/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# zoxide configs and aliases
+# _ZO_ECHO=1
+# eval "$(zoxide init zsh)"
+
+# uncomment below to print profiler to nvim
+# zprof
