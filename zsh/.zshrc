@@ -226,3 +226,6 @@ esac
 
 # uncomment below to print profiler to nvim
 # zprof
+
+# eval ssh-agent at terminal start
+# eval $(ssh-agent)
