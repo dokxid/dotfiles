@@ -228,4 +228,4 @@ esac
 # zprof
 
 # eval ssh-agent at terminal start
-# eval $(ssh-agent)
+eval $(ssh-agent)
