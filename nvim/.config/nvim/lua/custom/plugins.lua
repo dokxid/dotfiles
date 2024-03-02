@@ -79,9 +79,6 @@ local plugins = {
   -- nvim-lspimport
   { "stevanmilic/nvim-lspimport" },
 
-  -- fm-nvim (yazi fork)
-  { "is0n/fm-nvim" },
-
   -- dropbar (note: requires neovim >0.10.0)
   {
     "Bekaboo/dropbar.nvim",
@@ -204,14 +201,10 @@ local plugins = {
   -- yazi
   {
     "DreamMaoMao/yazi.nvim",
-    lazy = false,
+    event = "VeryLazy",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "nvim-lua/plenary.nvim",
-    },
-
-    keys = {
-      { "<leader>gy", "<cmd>Yazi<CR>", desc = "Toggle Yazi" },
     },
   },
 
@@ -285,6 +278,18 @@ local plugins = {
       default = true,
       strict = true,
     },
+  },
+
+  {
+    "NeogitOrg/neogit",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+      "nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua", -- optional
+    },
+    config = true,
   },
 }
 

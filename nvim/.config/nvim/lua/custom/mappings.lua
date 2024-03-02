@@ -37,6 +37,7 @@ M.misc = {
     ["<leader>o"] = { ":Telescope frecency <CR>", "open files_frecent" },
     ["<leader>fd"] = { ":Telescope find_files <CR>", "open files_fuzzy" },
     ["<leader>cv"] = { "<C-V>", "enter visual block mode" },
+    ["<leader>gg"] = { ":Neogit <CR>", "show neogit" },
     ["<leader>v"] = { ":ZenMode <CR>", "toggle zenmode" },
     ["\\"] = {
       function()
