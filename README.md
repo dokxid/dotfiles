@@ -4,9 +4,12 @@ these are my dotfiles, feel free to explore
 
 <details open>
   <summary>open me for the hyprland preview</summary>
-  wallpaper source: https://www.pixiv.net/en/artworks/116451075 [will take down if requested]
-  <img src="https://github.com/dokxid/dotfiles/assets/24466519/94f7e57e-a924-491a-aac5-cf0e499a873b" alt="preview image" />
+  <p>wallpaper source: https://www.pixiv.net/en/artworks/116451075 [will take down if requested]</p>
+  <video src="https://github.com/dokxid/dotfiles/assets/24466519/076c6635-ac0f-422a-bab7-a18ffdcaa08f"/>
 </details>
+
+## reason:
+![image](https://github.com/dokxid/dotfiles/assets/24466519/6d231af5-8e59-4603-b5bd-619de0b5307b)
 
 ## included configs
 ### shells
