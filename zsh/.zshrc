@@ -42,7 +42,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="false"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting sudo command-not-found)
+plugins=(git zsh-syntax-highlighting sudo command-not-found nix-zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -231,3 +231,9 @@ esac
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
 eval $(ssh-agent)
+
+# nix
+source /etc/profile.d/nix.sh
+
+# Created by `pipx` on 2024-03-05 04:11:46
+export PATH="$PATH:/home/dokxid/.local/bin"

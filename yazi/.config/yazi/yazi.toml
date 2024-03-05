@@ -19,20 +19,29 @@ text = [
 image = [
   { exec = 'imv "$@"' }
 ]
+video = [
+  { exec = 'mpv "$@"' }
+]
 
 [open]
 rules = [
+
+  # general MIME types
 	{ mime = "text/*", use = "text" },
 	{ mime = "image/*", use = "image" },
+  { mime = "video/*", use = "video"},
 
+  # special MIME types
 	# { mime = "application/json", use = "text" },
+  
+  # file name rules
   { name = "LICENSE", use = "text" },
+  { name = ".gitignore", use = "text" },
+
+  # file extension rules
+  { name = "*.zip", use = "archive" },
 	{ name = "*.json", use = "text" },
 	{ name = "*.toml", use = "text" },
-
-	# Multiple openers for a single rule
 	{ name = "*.html", use = [ "browser", "text" ] },
 
-  # archive files
-  { name = "*.zip", use = "archive" }
 ]
