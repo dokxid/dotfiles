@@ -17,6 +17,7 @@ local plugins = {
     end,
   },
 
+  -- catppuccin
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -41,10 +42,43 @@ local plugins = {
     end,
   },
 
+  -- overseer
+  {
+    "stevearc/overseer.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
   -- move
   {
     "matze/vim-move",
     event = "BufEnter",
+  },
+
+  -- mini
+  {
+    "echasnovski/mini.nvim",
+    version = false,
+    lazy = false,
+    config = function()
+      require "custom.configs.mini"
+    end,
+  },
+
+  -- legendary
+  {
+    "mrjones2014/legendary.nvim",
+    dependencies = { "kkharji/sqlite.lua" },
+    priority = 1000,
+    lazy = false,
+  },
+
+  -- renamer
+  {
+    "filipdutescu/renamer.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false,
+    opts = {},
   },
 
   -- satellite
@@ -56,9 +90,6 @@ local plugins = {
       require "custom.configs.satellite"
     end,
   },
-
-  -- gitsign
-  { "lewis6991/gitsigns.nvim" },
 
   -- zen-mode
   {
@@ -84,6 +115,7 @@ local plugins = {
   -- dropbar (note: requires neovim >0.10.0)
   {
     "Bekaboo/dropbar.nvim",
+    enabled = true,
     event = "BufEnter",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
@@ -124,7 +156,16 @@ local plugins = {
     end,
   },
 
-  -- nvim-rooter
+  -- notify
+  {
+    "rcarriga/nvim-notify",
+    lazy = false,
+    config = function()
+      vim.notify = require "notify"
+    end,
+  },
+
+  -- rooter
   {
     "notjedi/nvim-rooter.lua",
     lazy = false,
@@ -135,6 +176,16 @@ local plugins = {
         manual = false,
         fallback_to_parent = false,
       }
+    end,
+  },
+
+  -- cosmic-ui
+  {
+    "CosmicNvim/cosmic-ui",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    config = function()
+      require("cosmic-ui").setup()
     end,
   },
 
@@ -155,51 +206,23 @@ local plugins = {
   -- telescope
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzf-native.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
+      "cljoly/telescope-repo.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+      "jvgrootveld/telescope-zoxide",
+      "nvim-telescope/telescope-frecency.nvim",
+    },
     config = function()
       require "custom.configs.telescope"
     end,
   },
 
-  -- telescope-repo-nvim
-  {
-    "cljoly/telescope-repo.nvim",
-    config = function()
-      require("telescope").load_extension "repo"
-    end,
-  },
-
-  -- telescope-rooter
-  {
-    "desdic/telescope-rooter.nvim",
-    config = function()
-      require("telescope").load_extension "rooter"
-    end,
-  },
-
-  -- telescope-z
-  {
-    "jvgrootveld/telescope-zoxide",
-    config = function()
-      require("telescope").load_extension "zoxide"
-    end,
-  },
-
-  -- telescope-frecency
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require("telescope").load_extension "frecency"
-    end,
-  },
-
-  -- promise_async
-  { "kevinhwang91/promise-async" },
-
   -- nvim-ufo
   {
     "kevinhwang91/nvim-ufo",
-    requires = "kevinhwang91/promise-async",
+    dependencies = { "kevinhwang91/promise-async" },
     config = function()
       require "custom.configs.ufo"
     end,
@@ -237,7 +260,7 @@ local plugins = {
   -- auto-save
   {
     "okuuva/auto-save.nvim",
-    lazy = false,
+    event = "InsertEnter",
     config = function()
       require "custom.configs.autosave"
     end,
@@ -267,7 +290,6 @@ local plugins = {
   -- nvim-tree
   {
     "nvim-tree/nvim-tree.lua",
-    -- opts = overrides.nvimtree,
     lazy = false,
     config = function()
       require "custom.configs.nvimtree"
@@ -295,7 +317,6 @@ local plugins = {
   -- which-key
   {
     "folke/which-key.nvim",
-
     event = "VeryLazy",
     init = function()
       vim.o.timeout = true
@@ -325,12 +346,24 @@ local plugins = {
     "NeogitOrg/neogit",
     event = "VeryLazy",
     dependencies = {
-      "nvim-lua/plenary.nvim", -- required
-      "sindrets/diffview.nvim", -- optional - Diff integration
-      "nvim-telescope/telescope.nvim", -- optional
-      -- "ibhagwan/fzf-lua", -- optional
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
     },
     config = true,
+  },
+
+  -- nvim-cmp
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "onsails/lspkind.nvim",
+    },
+    opts = {
+      performance = {
+        max_view_entries = 8,
+      },
+    },
   },
 }
 

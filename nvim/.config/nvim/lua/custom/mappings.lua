@@ -33,8 +33,26 @@ M.telescope = {
   },
 }
 
+M.code_action = {
+  n = {
+    ["<leader>re"] = {
+      function()
+        require("renamer").rename()
+      end,
+      "rename",
+    },
+    ["<leader>ca"] = {
+      function()
+        require("cosmic-ui").code_actions()
+      end,
+      "code_action",
+    },
+  },
+}
+
 M.menus = {
   n = {
+    ["<leader>rt"] = { ":OverseerRun <CR>", "run code" },
     ["<leader>ld"] = { ":Lazy <CR>", "lazy" },
     ["<leader>rr"] = { ":Yazi <CR>", "open yazi" },
     ["<leader>gg"] = { ":Neogit <CR>", "show neogit" },
