@@ -40,6 +40,7 @@ vim.o.textwidth = 0
 vim.o.wrapmargin = 0
 vim.o.wrap = true
 vim.o.linebreak = true
+-- vim.o.timeoutlen = 5000
 
 -- neovide settings
 if vim.g.neovide then

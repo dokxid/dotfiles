@@ -6,7 +6,7 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
 
   -- suda
-  { "lambdalisue/suda.vim" },
+  { "lambdalisue/suda.vim", event = "VeryLazy" },
 
   -- cinnamon
   {
@@ -19,6 +19,7 @@ local plugins = {
 
   {
     "catppuccin/nvim",
+    name = "catppuccin",
     lazy = false,
     priority = 1000,
     config = function()
@@ -46,6 +47,7 @@ local plugins = {
     event = "BufEnter",
   },
 
+  -- satellite
   {
     "lewis6991/satellite.nvim",
     event = "BufEnter",
@@ -150,10 +152,34 @@ local plugins = {
     },
   },
 
+  -- telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzf-native.nvim" },
+    config = function()
+      require "custom.configs.telescope"
+    end,
+  },
+
+  -- telescope-repo-nvim
+  {
+    "cljoly/telescope-repo.nvim",
+    config = function()
+      require("telescope").load_extension "repo"
+    end,
+  },
+
+  -- telescope-rooter
+  {
+    "desdic/telescope-rooter.nvim",
+    config = function()
+      require("telescope").load_extension "rooter"
+    end,
+  },
+
   -- telescope-z
   {
     "jvgrootveld/telescope-zoxide",
-    lazy = false,
     config = function()
       require("telescope").load_extension "zoxide"
     end,
@@ -186,10 +212,10 @@ local plugins = {
     opts = {},
   },
 
-  -- fzf
+  -- telescope-fzf-native
   {
-    "junegunn/fzf",
-    build = "./install --bin",
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
 
   -- tailwindcss-colorizer-cmp
@@ -266,11 +292,25 @@ local plugins = {
     end,
   },
 
+  -- which-key
   {
     "folke/which-key.nvim",
-    lazy = false,
+
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      window = {
+        border = "single",
+        margin = { 2, 7, 2, 2 },
+        padding = { 1, 0, 1, 0 },
+      },
+    },
   },
 
+  -- nvim-web-devicons
   {
     "nvim-tree/nvim-web-devicons",
     opts = {
@@ -280,6 +320,7 @@ local plugins = {
     },
   },
 
+  -- neogit
   {
     "NeogitOrg/neogit",
     event = "VeryLazy",
@@ -287,7 +328,7 @@ local plugins = {
       "nvim-lua/plenary.nvim", -- required
       "sindrets/diffview.nvim", -- optional - Diff integration
       "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua", -- optional
+      -- "ibhagwan/fzf-lua", -- optional
     },
     config = true,
   },

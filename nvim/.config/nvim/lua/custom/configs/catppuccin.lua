@@ -23,6 +23,10 @@ catppuccin.setup {
     nvimtree = true,
     symbols_outline = true,
     treesitter_context = true,
+    telescope = {
+      enabled = true,
+      style = "nvchad",
+    },
     native_lsp = {
       underlines = {
         errors = { "undercurl" },
