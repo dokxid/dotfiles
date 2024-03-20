@@ -49,10 +49,12 @@ local plugins = {
     opts = {},
   },
 
-  -- move
+  -- moveline
   {
-    "matze/vim-move",
+    "willothy/moveline.nvim",
+    name = "moveline",
     event = "BufEnter",
+    build = "make",
   },
 
   -- mini
@@ -235,6 +237,21 @@ local plugins = {
     opts = {},
   },
 
+  --surround-ui
+  {
+    "roobert/surround-ui.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "kylechui/nvim-surround",
+      "folke/which-key.nvim",
+    },
+    config = function()
+      require("surround-ui").setup {
+        root_key = "S",
+      }
+    end,
+  },
+
   -- telescope-fzf-native
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -314,17 +331,24 @@ local plugins = {
     end,
   },
 
+  -- toggler
+  {
+    "nguyenvukhang/nvim-toggler",
+    event = "VeryLazy",
+    opts = {},
+  },
+
   -- which-key
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
     init = function()
       vim.o.timeout = true
-      vim.o.timeoutlen = 300
+      vim.o.timeoutlen = 500
     end,
     opts = {
       window = {
-        border = "single",
+        border = "none",
         margin = { 2, 7, 2, 2 },
         padding = { 1, 0, 1, 0 },
       },

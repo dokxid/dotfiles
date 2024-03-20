@@ -15,6 +15,7 @@ local servers = {
   "pyright",
   "lua_ls",
   "marksman",
+  "cssls",
 }
 
 lspconfig.eslint.setup {

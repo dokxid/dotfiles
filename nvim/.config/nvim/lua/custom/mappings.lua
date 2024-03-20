@@ -47,6 +47,12 @@ M.code_action = {
       end,
       "code_action",
     },
+    ["<leader>i"] = {
+      function()
+        require("nvim-toggler").toggle()
+      end,
+      "inverse value",
+    },
   },
 }
 
@@ -74,9 +80,37 @@ M.fold = {
 
 M.misc = {
   n = {
-    ["<leader>n"] = { ":ASToggle <CR>", "toggle auto save" },
+    ["<C-Up>"] = {
+      function()
+        require("moveline").up()
+      end,
+      "move line up",
+    },
+    ["<C-Down>"] = {
+      function()
+        require("moveline").down()
+      end,
+      "move line down",
+    },
+    ["<S-Up>"] = { "<C-U>", "go up" },
+    ["<S-Down>"] = { "<C-D>", "go down" },
+    ["<leader>as"] = { ":ASToggle <CR>", "toggle auto save" },
     ["<leader>v"] = { ":ZenMode <CR>", "toggle zenmode" },
     ["<leader>cv"] = { "<C-V>", "enter visual block mode" },
+  },
+  v = {
+    ["<C-Up>"] = {
+      function()
+        require("moveline").block_up()
+      end,
+      "move sel lines up",
+    },
+    ["<C-Down>"] = {
+      function()
+        require("moveline").block_down()
+      end,
+      "move sel lines down",
+    },
   },
 }
 

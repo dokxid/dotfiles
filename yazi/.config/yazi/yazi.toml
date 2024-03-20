@@ -43,5 +43,6 @@ rules = [
 	{ name = "*.json", use = "text" },
 	{ name = "*.toml", use = "text" },
 	{ name = "*.html", use = [ "browser", "text" ] },
+  { name = "*.css", use = "text" },
 
 ]

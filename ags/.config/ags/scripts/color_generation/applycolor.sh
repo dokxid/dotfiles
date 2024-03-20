@@ -199,5 +199,5 @@ apply_ags &
 apply_gtk &
 # apply_foot &
 # apply_gtklock &
-apply_fuzzel &
-apply_term &
+# apply_fuzzel &
+# apply_term &
