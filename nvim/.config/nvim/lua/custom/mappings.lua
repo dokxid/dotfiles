@@ -5,6 +5,7 @@ local M = {}
 M.disabled = {
   n = {
     ["<leader>v"] = "",
+    ["<leader>gt"] = "",
   },
 }
 
@@ -21,6 +22,12 @@ M.general = {
   },
   v = {
     [">"] = { ">gv", "indent" },
+  },
+}
+
+M.markdown = {
+  n = {
+    ["<leader>gl"] = { ":Glow <CR>", "show glow preview" },
   },
 }
 
