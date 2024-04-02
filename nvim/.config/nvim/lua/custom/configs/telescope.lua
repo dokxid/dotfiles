@@ -46,11 +46,18 @@ local options = {
 
     repo = {
       cached_list = {
+        locate_opts = {
+          "-d",
+          vim.env.HOME .. "/locatedb",
+        },
         file_ignore_patterns = {
+          -- global ignores
           "/%.cache/",
           "/%.cargo/",
           "/%.local/",
           "/%.config/",
+          -- macos
+          "/Library/",
         },
         -- shorten_path = true,
       },
