@@ -8,6 +8,13 @@ local plugins = {
   -- suda
   { "lambdalisue/suda.vim", event = "VeryLazy" },
 
+  -- precognition
+  {
+    "tris203/precognition.nvim",
+    event = "BufEnter",
+    config = {},
+  },
+
   -- cinnamon
   {
     "declancm/cinnamon.nvim",
@@ -384,8 +391,24 @@ local plugins = {
       "onsails/lspkind.nvim",
     },
     opts = {
+      mapping = {
+        ["<CR>"] = require("cmp").mapping {
+          i = function(fallback)
+            if require("cmp").visible() and require("cmp").get_active_entry() then
+              require("cmp").confirm { behavior = require("cmp").ConfirmBehavior.Replace, select = false }
+            else
+              fallback()
+            end
+          end,
+          s = require("cmp").mapping.confirm { select = true },
+          c = require("cmp").mapping.confirm {
+            behavior = require("cmp").ConfirmBehavior.Replace,
+            select = true,
+          },
+        },
+      },
       performance = {
-        max_view_entries = 8,
+        -- max_view_entries = 8,
       },
     },
   },
