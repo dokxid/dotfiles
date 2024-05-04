@@ -42,12 +42,12 @@ M.telescope = {
 
 M.code_action = {
   n = {
-    ["<leader>re"] = {
-      function()
-        require("renamer").rename()
-      end,
-      "rename",
-    },
+    -- ["<leader>rn"] = {
+    --   function()
+    --     require("renamer").rename()
+    --   end,
+    --   "rename",
+    -- },
     ["<leader>ca"] = {
       function()
         require("cosmic-ui").code_actions()
@@ -65,9 +65,10 @@ M.code_action = {
 
 M.menus = {
   n = {
-    ["<leader>rt"] = { ":OverseerRun <CR>", "run code" },
+    ["<leader>rr"] = { ":OverseerRun <CR>", "task run" },
+    ["<leader>rt"] = { ":OverseerToggle <CR>", "task list toggle" },
     ["<leader>ld"] = { ":Lazy <CR>", "lazy" },
-    ["<leader>rr"] = { ":Yazi <CR>", "open yazi" },
+    ["<leader>fy"] = { ":Yazi <CR>", "open yazi" },
     ["<leader>gg"] = { ":Neogit <CR>", "show neogit" },
     ["<leader>e"] = { ":NvimTreeToggle <CR>", "toggle tree" },
   },
