@@ -47,7 +47,7 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
 
   -- scrolling
-  { import = "astrocommunity.scrolling.satellite-nvim" },
+  -- { import = "astrocommunity.scrolling.satellite-nvim" },
 
   -- note-taking
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
@@ -57,5 +57,6 @@ return {
   { import = "astrocommunity.code-runner.overseer-nvim" },
 
   -- utility
+  -- { import = "astrocommunity.editing-support.true-zen-nvim" },
   -- { import = "astrocommunity.utility.hover-nvim" },
 }
