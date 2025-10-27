@@ -57,6 +57,8 @@ return {
   { import = "astrocommunity.code-runner.overseer-nvim" },
 
   -- utility
+  { import = "astrocommunity.terminal-integration.flatten-nvim" },
   -- { import = "astrocommunity.editing-support.true-zen-nvim" },
   -- { import = "astrocommunity.utility.hover-nvim" },
+  -- { import = "astrocommunity.utility.noice-nvim" },
 }

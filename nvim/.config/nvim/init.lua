@@ -41,6 +41,7 @@ if vim.g.neovide then
     vim.o.guifont = "JetBrainsMono_Nerd_font:h13"
   end
   if themeConfig then vim.g.neovide_theme = "auto" end
+  vim.g.neovide_remember_window_size = true
   vim.g.neovide_input_macos_option_key_is_meta = "only_left" -- use left option as meta
 end
 

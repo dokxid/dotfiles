@@ -37,6 +37,7 @@ return {
         wrap = false, -- sets vim.opt.wrap
         shiftwidth = 2, -- sets vim.opt.shiftwidth
         tabstop = 2, -- sets vim.opt.tabstop
+        cmdheight = 0, -- sets vim.opt.cmdheight
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
