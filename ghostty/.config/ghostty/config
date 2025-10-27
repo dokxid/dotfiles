@@ -1,14 +1,11 @@
-# Dynamic theme colors
-config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
-
-# shell
-config-file = ?config.macos
-config-file = ?config.linux
+# theme
+theme = "light:Catppuccin Latte, dark:Catppuccin Mocha"
+macos-window-buttons = hidden
 
 # Font
 font-family = "JetBrainsMono Nerd Font"
 font-style = Regular
-font-size = 11
+font-size = 13
 adjust-cell-height = 8
 
 # Window
@@ -35,3 +32,9 @@ shell-integration-features = ssh-env
 
 # Misc
 working-directory = home
+
+# shell overrides
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+config-file = ?macos
+config-file = ?linux
+config-file = ?local

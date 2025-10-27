@@ -4,16 +4,15 @@ return {
     filesystem = {
       filtered_items = {
         visible = false, -- hide filtered items on open
-        hide_gitignored = true,
+        hide_gitignored = false,
         hide_dotfiles = false,
         hide_by_name = {
           ".github",
-          ".gitignore",
+          -- ".gitignore",
           "package-lock.json",
           ".changeset",
-          ".prettierrc.json",
+          -- ".prettierrc.json",
         },
-        never_show = { ".git" },
       },
       follow_current_file = {
         enabled = true,

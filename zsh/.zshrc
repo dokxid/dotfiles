@@ -79,7 +79,7 @@ function y() {
 }
 
 # exa aliases
-alias ls=exa
+alias ls=eza
 
 # command-not-found zsh-plugin helper, see: https://wiki.archlinux.org/title/Zsh#pacman_-F_%22command_not_found%22_handler
 # function command_not_found_handler {
