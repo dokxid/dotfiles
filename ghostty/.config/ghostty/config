@@ -2,7 +2,8 @@
 config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
 # shell
-command = /usr/bin/fish --login --interactive --init-command "cd ~"
+config-file = ?config.macos
+config-file = ?config.linux
 
 # Font
 font-family = "JetBrainsMono Nerd Font"
