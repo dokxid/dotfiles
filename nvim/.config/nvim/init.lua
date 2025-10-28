@@ -2,6 +2,8 @@
 -- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 -- vim.opt.shell = "/usr/bin/fish"
+vim.opt.scrolloff = 10
+vim.o.shell = "fish"
 
 -- neovide config
 if vim.g.neovide then
@@ -37,8 +39,8 @@ if vim.g.neovide then
     vim.g.neovide_scroll_animation_length = 0.1
   end
   if fontConfig then
-    vim.opt.linespace = 9
-    vim.o.guifont = "JetBrainsMono_Nerd_font:h13"
+    vim.opt.linespace = 11
+    vim.o.guifont = "JetBrainsMono_Nerd_font:h12"
   end
   if themeConfig then vim.g.neovide_theme = "auto" end
   vim.g.neovide_input_macos_option_key_is_meta = "only_left" -- use left option as meta
