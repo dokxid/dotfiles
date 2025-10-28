@@ -1,6 +1,7 @@
 -- AstroCommunity: import any community modules here
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
+-- -- https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/
 
 ---@type LazySpec
 return {
@@ -30,10 +31,10 @@ return {
   -- completion
   { import = "astrocommunity.completion.nvim-cmp" },
   { import = "astrocommunity.completion.copilot-lua" },
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
 
   -- motion
   { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.motion.nvim-spider" },
 
   -- editing-support
   { import = "astrocommunity.editing-support.codecompanion-nvim" },
@@ -60,4 +61,7 @@ return {
   -- { import = "astrocommunity.editing-support.true-zen-nvim" },
   -- { import = "astrocommunity.utility.hover-nvim" },
   -- { import = "astrocommunity.utility.noice-nvim" },
+
+  -- docker
+  { import = "astrocommunity.docker.lazydocker" },
 }

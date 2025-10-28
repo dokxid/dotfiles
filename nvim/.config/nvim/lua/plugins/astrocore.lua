@@ -38,6 +38,7 @@ return {
         shiftwidth = 2, -- sets vim.opt.shiftwidth
         tabstop = 2, -- sets vim.opt.tabstop
         cmdheight = 0, -- sets vim.opt.cmdheight
+        scrolloff = 5, -- sets vim.opt.scrolloff
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

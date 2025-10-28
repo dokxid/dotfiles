@@ -3,6 +3,9 @@ return {
   opts = {
     window = {
       -- position = "float",
+      mappings = {
+        ["<Tab>"] = "next_source",
+      },
     },
     filesystem = {
       -- group_empty_dirs = true,

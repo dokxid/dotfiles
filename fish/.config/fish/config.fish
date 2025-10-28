@@ -8,6 +8,7 @@ switch (uname)
 case Linux
 case Darwin
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  export XDG_CONFIG_HOME=$HOME/.config
 case FreeBSD NetBSD DRagonFly
 case '*'
 end

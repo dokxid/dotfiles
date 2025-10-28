@@ -102,4 +102,5 @@ return {
     },
   },
   { "scottmckendry/pick-resession.nvim" },
+  { "dmmulroy/tsc.nvim" },
 }

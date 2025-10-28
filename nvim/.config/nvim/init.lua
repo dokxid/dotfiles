@@ -2,7 +2,6 @@
 -- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 -- vim.opt.shell = "/usr/bin/fish"
-vim.opt.scrolloff = 10
 
 -- neovide config
 if vim.g.neovide then
@@ -12,20 +11,21 @@ if vim.g.neovide then
   local themeConfig = true
   -- this will enable the clipboard passthrough
   if enableClipboard then
-    -- non macos with ctrl
-    vim.keymap.set("n", "<C-s>", ":w<CR>") -- Save
-    vim.keymap.set("v", "<C-c>", '"+y') -- Copy
-    vim.keymap.set("n", "<C-v>", '"+P') -- Paste normal mode
-    vim.keymap.set("v", "<C-v>", '"+P') -- Paste visual mode
-    vim.keymap.set("c", "<C-v>", "<C-R>+") -- Paste command mode
-    vim.keymap.set("i", "<C-v>", '<ESC>l"+Pli') -- Paste insert mode
-    -- macos with meta
-    vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
-    vim.keymap.set("v", "<D-c>", '"+y') -- Copy
-    vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
-    vim.keymap.set("v", "<D-v>", '"+P') -- Paste visual mode
-    vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
-    vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
+    -- copy
+    vim.keymap.set("v", "<C-c>", '"+y')
+    vim.keymap.set("v", "<D-c>", '"+y')
+    -- paste normal mode
+    vim.keymap.set("n", "<C-v>", '"+P')
+    vim.keymap.set("n", "<D-v>", '"+P')
+    -- paste visual mode
+    vim.keymap.set("v", "<C-v>", '"+P')
+    vim.keymap.set("v", "<D-v>", '"+P')
+    -- paste command mode
+    vim.keymap.set("c", "<C-v>", "<C-R>+")
+    vim.keymap.set("c", "<D-v>", "<C-R>+")
+    -- paste insert mode
+    vim.keymap.set("i", "<C-v>", '<ESC>l"+Pli')
+    vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli')
   end
   if animationConfig then
     vim.g.neovide_position_animation_length = 0.1
@@ -41,7 +41,6 @@ if vim.g.neovide then
     vim.o.guifont = "JetBrainsMono_Nerd_font:h13"
   end
   if themeConfig then vim.g.neovide_theme = "auto" end
-  vim.g.neovide_remember_window_size = true
   vim.g.neovide_input_macos_option_key_is_meta = "only_left" -- use left option as meta
 end
 
@@ -59,7 +58,17 @@ vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true 
 
 -- bind macros to a less common key bc im too dumb rn
 vim.api.nvim_set_keymap("n", "q", "", { nowait = true })
+
+-- easier escape from terminal mode
 vim.api.nvim_set_keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true })
+
+-- bindings for saving files with ctrl-s or cmd-s
+vim.keymap.set("n", "<C-s>", ":w<CR>")
+vim.keymap.set("n", "<D-s>", ":w<CR>")
+
+-- bind page up and page down to ctrl-u and ctrl-d
+vim.api.nvim_set_keymap("n", "<PageUp>", "<C-u>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<PageDown>", "<C-d>", { noremap = false })
 
 if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
   -- stylua: ignore

@@ -1,5 +1,6 @@
 frame = "buttonless"
 title-hidden = true
+tabs = false
 
 [font]
 normal = ["JetBrainsMono NF"]

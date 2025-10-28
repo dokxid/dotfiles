@@ -15,10 +15,15 @@ return {
     "OverseerTaskAction ",
     "OverseerClearCache",
   },
-  ---@param opts overseer.Config
+  ---@class opts overseer.Config
   opts = function(_, opts)
     local astrocore = require "astrocore"
     if astrocore.is_available "toggleterm.nvim" then opts.strategy = "toggleterm" end
+    opts.components = opts.components or {}
+    table.insert(opts.components, {
+      "on_output_parse",
+      problem_matcher = "$tsc-watch",
+    })
     opts.task_list = {
       bindings = {
         ["<C-l>"] = false,
