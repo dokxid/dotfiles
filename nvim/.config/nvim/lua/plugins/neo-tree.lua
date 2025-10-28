@@ -5,11 +5,11 @@ return {
       -- position = "float",
     },
     filesystem = {
-      group_empty_dirs = true,
-      scan_mode = "deep",
+      -- group_empty_dirs = true,
+      -- scan_mode = "deep",
       filtered_items = {
         visible = false, -- hide filtered items on open
-        hide_gitignored = false,
+        hide_gitignored = true,
         hide_dotfiles = false,
         hide_by_name = {
           ".github",

@@ -54,7 +54,6 @@ return {
   { import = "astrocommunity.note-taking.obsidian-nvim" },
 
   -- code-runner
-  { import = "astrocommunity.code-runner.overseer-nvim" },
 
   -- utility
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
