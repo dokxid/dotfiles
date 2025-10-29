@@ -47,7 +47,6 @@ return {
       },
     },
     -- Mappings can be configured through AstroCore as well.
-    -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       n = {
 
@@ -78,6 +77,21 @@ return {
         ["<Leader>fe"] = {
           function() require("pick-resession").pick() end,
           desc = "find session",
+        },
+
+        -- neo-tree
+        ["<Leader>e"] = false,
+        ["<Leader>ee"] = {
+          ":Neotree float<CR>",
+          desc = "explorer neo tree",
+        },
+        ["<Leader>eb"] = {
+          ":Neotree float buffers<CR>",
+          desc = "git neo tree",
+        },
+        ["<Leader>eg"] = {
+          ":Neotree float git_status git_base=main<CR>",
+          desc = "git neo tree",
         },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed
