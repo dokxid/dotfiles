@@ -43,6 +43,7 @@ return {
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   { import = "astrocommunity.register.nvim-neoclip-lua" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
+  { import = "astrocommunity.editing-support.neogen" },
 
   -- motion
   { import = "astrocommunity.motion.nvim-surround" },

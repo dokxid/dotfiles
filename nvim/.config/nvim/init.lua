@@ -59,7 +59,7 @@ vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 
 -- bind macros to a less common key bc im too dumb rn
-vim.api.nvim_set_keymap("n", "q", "", { nowait = true })
+-- vim.api.nvim_set_keymap("n", "q", "", { nowait = true })
 
 -- easier escape from terminal mode
 vim.api.nvim_set_keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true })
