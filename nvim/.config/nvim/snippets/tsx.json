@@ -1,0 +1,14 @@
+{
+  "ncpt": {
+    "prefix": "ncpt",
+    "body": [
+      "export function ${1:ComponentName}() {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t// add component code here",
+      "\t\t</div>",
+      "\t);"
+    ],
+    "description": "named component function"
+  }
+}

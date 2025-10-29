@@ -42,8 +42,6 @@ return {
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
-        -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
-        -- This can be found in the `lua/lazy_setup.lua` file
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -80,9 +78,9 @@ return {
         },
 
         -- neo-tree
-        ["<Leader>e"] = false,
+        ["<Leader>e"] = { false, desc = "Explorer" },
         ["<Leader>ee"] = {
-          ":Neotree float<CR>",
+          ":Neotree toggle<CR>",
           desc = "explorer neo tree",
         },
         ["<Leader>eb"] = {

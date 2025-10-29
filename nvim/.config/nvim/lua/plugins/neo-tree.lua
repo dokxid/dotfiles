@@ -6,6 +6,7 @@ return {
       mappings = {
         ["<Tab>"] = "next_source",
       },
+      auto_expand_width = true,
     },
     filesystem = {
       -- group_empty_dirs = true,
