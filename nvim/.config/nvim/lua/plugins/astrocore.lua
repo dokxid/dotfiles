@@ -86,11 +86,11 @@ return {
           ":Neotree toggle<CR>",
           desc = "explorer neo tree",
         },
-        ["<Leader>eb"] = {
+        ["<Leader>ef"] = {
           ":Neotree float buffers<CR>",
           desc = "git neo tree",
         },
-        ["<Leader>eg"] = {
+        ["<Leader>er"] = {
           ":Neotree float git_status git_base=main<CR>",
           desc = "git neo tree",
         },
@@ -101,7 +101,8 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
-        ["q:"] = false,
+        ["q"] = false,
+        ["<F1>"] = false,
       },
     },
   },

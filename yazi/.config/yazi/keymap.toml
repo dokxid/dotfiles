@@ -1,6 +1,7 @@
 [mgr]
 prepend_keymap = [{ on = "?", run = "help", desc = "Show help" }]
 append_keymap = [
+  { on = "<F2>",       run = "quit",            desc = "Quit Yazi" },
   # { on = [ "g", "b" ], run = "my-cmd2",          desc = "Single command with `g => b`" },
   # { on = "c",          run = [ "cmd1", "cmd2" ], desc = "Multiple commands with `c`" }
 ]

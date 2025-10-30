@@ -24,6 +24,7 @@ return {
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
 
   -- theme
+  { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
 
   -- git
@@ -43,8 +44,8 @@ return {
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   { import = "astrocommunity.register.nvim-neoclip-lua" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
-  { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.search.grug-far-nvim" },
+  { import = "astrocommunity.utility.nvim-toggler" },
 
   -- motion
   { import = "astrocommunity.motion.nvim-surround" },
