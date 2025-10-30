@@ -9,16 +9,18 @@ base is omarchy default
 
 ## included configs
 
-### shells
+### shell related stuff
 
 - bash
 - zsh
 - fish
+- starship
+- zellij
 
 ### terminals
 
 - iterm2
-- ghotty
+- ghostty
 
 ### window managers / desktop environments
 
@@ -31,6 +33,7 @@ base is omarchy default
 ### ide / text editor
 
 - nvim
+- neovide
 
 ### artstations
 
@@ -39,6 +42,8 @@ base is omarchy default
 ### media viewers / utilities
 
 ### misc applications
+
+yazi
 
 ## thanks and credits
 

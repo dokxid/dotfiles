@@ -8,6 +8,12 @@ return {
       },
       auto_expand_width = true,
     },
+    default_component_configs = {
+      indent = {
+        indent_size = 2,
+        padding = 0,
+      },
+    },
     filesystem = {
       -- group_empty_dirs = true,
       -- scan_mode = "deep",
