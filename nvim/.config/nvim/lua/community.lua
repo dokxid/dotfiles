@@ -44,6 +44,7 @@ return {
   { import = "astrocommunity.register.nvim-neoclip-lua" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
   { import = "astrocommunity.editing-support.neogen" },
+  { import = "astrocommunity.search.grug-far-nvim" },
 
   -- motion
   { import = "astrocommunity.motion.nvim-surround" },

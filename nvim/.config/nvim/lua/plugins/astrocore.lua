@@ -46,6 +46,9 @@ return {
     },
     -- Mappings can be configured through AstroCore as well.
     mappings = {
+      i = {
+        ["jj"] = { "<Esc>", desc = "Escape to normal mode" },
+      },
       n = {
 
         -- buffers
@@ -98,6 +101,7 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+        ["q:"] = false,
       },
     },
   },

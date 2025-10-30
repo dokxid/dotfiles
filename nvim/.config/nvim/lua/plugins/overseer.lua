@@ -23,6 +23,12 @@ return {
     table.insert(opts.components, {
       "on_output_parse",
       problem_matcher = "$tsc-watch",
+      "$eslint-stylish",
+      "$tsc",
+      "$eslint-compact",
+    })
+    table.insert(opts.components, {
+      "on_result_diagnostics_trouble",
     })
     opts.task_list = {
       bindings = {
