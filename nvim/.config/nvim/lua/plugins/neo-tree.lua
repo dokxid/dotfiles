@@ -5,6 +5,15 @@ return {
       -- position = "float",
       mappings = {
         ["<Tab>"] = "next_source",
+        ["K"] = {
+          "toggle_preview",
+          config = {
+            use_float = true,
+            title = "preview",
+          },
+        },
+        ["."] = "toggle_hidden",
+        ["H"] = "set_root",
       },
       auto_expand_width = true,
     },
@@ -15,8 +24,8 @@ return {
       },
     },
     filesystem = {
-      -- group_empty_dirs = true,
-      -- scan_mode = "deep",
+      group_empty_dirs = true,
+      scan_mode = "deep",
       filtered_items = {
         visible = false, -- hide filtered items on open
         hide_gitignored = true,
