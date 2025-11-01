@@ -1,7 +1,21 @@
 [mgr]
-prepend_keymap = [{ on = "?", run = "help", desc = "Show help" }]
+prepend_keymap = [
+  { on = "?", run = "help", desc = "Show help" },
+  { on = "!", for = "unix", run = 'shell fish --block', desc = "open a shell here" },
+  { on = [
+    "<Space>",
+    "c",
+  ], run = "close", desc = "close tab" },
+  { on = [
+    "<Space>",
+    "t",
+  ], run = "tab_create --current", desc = "create new tab @cwd" },
+]
 append_keymap = [
-  { on = "<F2>",       run = "quit",            desc = "Quit Yazi" },
-  # { on = [ "g", "b" ], run = "my-cmd2",          desc = "Single command with `g => b`" },
-  # { on = "c",          run = [ "cmd1", "cmd2" ], desc = "Multiple commands with `c`" }
+  { on = "<F2>", run = "quit", desc = "Quit Yazi" },
+  { on = "<C-n>", run = 'shell -- dragon -x -i -T "$0"', desc = "drag and drop a file" },
+  { on = [
+    "g",
+    "r",
+  ], run = 'shell -- y emit cd "$(git rev-parse --show-toplevel)"', desc = "go to root git directory" },
 ]

@@ -14,6 +14,7 @@ return {
 
         -- install formatters
         "stylua",
+        "kdlfmt",
 
         -- install debuggers
         "debugpy",

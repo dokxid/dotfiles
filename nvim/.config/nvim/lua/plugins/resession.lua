@@ -30,11 +30,9 @@ return {
         autosave = {
           enabled = true,
           interval = 60,
-          notify = false,
+          notify = true,
         },
-        extensions = {
-          overseer = {},
-        },
+        extensions = {},
       }
       resession.add_hook("post_load", function(session_name, opts)
         if opts.notify then
@@ -47,6 +45,7 @@ return {
       vim.api.nvim_create_autocmd("VimLeavePre", {
         callback = function() resession.save(vim.fn.getcwd(), { notify = true }) end,
       })
+
       -- Automatically load sessions on startup by working directory
       vim.api.nvim_create_autocmd("VimEnter", {
         callback = function()

@@ -1,6 +1,12 @@
 return {
   "neo-tree.nvim",
   opts = {
+    event_handlers = {
+      {
+        event = "file_open_requested",
+        handler = function() require("neo-tree.command").execute { action = "close" } end,
+      },
+    },
     window = {
       -- position = "float",
       mappings = {
@@ -13,9 +19,8 @@ return {
           },
         },
         ["."] = "toggle_hidden",
-        ["H"] = "set_root",
+        ["`"] = "set_root",
       },
-      auto_expand_width = true,
     },
     default_component_configs = {
       indent = {
@@ -30,7 +35,11 @@ return {
         visible = false, -- hide filtered items on open
         hide_gitignored = true,
         hide_dotfiles = false,
+        always_show_by_pattern = {
+          ".env*",
+        },
         hide_by_name = {
+          "node_modules",
           ".github",
           -- ".gitignore",
           "package-lock.json",

@@ -2,6 +2,7 @@ local prefix = "<Leader>a"
 
 return {
   "olimorris/codecompanion.nvim",
+  enabled = false,
   event = "User AstroFile",
   cmd = {
     "CodeCompanion",
@@ -87,8 +88,6 @@ return {
         opts.mappings.n[prefix] = { desc = require("astroui").get_icon("CodeCompanion", 1, true) .. "CodeCompanion" }
         opts.mappings.v[prefix] = { desc = require("astroui").get_icon("CodeCompanion", 1, true) .. "CodeCompanion" }
         opts.mappings.n[prefix .. "c"] = { "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle chat" }
-        opts.mappings.v["<C-i>"] = { "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle chat" }
-        opts.mappings.n["<C-i>"] = { "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle chat" }
         opts.mappings.v[prefix .. "c"] = { "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle chat" }
         opts.mappings.n[prefix .. "q"] = { "<cmd>CodeCompanionActions<cr>", desc = "Open action palette" }
         opts.mappings.v[prefix .. "q"] = { "<cmd>CodeCompanionActions<cr>", desc = "Open action palette" }

@@ -38,9 +38,23 @@ return {
       },
 
     picker = {
-      -- your picker configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+      ---@class snacks.picker.buffers.Config: snacks.picker.Config
+      buffers = {
+        win = {
+          input = {
+            keys = {
+              ["d"] = { "bufdelete", mode = { "n" }, desc = "Delete Buffer" },
+              ["<C-d>"] = { "bufdelete", mode = { "i" }, desc = "Delete Buffer" },
+            },
+          },
+          list = {
+            keys = {
+              ["dd"] = { "bufdelete" },
+              ["<C-d>"] = { "bufdelete", mode = { "i" }, desc = "Delete Buffer" },
+            },
+          },
+        },
+      },
     },
   },
   keys = {

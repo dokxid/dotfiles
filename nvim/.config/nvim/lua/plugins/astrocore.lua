@@ -19,12 +19,16 @@ return {
       -- see `:h vim.filetype.add` for usage
       extension = {
         foo = "fooscript",
+        fish = "fish",
+        kdl = "kdl",
       },
       filename = {
         [".foorc"] = "fooscript",
+        ["docker-compose.yml"] = "yaml.dockercompose",
       },
       pattern = {
         [".*/etc/foo/.*"] = "fooscript",
+        [".env.*"] = "sh",
       },
     },
     -- vim options can be configured here
@@ -46,10 +50,11 @@ return {
     },
     -- Mappings can be configured through AstroCore as well.
     mappings = {
-      i = {
-        ["jj"] = { "<Esc>", desc = "Escape to normal mode" },
-      },
       n = {
+        ["<F6>"] = {
+          "<cmd>CompilerOpen<cr>",
+          desc = "Open compiler",
+        },
 
         -- buffers
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
@@ -63,6 +68,7 @@ return {
           desc = "Close buffer from tabline",
         },
         ["<Leader>bb"] = false,
+        ["Q"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
 
         -- https://docs.astronvim.com/recipes/dashboard/#open-dashboard-automatically-when-no-more-buffers
         ["<Leader>c"] = {
@@ -95,14 +101,29 @@ return {
           desc = "git neo tree",
         },
 
+        -- terminal
+        ["<Leader>tf"] = false,
+        ["<Leader>tt"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" },
+        ["<F12>"] = { "<Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
+
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
-        ["q"] = false,
+        ["q"] = "<Nop>",
         ["<F1>"] = false,
+      },
+      i = {
+        ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
+      },
+      t = {
+        ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
+        ["qq"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
+      },
+      v = {
+        ["q"] = "<Nop>",
       },
     },
   },

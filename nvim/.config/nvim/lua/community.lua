@@ -11,6 +11,7 @@ return {
   -- language support
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.zig" },
 
   -- recipes
   { import = "astrocommunity.recipes.neovide" },
@@ -22,6 +23,7 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
+  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
   -- theme
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
@@ -33,13 +35,16 @@ return {
   -- completion
   { import = "astrocommunity.completion.nvim-cmp" },
   { import = "astrocommunity.completion.copilot-lua" },
+  -- { import = "astrocommunity.completion.avante-nvim" },
+  { import = "astrocommunity.ai.opencode-nvim" },
 
   -- motion
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.motion.nvim-spider" },
 
   -- editing-support
-  { import = "astrocommunity.editing-support.codecompanion-nvim" },
+  -- { import = "astrocommunity.editing-support.codecompanion-nvim" },
+  { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.editing-support.vim-move" },
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   { import = "astrocommunity.register.nvim-neoclip-lua" },
@@ -55,10 +60,11 @@ return {
   -- { import = "astrocommunity.scrolling.satellite-nvim" },
 
   -- note-taking
-  { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  -- { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.note-taking.obsidian-nvim" },
 
   -- code-runner
+  { import = "astrocommunity.code-runner.compiler-nvim" },
 
   -- utility
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
