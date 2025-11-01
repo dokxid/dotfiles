@@ -454,6 +454,15 @@ keybinds clear-defaults=true {
                 quick_jump true
             }
         }
+        bind "g" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij-sessionizer.wasm" {
+                floating true
+                move_to_focused_tab true
+                cwd "/"
+                root_dirs "/home/dokxid/repos;/Users/dokxid/repos"
+            }
+            SwitchToMode "Locked"
+        }
     }
     shared_except "locked" "entersearch" {
         bind "enter" {
@@ -587,7 +596,13 @@ plugins {
     strider location="zellij:strider"
     tab-bar location="zellij:tab-bar"
     welcome-screen location="zellij:session-manager" {
-        welcome_screen true
+
+    }
+    sessionizer location="file:~/.config/zellij/plugins/zellij-sessionizer.wasm" {
+        floating true
+        move_to_focused_tab true
+        cwd "/"
+        root_dirs "/home/dokxid/repos;/Users/dokxid/repos"
     }
 }
 // Plugins to load in the background when a new session starts

@@ -25,7 +25,7 @@ return {
           -- { section = "startup", padding = 2 },
           {
             pane = 1,
-            cmd = "cat ~/.config/nvim/dashboard_header; sleep 0.1",
+            cmd = "if not test '$zen' = ''; cat ~/.config/nvim/dashboard_header; sleep 0.1; end",
             section = "terminal",
             height = 13,
             padding = 2,

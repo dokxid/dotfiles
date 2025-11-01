@@ -17,7 +17,7 @@ return {
   { import = "astrocommunity.recipes.neovide" },
   { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
-  { import = "astrocommunity.recipes.picker-nvchad-theme" },
+  -- { import = "astrocommunity.recipes.picker-nvchad-theme" },
 
   -- diagnostics
   { import = "astrocommunity.diagnostics.trouble-nvim" },
@@ -27,7 +27,7 @@ return {
 
   -- theme
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
+  -- { import = "astrocommunity.colorscheme.catppuccin" },
 
   -- git
   { import = "astrocommunity.git.diffview-nvim" },
@@ -35,7 +35,6 @@ return {
   -- completion
   { import = "astrocommunity.completion.nvim-cmp" },
   { import = "astrocommunity.completion.copilot-lua" },
-  -- { import = "astrocommunity.completion.avante-nvim" },
   { import = "astrocommunity.ai.opencode-nvim" },
 
   -- motion

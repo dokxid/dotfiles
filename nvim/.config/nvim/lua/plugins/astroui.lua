@@ -38,6 +38,14 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
+      auto_integrations = true,
+      integrations = {
+        avante = { rounded = true },
+        colorful_winsep = { color = "lavender" },
+        snacks = {
+          indent_scope_color = "lavender",
+        },
+      },
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       term_colors = true,
     },

@@ -47,12 +47,12 @@ return {
       edit = prefix .. "e",
       refresh = prefix .. "r",
       new_ask = prefix .. "n",
-      focus = prefix .. "a",
+      focus = prefix .. "f",
       select_model = prefix .. "?",
       stop = prefix .. "S",
       select_history = prefix .. "h",
       toggle = {
-        default = prefix .. "t",
+        default = prefix .. "a",
         debug = prefix .. "d",
         hint = prefix .. "H",
         suggestion = prefix .. "s",
@@ -65,11 +65,6 @@ return {
       files = {
         add_current = prefix .. ".",
         add_all_buffers = prefix .. "B",
-      },
-    },
-    windows = {
-      sidebar_header = {
-        rounded = false,
       },
     },
   },
