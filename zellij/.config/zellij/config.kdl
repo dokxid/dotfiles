@@ -624,13 +624,9 @@ web_client {
 // Default: default
 //
 theme "catppuccin-mocha"
-// Choose the base input mode of zellij.
-// Default: normal
-//
+session_name "default"
+attach_to_session true
 default_mode "locked"
-// Choose the path to the default shell that zellij will use for opening new panes
-// Default: $SHELL
-//
 default_shell "fish"
 // Choose the path to override cwd that zellij will use for opening new panes
 //
@@ -710,17 +706,7 @@ pane_frames false
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
 // scrollback_editor "/usr/bin/vim"
-// A fixed name to always give the Zellij session.
-// Consider also setting `attach_to_session true,`
-// otherwise this will error if such a session exists.
-// Default: <RANDOM>
 //
-session_name "default"
-// When `session_name` is provided, attaches to that session
-// if it is already running or creates it otherwise.
-// Default: false
-//
-attach_to_session true
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
 //   - true (default)
