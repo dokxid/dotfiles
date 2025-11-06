@@ -29,7 +29,7 @@ return {
     -- bc agentic is too much for me jesus christ
     ---@alias Mode "agentic" | "legacy"
     ---@type Mode
-    mode = "legacy",
+    mode = "agentic",
     providers = {
       copilot = {
         extra_request_body = {

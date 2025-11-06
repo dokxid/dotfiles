@@ -1,0 +1,15 @@
+const text = "#CDD6F4";
+const surface0 = "#313244";
+const surface1 = "#45475A";
+const surface2 = "#585B70";
+const overlay0 = "#6C7086";
+const overlay1 = "#7F849C";
+const overlay2 = "#9399B2";
+const subtext0 = "#A6ADC8";
+const subtext1 = "#BAC2DE";
+const subtext2 = "#CDD6F4";
+const base = "#1e1e2e";
+const mantle = "#181825";
+const crust = "#11111b";
+const accent = "#b4befe";
+const fontFamily = "Jetbrains Mono, monospace";

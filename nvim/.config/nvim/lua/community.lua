@@ -22,7 +22,6 @@ return {
   -- diagnostics
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
-  { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
   -- theme
@@ -42,6 +41,7 @@ return {
   { import = "astrocommunity.motion.nvim-spider" },
 
   -- editing-support
+  -- { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
   -- { import = "astrocommunity.editing-support.codecompanion-nvim" },
   { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.editing-support.vim-move" },

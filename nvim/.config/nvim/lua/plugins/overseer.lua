@@ -18,7 +18,13 @@ return {
   ---@class opts overseer.Config
   opts = function(_, opts)
     local astrocore = require "astrocore"
-    if astrocore.is_available "toggleterm.nvim" then opts.strategy = { "toggleterm", quit_on_exit = "always" } end
+    if astrocore.is_available "toggleterm.nvim" then
+      opts.strategy = {
+        "toggleterm",
+        open_on_start = false,
+        quit_on_exit = "always",
+      }
+    end
     opts.components = opts.components or {}
     table.insert(opts.components, {
       "on_output_parse",

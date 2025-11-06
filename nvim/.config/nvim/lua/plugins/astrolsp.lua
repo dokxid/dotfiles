@@ -37,6 +37,7 @@ return {
       -- "glsl_analyzer",
       -- "pyright"
       "fish_lsp",
+      "qmlls",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields

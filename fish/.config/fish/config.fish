@@ -8,6 +8,7 @@ export EDITOR="neovide --no-fork"
 alias src "source ~/.config/fish/config.fish"
 alias lg lazygit
 alias ld lazydocker
+alias vim nvim
 
 # os specific stuff
 switch (uname)
