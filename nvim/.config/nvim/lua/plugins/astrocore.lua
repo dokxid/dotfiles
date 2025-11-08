@@ -85,6 +85,14 @@ return {
           function() require("pick-resession").pick() end,
           desc = "find session",
         },
+        ["<Leader>fw"] = {
+          function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() } } end,
+          desc = "grep",
+        },
+        ["<Leader>fW"] = {
+          function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() }, hidden = true, ignored = true } end,
+          desc = "grep in all files",
+        },
 
         -- neo-tree
         ["<Leader>e"] = { false, desc = "Explorer" },
