@@ -14,6 +14,13 @@ alias vim nvim
 # os specific stuff
 switch (uname)
     case Linux
+        export XDG_CONFIG_HOME=$HOME/.config
+        export XDG_DATA_HOME=$HOME/.local/share
+        export XDG_CACHE_HOME=$HOME/.cache
+        export XDG_STATE_HOME=$HOME/.local/state
+        # xdg config home vars
+        export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
+        export CARGO_HOME=$XDG_DATA_HOME/cargo
     case Darwin
         eval "$(/opt/homebrew/bin/brew shellenv)"
         export XDG_CONFIG_HOME=$HOME/.config
@@ -34,4 +41,5 @@ fish_add_path /opt/homebrew/bin
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
+# nix profile
 fenv source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh

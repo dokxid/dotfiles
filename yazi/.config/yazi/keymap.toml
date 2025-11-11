@@ -2,6 +2,17 @@
 prepend_keymap = [
   { on = "?", run = "help", desc = "Show help" },
   { on = "!", for = "unix", run = 'shell fish --block', desc = "open a shell here" },
+  { on = "2", run = "plugin smart-switch 1", desc = "switch or create tab 2" },
+  { on = "3", run = "plugin smart-switch 2", desc = "switch or create tab 3" },
+  { on = "4", run = "plugin smart-switch 3", desc = "switch or create tab 4" },
+  { on = "f", run = "plugin jump-to-char", desc = "Jump to char" },
+  { on = "F", run = "plugin smart-filter", desc = "Smart filter" },
+  { on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
+  { on = "z", run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
+  { on = [
+    "g",
+    "i",
+  ], run = "plugin lazygit", desc = "run lazygit" },
 ]
 append_keymap = [
   { on = "<F2>", run = "quit", desc = "Quit Yazi" },
