@@ -4,6 +4,7 @@
 # chsh -s $(which zsh)
 
 export EDITOR="neovide --no-fork"
+# eval (ssh-agent -c)
 
 alias src "source ~/.config/fish/config.fish"
 alias lg lazygit
@@ -32,3 +33,5 @@ fish_add_path /opt/homebrew/bin
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+fenv source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh

@@ -74,6 +74,7 @@
   "schemastore.nvim": { "branch": "main", "commit": "976b31e094615b2c27009561b3c67a37c87c93c2" },
   "smart-splits.nvim": { "branch": "master", "commit": "ddb23c1a1cf1507bda487cda7f6e4690965ef9f5" },
   "snacks.nvim": { "branch": "main", "commit": "a4e46becca45eb65c73a388634b1ce8aad629ae0" },
+  "suda.vim": { "branch": "master", "commit": "c492741b4679b3cdd4d9e34138209784e061d916" },
   "telescope.nvim": { "branch": "master", "commit": "54971270cfd1652f51701a5803eb334984c5f6b5" },
   "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "63dd87d195f28e01732e121c5ddfc0a74ccff54a" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },

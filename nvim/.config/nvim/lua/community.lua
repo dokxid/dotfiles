@@ -34,7 +34,7 @@ return {
   -- completion
   { import = "astrocommunity.completion.nvim-cmp" },
   { import = "astrocommunity.completion.copilot-lua" },
-  { import = "astrocommunity.ai.opencode-nvim" },
+  -- { import = "astrocommunity.ai.opencode-nvim" },
 
   -- motion
   { import = "astrocommunity.motion.nvim-surround" },
@@ -67,6 +67,7 @@ return {
 
   -- utility
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
+  { import = "astrocommunity.editing-support.suda-vim" },
   -- { import = "astrocommunity.editing-support.true-zen-nvim" },
   -- { import = "astrocommunity.utility.hover-nvim" },
   -- { import = "astrocommunity.utility.noice-nvim" },
