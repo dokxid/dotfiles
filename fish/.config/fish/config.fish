@@ -4,7 +4,7 @@
 # chsh -s $(which zsh)
 
 export EDITOR="neovide --no-fork"
-# eval (ssh-agent -c)
+eval (ssh-agent -c)
 
 alias src "source ~/.config/fish/config.fish"
 alias lg lazygit
