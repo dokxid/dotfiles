@@ -29,7 +29,14 @@ return {
     -- bc agentic is too much for me jesus christ
     ---@alias Mode "agentic" | "legacy"
     ---@type Mode
-    mode = "agentic",
+    mode = "legacy",
+    --- Allows selecting code or other data in a buffer and ask LLM questions about it or
+    --- to perform edits/transformations.
+    --- @class AvanteSelectionConfig
+    selection = {
+      enabled = true,
+      hint_display = "none",
+    },
     providers = {
       copilot = {
         extra_request_body = {
