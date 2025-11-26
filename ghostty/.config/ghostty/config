@@ -2,7 +2,7 @@
 theme = "light:Catppuccin Latte, dark:Catppuccin Mocha"
 macos-window-buttons = hidden
 
-command = /usr/bin/fish --login --interactive
+command = /opt/homebrew/bin/fish --login --interactive
 
 # Font
 font-family = "JetBrainsMono Nerd Font"

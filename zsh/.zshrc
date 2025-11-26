@@ -246,3 +246,4 @@ alias loaddb="gupdatedb --localpaths=$HOME --prunepaths=/Volumes --output=$HOME/
 
 # Created by `pipx` on 2024-03-05 04:11:46
 export PATH="$PATH:/home/dokxid/.local/bin"
+source ${HOME}/.ghcup/env

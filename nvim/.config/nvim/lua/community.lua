@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.zig" },
+  { import = "astrocommunity.pack.haskell" },
 
   -- recipes
   { import = "astrocommunity.recipes.neovide" },

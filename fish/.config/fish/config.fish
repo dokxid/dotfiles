@@ -21,9 +21,11 @@ switch (uname)
         # xdg config home vars
         export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
         export CARGO_HOME=$XDG_DATA_HOME/cargo
+        fenv source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
     case Darwin
         eval "$(/opt/homebrew/bin/brew shellenv)"
         export XDG_CONFIG_HOME=$HOME/.config
+        fish_add_path /opt/homebrew/bin
     case FreeBSD NetBSD DRagonFly
     case '*'
 end
@@ -35,11 +37,9 @@ set fish_greeting
 starship init fish | source
 
 # paths
-fish_add_path /opt/homebrew/bin
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 # nix profile
-fenv source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
