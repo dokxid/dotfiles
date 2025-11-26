@@ -24,7 +24,7 @@ return {
   -- diagnostics
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
-  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
+  -- { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
   -- theme
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
