@@ -46,9 +46,19 @@ Scope {
                 }
                 Rectangle {
                     color: "transparent"
-                    ClockWidget {
-                        Layout.fillHeight: true
-                        anchors.centerIn: parent
+                    Layout.fillHeight: true
+                    RowLayout {
+                        anchors.fill: parent
+                        WrapperItem {
+                            ClockWidget {
+                                id: clockWidget
+                            }
+                        }
+                        // WrapperItem {
+                        //     SystemTray {
+                        //         id: systemTray
+                        //     }
+                        // }
                     }
                 }
                 Rectangle {
