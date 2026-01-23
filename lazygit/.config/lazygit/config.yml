@@ -1,0 +1,7 @@
+quitOnTopLevelReturn: false
+notARepository: skip
+nerdFontsVersion: "3"
+showRandomTip: false
+os:
+  edit: "nvim {{filename}}"
+  editAtLine: "nvim +{{line}} {{filename}}"

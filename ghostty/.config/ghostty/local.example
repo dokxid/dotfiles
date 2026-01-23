@@ -2,4 +2,5 @@
 # font-style = Regular
 # font-size = 13
 # adjust-cell-height = 8
-
+# command on ghostty startup
+# command = /usr/bin/fish --login --interactive

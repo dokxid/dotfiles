@@ -32,6 +32,7 @@ return {
       "$eslint-stylish",
       "$tsc",
       "$eslint-compact",
+      "$gdlint",
     })
     table.insert(opts.components, {
       "on_result_diagnostics_trouble",

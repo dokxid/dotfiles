@@ -4,7 +4,7 @@ local opencode_term = Terminal:new {
   cmd = "opencode",
   dir = vim.fn.getcwd(),
   direction = "vertical",
-  close_on_exit = false,
+  close_on_exit = true,
 }
 
 vim.g.opencode_opts = {

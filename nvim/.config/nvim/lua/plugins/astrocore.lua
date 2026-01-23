@@ -21,6 +21,7 @@ return {
         foo = "fooscript",
         fish = "fish",
         kdl = "kdl",
+        gd = "gdscript",
       },
       filename = {
         [".foorc"] = "fooscript",
