@@ -134,7 +134,7 @@ end
 
 # Fish-specific configurations
 # Enable vi key bindings (fish equivalent of inputrc settings)
-fish_vi_key_bindings
+# fish_vi_key_bindings
 
 # Set window title to current directory
 function fish_title
