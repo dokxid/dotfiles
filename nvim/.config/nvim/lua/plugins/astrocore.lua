@@ -43,7 +43,8 @@ return {
         shiftwidth = 2, -- sets vim.opt.shiftwidth
         tabstop = 2, -- sets vim.opt.tabstop
         cmdheight = 0, -- sets vim.opt.cmdheight
-        scrolloff = 5, -- sets vim.opt.scrolloff
+        scrolloff = 10, -- sets vim.opt.scrolloff
+        laststatus = 3, -- sets vim.opt.laststatus
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -52,9 +53,20 @@ return {
     -- Mappings can be configured through AstroCore as well.
     mappings = {
       n = {
+        -- utils
         ["<F6>"] = {
           "<cmd>CompilerOpen<cr>",
           desc = "Open compiler",
+        },
+
+        -- splits
+        ["\\"] = {
+          "<cmd>vsplit<cr>",
+          desc = "vertical split",
+        },
+        ["|"] = {
+          "<cmd>split<cr>",
+          desc = "horizontal split",
         },
 
         -- buffers
@@ -122,7 +134,7 @@ return {
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
         ["q"] = "<Nop>",
-        ["<F1>"] = false,
+        ["<F1>"] = "<Nop>",
       },
       i = {
         ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },

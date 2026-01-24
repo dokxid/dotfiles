@@ -24,6 +24,31 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     { "AstroNvim/astrocore", opts = function(_, opts) opts.mappings.n[prefix] = { desc = " Avante" } end },
+    {
+      -- support for image pasting
+      "HakonHarnes/img-clip.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- recommended settings
+        default = {
+          embed_image_as_base64 = false,
+          prompt_for_file_name = false,
+          drag_and_drop = {
+            insert_mode = true,
+          },
+          -- required for Windows users
+          use_absolute_path = true,
+        },
+      },
+    },
+    {
+      -- Make sure to set this up properly if you have lazy=true
+      "MeanderingProgrammer/render-markdown.nvim",
+      opts = {
+        file_types = { "markdown", "Avante" },
+      },
+      ft = { "markdown", "Avante" },
+    },
   },
   opts = {
     -- bc agentic is too much for me jesus christ
@@ -47,7 +72,29 @@ return {
     behavior = {
       auto_approve_tool_permissions = false,
       ---@type "popup" | "inline_buttons"
-      confirmation_ui_style = "popup",
+      confirmation_ui_style = "inline_buttons",
+      support_paste_from_clipboard = true,
+      ---@type boolean
+      acp_follow_agent_locations = true,
+    },
+    windows = {
+      ---@type "right" | "left" | "top" | "bottom"
+      position = "right", -- the position of the sidebar
+      wrap = true, -- similar to vim.o.wrap
+      width = 35, -- default % based on available width
+      sidebar_header = {
+        enabled = false, -- true, false to enable/disable the header
+        align = "right", -- left, center, right for title
+        rounded = false,
+      },
+      input = {
+        prefix = "> ",
+        height = 8, -- Height of the input window in vertical layout
+      },
+      edit = {
+        border = "rounded",
+        start_insert = false, -- Start insert mode when opening the edit window
+      },
     },
     mappings = {
       ask = prefix .. "<CR>",

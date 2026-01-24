@@ -14,27 +14,9 @@ local function copilot_action(action)
 end
 
 return {
-  { -- override blink.cmp plugin
-    "olimorris/codecompanion.nvim",
-    opts = {
-      strategies = {
-        chat = {
-          adapter = "copilot",
-          model = "gpt-4.1",
-        },
-        inline = {
-          adapter = "copilot",
-          model = "gpt-4.1",
-        },
-        cmd = {
-          adapter = "copilot",
-          model = "gpt-4.1",
-        },
-      },
-    },
-  },
   {
     "zbirenbaum/copilot.lua",
+    enabled = false,
     specs = {
       { import = "astrocommunity.completion.copilot-lua" },
       {

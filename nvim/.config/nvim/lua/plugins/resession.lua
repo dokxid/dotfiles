@@ -29,8 +29,8 @@ return {
       resession.setup {
         autosave = {
           enabled = true,
-          interval = 60,
-          notify = true,
+          interval = 15,
+          notify = false,
         },
         extensions = {},
       }

@@ -2,11 +2,10 @@
 -- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 -- vim.opt.shell = "/usr/bin/fish"
-vim.opt.scrolloff = 10
 vim.o.shell = "fish"
 
 -- neovide config
-if vim.g.neovide then
+if vim.g.neovide or vim.v.servername then
   local enableClipboard = true
   local animationConfig = true
   local fontConfig = true

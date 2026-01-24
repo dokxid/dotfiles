@@ -28,14 +28,13 @@ return {
 
   -- theme
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-  -- { import = "astrocommunity.colorscheme.catppuccin" },
 
   -- git
   { import = "astrocommunity.git.diffview-nvim" },
 
   -- completion
-  { import = "astrocommunity.completion.nvim-cmp" },
-  { import = "astrocommunity.completion.copilot-lua" },
+  -- { import = "astrocommunity.completion.nvim-cmp" },
+  -- { import = "astrocommunity.completion.copilot-lua" },
   -- { import = "astrocommunity.ai.opencode-nvim" },
 
   -- motion
@@ -58,6 +57,7 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
 
   -- scrolling
+  -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
   -- { import = "astrocommunity.scrolling.satellite-nvim" },
 
   -- note-taking
