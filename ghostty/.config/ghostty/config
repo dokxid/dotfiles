@@ -40,6 +40,7 @@ keybind = super+control+shift+alt+arrow_right=resize_split:right,100
 shell-integration-features = ssh-env
 
 # Misc
+mouse-scroll-multiplier = 4.0
 working-directory = home
 # command = /usr/bin/fish --login --interactive --init-command "cd ~"
 
@@ -53,6 +54,3 @@ config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 config-file = ?macos
 config-file = ?linux
 config-file = ?local
-
-# Slowdown mouse scrolling
-mouse-scroll-multiplier = 0.95
