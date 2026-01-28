@@ -13,6 +13,79 @@ prepend_keymap = [
     "g",
     "i",
   ], run = "plugin lazygit", desc = "run lazygit" },
+  { on = "[", run = "plugin whoosh jump_by_key", desc = "Jump bookmark by key" },
+  { on = "}", run = "plugin whoosh jump_by_fzf", desc = "Direct fuzzy search for bookmarks" },
+  { on = [
+    "]",
+    "a",
+  ], run = "plugin whoosh save", desc = "Add bookmark (hovered file/directory)" },
+  { on = [
+    "]",
+    "A",
+  ], run = "plugin whoosh save_cwd", desc = "Add bookmark (current directory)" },
+  { on = [
+    "]",
+    "t",
+  ], run = "plugin whoosh save_temp", desc = "Add temporary bookmark (hovered file/directory)" },
+  { on = [
+    "]",
+    "T",
+  ], run = "plugin whoosh save_cwd_temp", desc = "Add temporary bookmark (current directory)" },
+  { on = "<A-k>", run = "plugin whoosh jump_key_k", desc = "Jump directly to bookmark with key k" },
+  { on = [
+    "]",
+    "f",
+  ], run = "plugin whoosh jump_by_fzf", desc = "Jump bookmark by fzf" },
+  { on = [
+    "]",
+    "d",
+  ], run = "plugin whoosh delete_by_key", desc = "Delete bookmark by key" },
+  { on = [
+    "]",
+    "D",
+  ], run = "plugin whoosh delete_by_fzf", desc = "Delete bookmarks by fzf (use TAB to select multiple)" },
+  { on = [
+    "]",
+    "C",
+  ], run = "plugin whoosh delete_all", desc = "Delete all user bookmarks" },
+  { on = [
+    "]",
+    "r",
+  ], run = "plugin whoosh rename_by_key", desc = "Rename bookmark by key" },
+  { on = [
+    "]",
+    "R",
+  ], run = "plugin whoosh rename_by_fzf", desc = "Rename bookmark by fzf" },
+  { on = [
+    "e",
+    "t",
+  ], run = "plugin eza-preview", desc = "Toggle tree/list dir preview" },
+  { on = [
+    "e",
+    "-",
+  ], run = "plugin eza-preview inc-level", desc = "Increment tree level" },
+  { on = [
+    "e",
+    "_",
+  ], run = "plugin eza-preview dec-level", desc = "Decrement tree level" },
+  { on = [
+    "e",
+    "$",
+  ], run = "plugin eza-preview toggle-follow-symlinks", desc = "Toggle tree follow symlinks" },
+  { on = [
+    "e",
+    "*",
+  ], run = "plugin eza-preview toggle-hidden", desc = "Toggle hidden files" },
+  { on = [
+    "e",
+    "g",
+    "i",
+  ], run = "plugin eza-preview toggle-git-ignore", desc = "Toggle .gitignore files" },
+  { on = [
+    "e",
+    "g",
+    "s",
+  ], run = "plugin eza-preview toggle-git-status", desc = "Toggle showing git status" },
 ]
 append_keymap = [
   { on = "<F2>", run = "quit", desc = "Quit Yazi" },

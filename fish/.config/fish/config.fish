@@ -14,6 +14,7 @@ alias src "source ~/.config/fish/config.fish"
 alias lg lazygit
 alias ld lazydocker
 alias vim nvim
+alias s "sesh connect (sesh list | fzf)"
 
 # os specific stuff
 switch (uname)
@@ -46,5 +47,9 @@ starship init fish | source
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# rust
+set --export CARGO_HOME "$HOME/.local/share/cargo"
+set --export PATH $CARGO_HOME/bin $PATH
 
 # nix profile
