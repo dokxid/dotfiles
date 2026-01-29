@@ -24,9 +24,11 @@ WrapperMouseArea {
             id: clockTime
             verticalAlignment: Text.AlignVCenter
             readonly property font clockFont: ({
-                    family: "Jetbrains Mono Nerd Font",
-                    pixelSize: 12,
-                    bold: true
+                    family: "Inter",
+                    weight: 650,
+                    capitalization: Font.AllLowercase,
+                    pixelSize: 12
+                    // bold: true
                 })
             font: clockFont
             color: Variables.base

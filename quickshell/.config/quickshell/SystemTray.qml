@@ -45,7 +45,7 @@ RowLayout {
             ToolTip {
                 id: tooltip
                 visible: trayItemArea.containsMouse
-                text: trayItemArea.modelData.title + " " + trayItemArea.modelData.id
+                text: trayItemArea.modelData.title + " " + trayItemArea.modelData.id + " " + trayItemArea.modelData.icon
                 delay: 500
             }
             WrapperRectangle {

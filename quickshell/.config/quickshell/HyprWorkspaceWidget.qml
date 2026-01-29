@@ -43,11 +43,7 @@ WrapperMouseArea {
                         WrapperRectangle {
                             implicitWidth: workspaceItem.isActive ? 30 : 10
                             implicitHeight: 10
-                            color: workspaceItem.isHovered 
-                            ? Variables.crust 
-                            : workspaceItem.isFocused 
-                            ? Variables.surface0 
-                            : Variables.surface1
+                            color: workspaceItem.isHovered ? Variables.crust : workspaceItem.isFocused ? Variables.surface0 : Variables.surface1
                             radius: 6
                             Behavior on implicitWidth {
                                 NumberAnimation {

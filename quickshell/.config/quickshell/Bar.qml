@@ -9,6 +9,7 @@ Scope {
         model: Quickshell.screens
 
         PanelWindow {
+            id: panelWindow
             required property var modelData
             screen: modelData
             color: "transparent"
@@ -40,6 +41,7 @@ Scope {
                     WrapperItem {
                         HyprClientsWidget {
                             id: hyprClientsWidget
+                            barWindow: panelWindow
                         }
                     }
                 }
