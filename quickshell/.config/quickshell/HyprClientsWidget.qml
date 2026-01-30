@@ -30,6 +30,11 @@ WrapperItem {
                     target: clientsWrapper
                     extraMargin: 0
                 }
+                PropertyChanges {
+                    target: titleText
+                    font.weight: 500
+                    font.pixelSize: 10
+                }
             },
             State {
                 name: "hovered"
@@ -37,6 +42,11 @@ WrapperItem {
                 PropertyChanges {
                     target: clientsWrapper
                     extraMargin: 10
+                }
+                PropertyChanges {
+                    target: titleText
+                    font.weight: 650
+                    font.pixelSize: 11
                 }
             }
         ]
@@ -116,7 +126,7 @@ WrapperItem {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font: windowFont
-                text: titleToBeDisplayed ?? "none"
+                text: titleToBeDisplayed.slice(0, 50) ?? "none"
                 color: Variables.crust
                 Behavior on text {
                     PropertyAnimation {

@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import Quickshell
 import QtQuick.Layouts
 import QtQuick
@@ -9,8 +11,9 @@ Scope {
         model: Quickshell.screens
 
         PanelWindow {
-            id: panelWindow
+            id: root
             required property var modelData
+            property bool sidebarEnabled: false
             screen: modelData
             color: "transparent"
 
@@ -20,6 +23,11 @@ Scope {
                 right: true
             }
             implicitHeight: 50
+            Sidebar {
+                id: sidebar
+                screen: root.modelData
+                enabled: root.sidebarEnabled
+            }
             Item {
                 id: bar
                 width: parent.width - 20
@@ -41,7 +49,7 @@ Scope {
                     WrapperItem {
                         HyprClientsWidget {
                             id: hyprClientsWidget
-                            barWindow: panelWindow
+                            barWindow: root
                         }
                     }
                 }
@@ -58,6 +66,7 @@ Scope {
 
                 // Right section (empty for now)
                 RowLayout {
+                    spacing: 12
                     anchors {
                         right: parent.right
                         top: parent.top
@@ -66,6 +75,12 @@ Scope {
                     WrapperItem {
                         SystemTray {
                             id: systemTray
+                        }
+                    }
+                    WrapperItem {
+                        SidebarToggle {
+                            id: sidebarToggle
+                            onEnabledChanged: root.sidebarEnabled = enabled
                         }
                     }
                 }
