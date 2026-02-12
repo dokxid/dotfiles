@@ -12,6 +12,7 @@ PanelWindow {
     onEnabledChanged: {
         console.log("sidebar: " + enabled);
     }
+    implicitHeight: screen.height
     anchors {
         right: true
         bottom: true

@@ -64,6 +64,7 @@ return {
     },
     providers = {
       copilot = {
+        model = "claude-sonnet-4.5",
         extra_request_body = {
           temperature = 0.1,
         },

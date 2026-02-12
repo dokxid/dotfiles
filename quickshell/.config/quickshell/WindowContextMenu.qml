@@ -20,6 +20,29 @@ PopupWindow {
     anchor.rect.x: barWindow ? mouseArea.mapToItem(barWindow.contentItem, 0, 0).x + mouseOffset[0] - implicitWidth / 2 : 0
     anchor.rect.y: barWindow ? mouseArea.mapToItem(barWindow.contentItem, 0, 0).y + mouseOffset[1] - itemHeight / 2 : 0
     color: "#00000000"
+    ListModel {
+        id: buttonListModel
+        ListElement {
+            name: "close"
+            tooltip: "close window"
+            exec: ""
+        }
+        ListElement {
+            name: "kill"
+            tooltip: "close window"
+            exec: ""
+        }
+        ListElement {
+            name: "pinfo"
+            tooltip: "process information"
+            exec: ""
+        }
+        ListElement {
+            name: "wlclient"
+            tooltip: "wayland client information"
+            exec: ""
+        }
+    }
     WrapperMouseArea {
         anchors.fill: parent
         hoverEnabled: true
@@ -30,7 +53,7 @@ PopupWindow {
             spacing: 8
             Repeater {
                 id: popupMenuItemInstantiator
-                model: ["close window", "kill window", "info"]
+                model: buttonListModel
                 WrapperMouseArea {
                     id: popupMenuItemMouseArea
                     required property string modelData
@@ -113,7 +136,7 @@ PopupWindow {
                             Text {
                                 id: popupMenuItemText
                                 anchors.verticalCenter: parent.verticalCenter
-                                property var itemNameToBeDisplayed: popupMenuItemMouseArea.modelData
+                                property var itemNameToBeDisplayed: popupMenuItemMouseArea.modelData.tooltip
                                 property font popupMenuItemFont: ({
                                         family: "Inter",
                                         weight: 500,
