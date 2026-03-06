@@ -3,12 +3,12 @@
   "agent": {
     "plan": {
       "temperature": 0.3,
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "github-copilot/claude-haiku-4.5"
     },
     "build": {
       "temperature": 0.1,
       "disable": true,
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "github-copilot/claude-haiku-4.5"
     },
     "edit": {
       "description": "Full development agent with all tools enabled",
@@ -23,16 +23,24 @@
         "grep": true,
         "read": true,
         "webfetch": true,
-        "todowrite": true
       },
     }
   },
   "permission": {
     "*": "ask",
     "read": {
-      "~/.config/**": "allow",
-      "~/dotfiles/**": "allow"
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
     },
+    "task": "allow",
+    "lsp": "allow",
+    "find": "allow",
+    "skill": "allow",
+    "glob": "allow",
+    "list": "allow",
+    "grep": "allow",
     "webfetch": "allow",
     "edit": "ask",
     "bash": "ask",
