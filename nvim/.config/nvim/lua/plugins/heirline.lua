@@ -11,11 +11,11 @@ return {
       status.component.diagnostics(),
       status.component.fill(),
       status.component.cmd_info(),
-      -- status.component.nav(),
       status.component.fill(),
       -- status.component.virtual_env(),
       status.component.lsp(),
       status.component.treesitter(),
+      status.component.nav(),
       status.component.mode { surround = { separator = "right" } },
     }
   end,

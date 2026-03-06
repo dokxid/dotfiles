@@ -27,12 +27,14 @@ return {
     config = function()
       local resession = require "resession"
       resession.setup {
+        buf_filter = function(bufnr) return require("astrocore.buffer").is_restorable(bufnr) end,
+        tab_buf_filter = function(tabpage, bufnr) return vim.tbl_contains(vim.t[tabpage].bufs, bufnr) end,
         autosave = {
           enabled = true,
           interval = 15,
           notify = false,
         },
-        extensions = {},
+        extensions = { astrocore = { enable_in_tab = true } },
       }
       resession.add_hook("post_load", function(session_name, opts)
         if opts.notify then

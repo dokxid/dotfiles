@@ -1,26 +1,3 @@
--- custom toggleterm terminal for opencode
--- local Terminal = require("toggleterm.terminal").Terminal
--- local opencode_term = Terminal:new {
---   cmd = "opencode",
---   dir = vim.fn.getcwd(),
---   direction = "vertical",
---   close_on_exit = true,
--- }
---
--- vim.g.opencode_opts = {
---   ---@type opencode.Provider
---   provider = {
---     -- Called by `require("opencode").toggle()`.
---     toggle = function(self) opencode_term:toggle(100) end,
---     -- Called when sending a prompt or command to `opencode` but no process was found.
---     start = function(self) opencode_term:open(100) end,
---     -- Called when a prompt or command is sent to `opencode`,
---     -- *and* this provider's `toggle` or `start` has previously been called
---     -- (so as to not interfere when `opencode` was started externally).
---     show = function(self) opencode_term:focus() end,
---   },
--- }
-
 return {
   "NickvanDyke/opencode.nvim",
   version = "*",
@@ -46,14 +23,33 @@ return {
     },
   },
   config = function()
+    local port = 4199
+
     ---@type opencode.Opts
     vim.g.opencode_opts = {
       lsp = {
         enabled = true,
       },
-      -- Your configuration, if any; goto definition on the type or field for details
+      server = {
+        port = port,
+      },
     }
     vim.o.autoread = true -- Required for `opts.events.reload`
+
+    local Terminal = require("toggleterm.terminal").Terminal
+    local opencode_term = Terminal:new {
+      cmd = "opencode --port " .. port,
+      dir = vim.fn.getcwd(),
+      direction = "vertical",
+      close_on_exit = true,
+      size = vim.o.columns * 0.4,
+    }
+
+    -- vim.g can't store Lua functions, so set them directly on the config object
+    local config = require "opencode.config"
+    config.opts.server.start = function() opencode_term:open(100) end
+    config.opts.server.stop = function() opencode_term:close() end
+    config.opts.server.toggle = function() opencode_term:toggle(100) end
   end,
   specs = {
     {
@@ -63,7 +59,7 @@ return {
         local maps = assert(opts.mappings)
         local prefix = "<Leader>o"
         maps.n[prefix] = { desc = require("astroui").get_icon("OpenCode", 1, true) .. "OpenCode" }
-        maps.n[prefix .. "t"] = {
+        maps.n[prefix .. "o"] = {
           function() require("opencode").toggle() end,
           desc = "Toggle embedded",
         }

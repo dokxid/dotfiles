@@ -64,5 +64,6 @@ return {
   },
   keys = {
     { "<leader>bb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<leader>fz", function() Snacks.picker.zoxide() end, desc = "find zoxide" },
   },
 }
