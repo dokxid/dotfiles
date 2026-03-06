@@ -38,6 +38,11 @@ return {
       },
 
     picker = {
+      win = {
+        preview = {
+          wo = { wrap = true },
+        },
+      },
       ---@class snacks.picker.buffers.Config: snacks.picker.Config
       buffers = {
         win = {

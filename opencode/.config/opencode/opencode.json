@@ -1,28 +1,45 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "agent": {
-    "build": {
-      "temperature": 0.1
-    },
     "plan": {
-      "temperature": 0.1
+      "temperature": 0.3,
+      "model": "github-copilot/claude-opus-4.6"
     },
-    "creative": {
-      "temperature": 0.8
+    "build": {
+      "temperature": 0.1,
+      "disable": true,
+      "model": "github-copilot/claude-opus-4.6"
     },
-    "test": {
-      "temperature": 0.99,
-      "permission": {
-        "edit": "ask",
-        "bash": "ask",
-        "webfetch": "ask",
-        "websearch": "ask",
+    "edit": {
+      "description": "Full development agent with all tools enabled",
+      "mode": "primary",
+      "prompt": "You are a software engineering agent. You have full access to all tools and can read, write, edit files, and run commands. Help the user with any development task.",
+      "temperature": 0.2,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "glob": true,
+        "grep": true,
+        "read": true,
+        "webfetch": true,
+        "todowrite": true
       },
     }
   },
+  "permission": {
+    "*": "ask",
+    "read": {
+      "~/.config/**": "allow",
+      "~/dotfiles/**": "allow"
+    },
+    "webfetch": "allow",
+    "edit": "ask",
+    "bash": "ask",
+  },
   "mcp": {
     "postgres": {
-      "enabled": true,
+      "enabled": false,
       "type": "local",
       "command": [
         "docker",
