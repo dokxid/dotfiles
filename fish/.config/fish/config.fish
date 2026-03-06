@@ -43,6 +43,7 @@ set fish_greeting
 starship init fish | source
 
 # paths
+fish_add_path ~/scripts
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
