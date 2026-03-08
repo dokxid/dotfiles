@@ -15,6 +15,7 @@ end
 
 return {
   "zbirenbaum/copilot.lua",
+  enabled = false,
   specs = {
     { import = "astrocommunity.completion.copilot-lua" },
     {

@@ -54,3 +54,6 @@ config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 config-file = ?macos
 config-file = ?linux
 config-file = ?local
+
+# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+async-backend = epoll
