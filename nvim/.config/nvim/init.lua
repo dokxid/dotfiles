@@ -71,6 +71,8 @@ vim.keymap.set("n", "<D-s>", ":w<CR>")
 vim.api.nvim_set_keymap("n", "<PageUp>", "<C-u>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<PageDown>", "<C-d>", { noremap = false })
 
+vim.api.nvim_set_keymap("n", "<M-v>", "<C-v>", { noremap = true })
+
 if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
   -- stylua: ignore
   local result = vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
