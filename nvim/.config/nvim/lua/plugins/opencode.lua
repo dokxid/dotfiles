@@ -96,6 +96,7 @@ return {
         maps.v[prefix .. "a"] = {
           function() require("opencode").ask("@this: ", { submit = true }) end,
           desc = "Ask about selection",
+
         }
         maps.v[prefix .. "+"] = {
           function() require("opencode").prompt "@this" end,

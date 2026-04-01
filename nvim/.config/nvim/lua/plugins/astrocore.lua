@@ -58,6 +58,10 @@ return {
           "<cmd>CompilerOpen<cr>",
           desc = "Open compiler",
         },
+        ["<Leader>ar"] = {
+          "<cmd>AstroRoot<cr>",
+          desc = "astroroot",
+        },
 
         -- splits
         ["\\"] = {
@@ -108,7 +112,7 @@ return {
         },
 
         -- neo-tree
-        ["<Leader>e"] = { false, desc = "Explorer" },
+        ["<Leader>e"] = { false, desc = "explorer" },
         ["<Leader>ee"] = {
           ":Neotree toggle<CR>",
           desc = "explorer neo tree",
@@ -127,14 +131,17 @@ return {
         ["<Leader>tt"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" },
         ["<F12>"] = { "<Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
 
+        ["<Leader>a"] = { false, desc = "misc" },
+
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
-        ["q"] = "<Nop>",
-        ["<F1>"] = "<Nop>",
+        -- ["q"] = "<Nop>",
+        ["<Leader>w"] = false,
+        ["<Leader>Q"] = false,
       },
       i = {
         ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },

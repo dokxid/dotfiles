@@ -1,7 +1,7 @@
 local prefix = "<Leader>a"
 return {
   "yetone/avante.nvim",
-  -- enabled = false,
+  enabled = false,
   build = vim.fn.has "win32" == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
     or "make",
   event = "User AstroFile", -- load on file open because Avante manages it's own bindings

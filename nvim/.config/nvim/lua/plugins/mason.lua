@@ -23,5 +23,6 @@ return {
         "tree-sitter-cli",
       },
     },
+    run_on_start = false,
   },
 }
