@@ -8,7 +8,7 @@ return {
     ---@type AstroUIOpts
     opts = {
       -- change colorscheme
-      colorscheme = "catppuccin",
+      colorscheme = "rose-pine",
       -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
       highlights = {
         init = { -- this table overrides highlights in all themes
@@ -60,7 +60,9 @@ return {
     name = "rose-pine",
     lazy = true,
     opts = {
-      variant = "moon",
+      variant = "auto", -- auto, main, moon, or dawn
+      dark_variant = "main", -- main, moon, or dawn
+      dim_inactive_windows = false,
     },
   },
 }

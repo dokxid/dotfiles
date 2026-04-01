@@ -1,5 +1,6 @@
 # theme
-theme = "light:Catppuccin Latte, dark:Catppuccin Mocha"
+# theme = "light:Catppuccin Latte, dark:Catppuccin Mocha"
+theme = dark:Rose Pine,light:Rose Pine Dawn
 macos-window-buttons = hidden
 
 # Font
