@@ -3,6 +3,10 @@ local function setup()
 		local cwd = cx.active.current.cwd
 		if cwd:ends_with("Downloads") then
 			ya.emit("sort", { "mtime", reverse = true, dir_first = false })
+		elseif cwd:ends_with("obs") then
+			ya.emit("sort", { "mtime", reverse = true, dir_first = false })
+		elseif cwd:ends_with("Videos") then
+			ya.emit("sort", { "mtime", reverse = true, dir_first = false })
 		else
 			ya.emit("sort", { "alphabetical", reverse = false, dir_first = true })
 		end

@@ -1,5 +1,7 @@
 [mgr]
 prepend_keymap = [
+  { on = "<PageUp>", run = "seek -1", desc = "seek preview -1" },
+  { on = "<PageDown>", run = "seek +1", desc = "seek preview +1" },
   { on = "?", run = "help", desc = "Show help" },
   { on = "!", for = "unix", run = 'shell fish --block', desc = "open a shell here" },
   { on = "2", run = "plugin smart-switch 1", desc = "switch or create tab 2" },
@@ -9,6 +11,11 @@ prepend_keymap = [
   { on = "F", run = "plugin smart-filter", desc = "Smart filter" },
   { on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
   { on = "z", run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
+  { on = "T", run = "plugin toggle-pane min-preview", desc = "Show or hide the preview pane" },
+  { on = [
+    "c",
+    "m",
+  ], run = "plugin chmod", desc = "Chmod on selected files" },
   { on = [
     "g",
     "i",
@@ -89,7 +96,7 @@ prepend_keymap = [
 ]
 append_keymap = [
   { on = "<F2>", run = "quit", desc = "Quit Yazi" },
-  { on = "<C-n>", run = 'shell -- dragon-drop -x -i -T "$0"', desc = "drag and drop a file" },
+  { on = "<C-n>", run = 'shell -- dragon-drop -x -i -T "$@"', desc = "drag and drop a file" },
   { on = [
     "g",
     "r",
