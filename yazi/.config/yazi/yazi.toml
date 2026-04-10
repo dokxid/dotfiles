@@ -28,7 +28,7 @@ image = [
   { run = "gimp %s", orphan = true, for = "unix" },
 ]
 
-edit = [{ run = 'neovide "$@"', block = false, for = "unix" }]
+edit = [{ run = 'neovide "$@" --frame none', block = false, for = "unix" }]
 [[plugin.prepend_fetchers]]
 id = "git"
 name = "*"
