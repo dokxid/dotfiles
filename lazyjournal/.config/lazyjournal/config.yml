@@ -10,7 +10,7 @@ settings:
   timezoneFilter: +00:00
   mouseDisable: false
   wrapModeDisable: false
-  colorMode: default
+  colorMode: tailspin
   colorActionsDisable: false
   # Filter the list of user and system units by type (e.g. service,timer,scope,socket,mount)
   unitType: service
@@ -55,7 +55,7 @@ interface:
 # a-z, shift+<a-z>, ctrl+<a-z>, 0-9, f1-f12 and any other symbols
 # tab, shift+tab, enter, space, backspace, del/delete and esc/escape
 hotkeys:
-  showHelp: f1
+  showHelp: "?"
   showManager: f2
   switchWindow: tab
   backSwitchWindows: shift+tab
@@ -86,7 +86,7 @@ hotkeys:
   switchDockerMode: ctrl+d
   switchStreamMode: ctrl+s
   timestampShow: ctrl+t
-  exit: ctrl+c
+  exit: q
 
 # List of ssh hosts with flags for connection from the interface
 # ssh:
