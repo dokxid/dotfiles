@@ -1,5 +1,9 @@
 [mgr]
 prepend_keymap = [
+  { on = [
+    "g",
+    "r",
+  ], run = "plugin yafg" },
   { on = "<PageUp>", run = "seek -1", desc = "seek preview -1" },
   { on = "<PageDown>", run = "seek +1", desc = "seek preview +1" },
   { on = "?", run = "help", desc = "Show help" },
