@@ -232,6 +232,8 @@ export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
 eval $(ssh-agent)
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # nix
 source /etc/profile.d/nix.sh
 
