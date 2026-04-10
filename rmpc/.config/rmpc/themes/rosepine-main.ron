@@ -1,5 +1,6 @@
-// originally from https://github.com/VigneshR387/rose-pine-rmpc with modified styling
-// so technically MIT License
+// originally from https://github.com/VigneshR387/rose-pine-rmpc with modified styling from dokxid
+// including from original license in the repo:
+// MIT License
 // Copyright (c) 2025 Rosé Pine
 
 #![enable(implicit_some)]
