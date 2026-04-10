@@ -1,3 +1,7 @@
+// originally from https://github.com/VigneshR387/rose-pine-rmpc with modified styling
+// so technically MIT License
+// Copyright (c) 2025 Rosé Pine
+
 #![enable(implicit_some)]
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
