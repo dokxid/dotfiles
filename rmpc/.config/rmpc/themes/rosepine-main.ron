@@ -55,7 +55,7 @@
         symbols: ["│", "█", "│", "│"],
         track_style: (fg: "#21202e"),
         ends_style: (fg: "#21202e"),
-        thumb_style: (fg: "#f6c177"),
+        thumb_style: (fg: "#524f67"),
     ),
     tab_bar: (
         active_style: (fg: "#21202e", bg: "#eb6f92", modifiers: "Bold"),
@@ -201,7 +201,7 @@ layout: Split(
                                             
                                             (
                                                 size: "100%",
-                                                borders: "LEFT |TOP | BOTTOM | RIGHT",
+                                                borders: "LEFT | TOP | BOTTOM | RIGHT",
                                                 border_symbols: Rounded,
                                                 border_title: [
                                                     (kind: Text(" "),),
@@ -210,7 +210,7 @@ layout: Split(
                                                     (kind: Property(Status(QueueTimeTotal())),style:(fg:"#e0def4")),
                                                     (kind: Text(" total time "),style:(fg:"#e0def4"))
                                                 ],
-                                                border_title_alignment: Right,
+                                                border_title_alignment: Center,
                                                 pane: Component("progress_bar"),
                                             ),
                                         ]
