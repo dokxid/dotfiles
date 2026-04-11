@@ -128,8 +128,8 @@ return {
 
         -- terminal
         ["<Leader>tf"] = false,
-        ["<Leader>tt"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" },
-        ["<F12>"] = { "<Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
+        ["<Leader>tt"] = { "<Cmd>ToggleTerm direction=float name=default<CR>", desc = "ToggleTerm float" },
+        ["<F12>"] = { "<Cmd>ToggleTerm name=default<CR>", desc = "ToggleTerm" },
 
         ["<Leader>a"] = { false, desc = "misc" },
 
