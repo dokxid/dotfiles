@@ -55,7 +55,7 @@ interface:
 # a-z, shift+<a-z>, ctrl+<a-z>, 0-9, f1-f12 and any other symbols
 # tab, shift+tab, enter, space, backspace, del/delete and esc/escape
 hotkeys:
-  showHelp: "?"
+  showHelp: f1
   showManager: f2
   switchWindow: tab
   backSwitchWindows: shift+tab
