@@ -8,6 +8,24 @@ local config = {
 	leader = { key = "a", mods = "SUPER", timeout_milliseconds = 5000 },
 	keys = {
 		{
+			key = "c",
+			mods = "CTRL",
+			action = act.CopyTo("Clipboard"),
+		},
+		{
+			key = "C",
+			mods = "CTRL",
+			action = act.SendKey({
+				key = "c",
+				mods = "CTRL",
+			}),
+		},
+		{
+			key = "v",
+			mods = "CTRL",
+			action = act.PasteFrom("Clipboard"),
+		},
+		{
 			key = "r",
 			mods = "LEADER",
 			action = act.ActivateKeyTable({
