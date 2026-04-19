@@ -1,7 +1,11 @@
-quitOnTopLevelReturn: false
+quitOnTopLevelReturn: true
 notARepository: skip
-nerdFontsVersion: "3"
-showRandomTip: false
+gui:
+  scrollOffMargin: 5
+  nerdFontsVersion: "3"
+  showRandomTip: false
+git:
+  parseEmoji: true
 os:
-  edit: "nvim {{filename}}"
-  editAtLine: "nvim +{{line}} {{filename}}"
+  edit: "$EDITOR {{filename}}"
+  editAtLine: "$EDITOR +{{line}} {{filename}}"
