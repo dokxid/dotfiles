@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
+# @vicinae.schemaVersion 1
+# @vicinae.title toggle decorations
+# @vicinae.mode inline
 
 function handle() {
   local blur_state=$(hyprctl getoption decoration:blur:enabled | awk '/int: / { print $2 }')
