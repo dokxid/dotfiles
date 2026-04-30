@@ -27,42 +27,44 @@ deceleration = 8.0
 [swipe.gesture]
 fingers_count = 4
 direction = "Natural"
+continuous = false
+
+[swipe.scroll]
+# vertical_modifier = "alt"
 
 [decorations.inactive.dim]
 opacity = -0.05
 opacity_night = -0.15
 
-[decorations]
-
 [bindings]
 # Moves the focus between windows. If there are no windows when moving up or
 # down, will swtich focus to the display above or below.
-window_focus_west = ["alt - leftarrow", "cmd + shift + alt + ctrl - leftarrow"]
-window_focus_east = ["alt - rightarrow", "cmd + shift + alt + ctrl - rightarrow"]
-window_focus_north = ["alt - uparrow", "cmd + shift + alt + ctrl - uparrow"]
-window_focus_south = ["alt - downarrow", "cmd + shift + alt + ctrl - downarrow"]
+window_focus_west = ["ctrl - leftarrow", "cmd + shift + alt + ctrl - leftarrow"]
+window_focus_east = ["ctrl - rightarrow", "cmd + shift + alt + ctrl - rightarrow"]
+window_virtual_north = ["ctrl - uparrow", "cmd + shift + alt + ctrl - uparrow"]
+window_virtual_south = ["ctrl - downarrow", "cmd + shift + alt + ctrl - downarrow"]
 
 # Swaps windows in chosen direction. If there are no windows to swap, will
 # move the window to a display above or below.
-window_swap_west = "alt + shift - leftarrow"
-window_swap_east = "alt + shift - rightarrow"
-window_swap_north = "alt + shift - uparrow"
-window_swap_south = "alt + shift - downarrow"
+window_swap_west = "alt + cmd - leftarrow"
+window_swap_east = "alt + cmd - rightarrow"
+window_virtualmove_north = "alt + cmd - uparrow"
+window_virtualmove_south = "alt + cmd - downarrow"
 
 # Centers the current window on screen.
 window_center = "alt - c"
 
 # Cycles between the window sizes defined in the `preset_column_widths` option.
-window_resize = "alt - ."
+window_resize = "cmd + shift + alt + ctrl - c"
 
 # Cycles backwards through `preset_column_widths`.
-window_shrink = "alt - ,"
+# window_shrink = "cmd + shift + alt + ctrl - ,"
 
 # Toggle full width for the current focused window.
-window_fullwidth = "alt - f"
+window_fullwidth = "cmd + shift + alt + ctrl - f"
 
 # Toggles the window for management. If unmanaged, the window will be "floating".
-window_manage = "cmd + shift + alt + ctrl - l"
+window_manage = "cmd + shift + alt + ctrl - t"
 
 # Stacks and unstacks a window into the left column. Each window gets a 1/N of the height.
 window_stack = "alt - ]"
