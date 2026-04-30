@@ -2,7 +2,15 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 
 -- plugins
-local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
+-- local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
+
+local function scheme_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return "Catppuccin Mocha"
+	else
+		return "Catppuccin Latte"
+	end
+end
 
 local config = {
 	leader = { key = "a", mods = "SUPER", timeout_milliseconds = 5000 },
@@ -172,8 +180,8 @@ local config = {
 	font = wezterm.font("JetBrains Mono"),
 	font_size = 13,
 	line_height = 1.4,
-	colors = theme.colors(),
-	window_frame = theme.window_frame(),
+	color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
+	-- window_frame = theme.window_frame(),
 	window_padding = {
 		left = 48,
 		right = 48,
