@@ -14,6 +14,7 @@ alias lg lazygit
 alias ld lazydocker
 alias lj lazyjournal
 alias vim nvim
+alias n nvim
 alias s "sesh connect (sesh list | fzf)"
 
 # fish specific configs
@@ -45,7 +46,9 @@ switch (uname)
     case Darwin
         eval "$(/opt/homebrew/bin/brew shellenv)"
         export XDG_CONFIG_HOME=$HOME/.config
+        export NEOVIDE_FRAME=transparent
         fish_add_path /opt/homebrew/bin
+        set -gx PATH /Users/dokxid/.local/bin $PATH
     case FreeBSD NetBSD DRagonFly
     case '*'
 end
