@@ -13,7 +13,9 @@ local function scheme_for_appearance(appearance)
 end
 
 local config = {
-	leader = { key = "a", mods = "SUPER", timeout_milliseconds = 5000 },
+	-- disable_default_key_bindings = true,
+	default_prog = { "fish", "-l" },
+	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 },
 	keys = {
 		{
 			key = "c",
@@ -39,7 +41,12 @@ local config = {
 		{
 			key = "v",
 			mods = "CTRL",
-			action = act.PasteFrom("Clipboard"),
+			action = wezterm.action_callback(function(_, pane)
+				local success, stdout = wezterm.run_child_process({ "wl-paste", "--no-newline" })
+				if success then
+					pane:paste(stdout)
+				end
+			end),
 		},
 		{
 			key = "r",
@@ -185,17 +192,11 @@ local config = {
 			{ key = "j",          action = act.ActivatePaneDirection("Down") },
 		},
 	},
-	font = wezterm.font("JetBrains Mono"),
-	font_size = 13,
-	line_height = 1.4,
+	font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold", italic = false }),
+	font_size = 12,
+	line_height = 1.7,
 	color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
 	-- window_frame = theme.window_frame(),
-	window_padding = {
-		left = 48,
-		right = 48,
-		top = 48,
-		bottom = 48,
-	},
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
 	unix_domains = {
@@ -203,8 +204,31 @@ local config = {
 			name = "unix",
 		},
 	},
-	default_gui_startup_args = { "connect", "unix" },
+	-- default_gui_startup_args = { "connect", "unix" },
 	window_close_confirmation = "NeverPrompt",
+	pane_focus_follows_mouse = true
 }
+
+local padding = {
+		left = 40,
+		right = 40,
+		top = 40,
+		bottom = 0,
+}
+
+wezterm.on('update-status', function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    if string.find(pane:get_title(), '- [Nn]-vi-m$') then
+        overrides.window_padding = {
+            left = 0,
+            right = 0,
+            top = 0,
+            bottom = 0
+        }
+    else
+        overrides.window_padding = padding
+    end
+    window:set_config_overrides(overrides)
+end)
 
 return config
