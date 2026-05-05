@@ -10,10 +10,12 @@ return {
 
   -- language support
   { import = "astrocommunity.pack.html-css" },
-  { import = "astrocommunity.pack.typescript" },
+  -- { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.zig" },
   -- { import = "astrocommunity.pack.haskell" },
   { import = "astrocommunity.pack.vue" },
+  { import = "astrocommunity.pack.docker" },
+  -- { import = "astrocommunity.pack.eslint" },
 
   -- recipes
   { import = "astrocommunity.recipes.neovide" },
@@ -29,9 +31,6 @@ return {
   -- theme
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
-  -- git
-  { import = "astrocommunity.git.diffview-nvim" },
-
   -- completion
   -- { import = "astrocommunity.completion.nvim-cmp" },
   -- { import = "astrocommunity.completion.copilot-lua" },
@@ -44,13 +43,13 @@ return {
   -- editing-support
   -- { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
   -- { import = "astrocommunity.editing-support.codecompanion-nvim" },
-  { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.editing-support.vim-move" },
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   { import = "astrocommunity.register.nvim-neoclip-lua" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
   { import = "astrocommunity.search.grug-far-nvim" },
   { import = "astrocommunity.utility.nvim-toggler" },
+  { import = "astrocommunity.recipes.picker-lsp-mappings" },
 
   -- motion
   { import = "astrocommunity.motion.nvim-surround" },
@@ -62,7 +61,7 @@ return {
 
   -- note-taking
   -- { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
-  { import = "astrocommunity.note-taking.obsidian-nvim" },
+  -- { import = "astrocommunity.note-taking.obsidian-nvim" },
 
   -- code-runner
   { import = "astrocommunity.code-runner.compiler-nvim" },

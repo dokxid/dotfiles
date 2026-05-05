@@ -4,15 +4,6 @@
 
 ---@type LazySpec
 return {
-
-  -- == Examples of Adding Plugins ==
-
-  -- == Examples of Overriding Plugins ==
-
-  -- You can disable default plugins as follows:
-  { "max397574/better-escape.nvim", enabled = false },
-
-  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
@@ -53,26 +44,6 @@ return {
     end,
   },
   {
-    "neo-tree.nvim",
-    opts = {
-      filesystem = {
-        filtered_items = {
-          visible = false, -- hide filtered items on open
-          hide_gitignored = true,
-          hide_dotfiles = false,
-          hide_by_name = {
-            ".github",
-            ".gitignore",
-            "package-lock.json",
-            ".changeset",
-            ".prettierrc.json",
-          },
-          never_show = { ".git" },
-        },
-      },
-    },
-  },
-  {
     "f-person/auto-dark-mode.nvim",
     opts = {},
   },
@@ -94,6 +65,42 @@ return {
       },
     },
   },
-  { "scottmckendry/pick-resession.nvim" },
-  { "dmmulroy/tsc.nvim" },
+  {
+    "max397574/better-escape.nvim",
+    opts = {
+      timeout = vim.o.timeoutlen, -- after `timeout` passes, you can press the escape key and the plugin will ignore it
+      default_mappings = true, -- setting this to false removes all the default mappings
+      mappings = {
+        -- i for insert
+        i = {
+          j = {
+            -- These can all also be functions
+            k = "<Esc>",
+            j = "<Esc>",
+          },
+        },
+        c = {
+          j = {
+            k = "<C-c>",
+            j = "<C-c>",
+          },
+        },
+        t = {
+          j = {
+            k = "<C-\\><C-n>",
+          },
+        },
+        v = {
+          j = {
+            k = "<Esc>",
+          },
+        },
+        s = {
+          j = {
+            k = "<Esc>",
+          },
+        },
+      },
+    },
+  },
 }

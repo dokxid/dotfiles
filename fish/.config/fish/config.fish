@@ -16,6 +16,7 @@ alias lj lazyjournal
 alias vim nvim
 alias n nvim
 alias s "sesh connect (sesh list | fzf)"
+alias ctl systemctl
 
 # fish specific configs
 set fish_greeting

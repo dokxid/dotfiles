@@ -3,6 +3,7 @@
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
+  -- enabled = false,
   opts = function(_, opts)
     local null_ls = require "null-ls"
     -- opts variable is the default configuration table for the setup function call

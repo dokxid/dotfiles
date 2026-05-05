@@ -1,55 +1,38 @@
 return {
   "NickvanDyke/opencode.nvim",
   version = "*",
-  dependencies = {
-    {
-      "folke/snacks.nvim",
-      opts = {
-        input = { enabled = true },
-        terminal = { enabled = true },
-        picker = {
-          actions = {
-            opencode_send = function(...) return require("opencode").snacks_picker_send(...) end,
-          },
-          win = {
-            input = {
-              keys = {
-                ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
-              },
-            },
-          },
-        },
-      },
-    },
-  },
   config = function()
-    local port = 4199
+    -- local port = 4199
 
     ---@type opencode.Opts
     vim.g.opencode_opts = {
-      lsp = {
-        enabled = true,
-      },
-      server = {
-        port = port,
-      },
+      -- lsp = {
+      --   enabled = true,
+      -- },
+      -- server = {
+      --   port = port,
+      -- },
     }
     vim.o.autoread = true -- Required for `opts.events.reload`
 
     local Terminal = require("toggleterm.terminal").Terminal
-    local opencode_term = Terminal:new {
-      cmd = "opencode --port " .. port,
+    vim.notify(vim.fn.getcwd(), "warn")
+    local opencode_instance = Terminal:new {
+      cmd = "opencode",
+      display_name = "opencode",
       dir = vim.fn.getcwd(),
       direction = "vertical",
       close_on_exit = true,
-      size = vim.o.columns * 0.4,
+      size = vim.o.columns * 0.3,
+      hidden = true
     }
+    opencode_instance:spawn()
 
     -- vim.g can't store Lua functions, so set them directly on the config object
     local config = require "opencode.config"
-    config.opts.server.start = function() opencode_term:open(100) end
-    config.opts.server.stop = function() opencode_term:close() end
-    config.opts.server.toggle = function() opencode_term:toggle(100) end
+    config.opts.server.start = function() opencode_instance:open(100) end
+    config.opts.server.stop = function() opencode_instance:close() end
+    config.opts.server.toggle = function() opencode_instance:toggle(100) end
   end,
   specs = {
     {
@@ -96,7 +79,6 @@ return {
         maps.v[prefix .. "a"] = {
           function() require("opencode").ask("@this: ", { submit = true }) end,
           desc = "Ask about selection",
-
         }
         maps.v[prefix .. "+"] = {
           function() require("opencode").prompt "@this" end,
@@ -109,5 +91,26 @@ return {
       end,
     },
     { "AstroNvim/astroui", opts = { icons = { OpenCode = "" } } },
+  },
+  dependencies = {
+    {
+      "folke/snacks.nvim",
+      opts = {
+        input = { enabled = true },
+        terminal = { enabled = true },
+        picker = {
+          actions = {
+            opencode_send = function(...) return require("opencode").snacks_picker_send(...) end,
+          },
+          win = {
+            input = {
+              keys = {
+                ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
+              },
+            },
+          },
+        },
+      },
+    },
   },
 }
