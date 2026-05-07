@@ -1,6 +1,11 @@
+palette = "catppuccin_mocha"
 add_newline = true
 command_timeout = 200
-format = "[$username$hostname$directory$git_branch$git_status]($style)$character"
+follow_symlinks = true
+format = '''
+[$username$hostname$directory$git_branch$git_status]($style)
+[ 󱞪](bold peach) 
+'''
 
 [username]
 style_user = 'white bold'
@@ -10,25 +15,57 @@ disabled = true
 show_always = true
 aliases = { "yazi" = "yazi (づ｡◕‿‿◕｡)づ" }
 
+[custom.hostname]
+command = """pwd
+"""
+when = true
+style = ''
+format = "[$output]($style)"
+shell = ["bash"]
+
 [hostname]
 ssh_only = true
-format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
-trim_at = '.companyname.com'
+format = '[$ssh_symbol](bold blue) in ["${custom.hostname}"](bold red) '
 disabled = false
+ssh_symbol = "󰌗 "
 
 [character]
-error_symbol = "[✗](bold cyan)"
-success_symbol = "[❯](bold cyan)"
+error_symbol = "[✗](bold red bg:surface0)"
+success_symbol = "[ ](bold peach bg:surface0)"
 
 [directory]
-truncation_length = 2
-truncation_symbol = "…/"
-repo_root_style = "bold cyan"
-repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+substitutions = [
+  { from = "^/", to = " /", regex = true },
+  { from = "/", to = "|" },
+  { from = "~", to = "󰄛 ", regex = true },
+]
+truncation_length = 4
+truncation_symbol = "󰇘"
+read_only_style = "bold peach bg:surface0"
+repo_root_style = "bold peach bg:surface0"
+style = "bold peach bg:surface0"
+read_only = ' '
+format = """
+[  ]($style)\
+[$repo_root]($repo_root_style)\
+[$path]($style)\
+[ ](bg:surface0)\
+[$read_only]($read_only_style)\
+[ ](surface0)\
+"""
+repo_root_format = """
+[ 󰄛  ]($style)\
+[$repo_root]($repo_root_style)\
+[$path]($style)\
+[$read_only]($read_only_style)\
+[ ](bg:surface0)\
+[ ](surface0)\
+"""
 
 [git_branch]
-format = "[$branch]($style) "
-style = "italic cyan"
+# disabled = true
+format = "[ 󰘬 $branch ]($style) "
+style = "italic cyan bg:surface1"
 
 [git_status]
 format = '[$all_status]($style)'
@@ -44,3 +81,31 @@ stashed = ""
 staged = ""
 renamed = ""
 deleted = ""
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
