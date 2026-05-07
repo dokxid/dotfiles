@@ -1,15 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
+  "model": "github-copilot/claude-haiku-4.5",
+  "shell": "fish",
   "agent": {
     "plan": {
       "temperature": 0.3,
-      "model": "opencode-go/kimi-k2.5"
     },
     "build": {
       "temperature": 0.1,
       "disable": true,
-      "model": "opencode-go/kimi-k2.5"
     },
     "edit": {
       "description": "Full development agent with all tools enabled",
@@ -30,7 +30,10 @@
   "permission": {
     "*": "ask",
     "read": {
+      "~/.config/opencode/rules/*": "allow",
+      "/tmp/*": "allow",
       "*": "allow",
+      "*.env.local": "allow",
       "*.env": "deny",
       "*.env.*": "deny",
       "*.env.example": "allow"
@@ -45,6 +48,7 @@
     "webfetch": "allow",
     "edit": "ask",
     "bash": "ask",
+    "todowrite": "allow",
   },
   "mcp": {
     "postgres": {
@@ -63,6 +67,16 @@
       "environment": {
         "DATABASE_URI": "{file:~/.secrets/postgres_database_uri}"
       }
+    },
+    "nuxt": {
+      "type": "remote",
+      "url": "https://nuxt.com/mcp",
+      "enabled": true
+    },
+    "nuxt-ui": {
+      "type": "remote",
+      "url": "https://ui.nuxt.com/mcp",
+      "enabled": true
     }
   }
 }
