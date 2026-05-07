@@ -103,4 +103,7 @@ return {
       },
     },
   },
+  {
+    "mbbill/undotree",
+  },
 }

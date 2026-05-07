@@ -94,16 +94,11 @@ return {
           "<cmd>DiffviewOpen<ct>",
           desc = "diff view: working tree changes",
         },
-
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        -- ["<Leader>b"] = { desc = "Buffers" },
-
-        -- setting a mapping to false will disable it
-        -- ["<C-S>"] = false,
-        ["q"] = "<Nop>",
         ["<Leader>w"] = false,
         ["<Leader>Q"] = false,
+
+        -- nops
+        ["q"] = "<Nop>",
       },
       i = {
         ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
@@ -111,12 +106,11 @@ return {
       t = {
         ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
         ["qq"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
-        -- ["<Esc>"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
-        -- ["q"] = "<Nop>",
       },
       v = {
+        -- nops
         ["q"] = "<Nop>",
       },
     },
-  }
+  },
 }

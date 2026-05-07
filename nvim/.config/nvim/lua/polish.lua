@@ -31,24 +31,15 @@ if vim.g.neovide or vim.v.servername then
   local themeConfig = true
   -- this will enable the clipboard passthrough
   if enableClipboard then
-    -- copy
-    vim.keymap.set("v", "<C-c>", '"+y')
-    vim.keymap.set("v", "<D-c>", '"+y')
-    -- paste normal mode
-    vim.keymap.set("n", "<C-v>", '"+P')
-    vim.keymap.set("n", "<D-v>", '"+P')
-    -- paste visual mode
-    vim.keymap.set("v", "<C-v>", '"+P')
-    vim.keymap.set("v", "<D-v>", '"+P')
-    -- paste command mode
-    vim.keymap.set("c", "<C-v>", "<C-R>+")
-    vim.keymap.set("c", "<D-v>", "<C-R>+")
-    -- paste command mode
-    vim.keymap.set("t", "<C-v>", '<ESC>l"+Pli')
-    vim.keymap.set("t", "<D-v>", '<ESC>l"+Pli')
-    -- paste insert mode
-    vim.keymap.set("i", "<C-v>", '<ESC>l"+Pli')
-    vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli')
+    local function save() vim.cmd.write() end
+    local function copy() vim.cmd [[normal! "+y]] end
+    local function paste() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end
+    vim.keymap.set({ "n", "i", "v" }, "<D-s>", save, { desc = "Save" })
+    vim.keymap.set("v", "<D-c>", copy, { silent = true, desc = "Copy" })
+    vim.keymap.set({ "n", "i", "v", "c", "t" }, "<D-v>", paste, { silent = true, desc = "Paste" })
+    vim.keymap.set({ "n", "i", "v" }, "<C-s>", save, { desc = "Save" })
+    vim.keymap.set("v", "<C-c>", copy, { silent = true, desc = "Copy" })
+    vim.keymap.set({ "n", "i", "v", "c", "t" }, "<C-v>", paste, { silent = true, desc = "Paste" })
   end
   if animationConfig then
     vim.g.neovide_position_animation_length = 0.1
@@ -59,31 +50,29 @@ if vim.g.neovide or vim.v.servername then
     vim.g.neovide_scroll_animation_far_lines = 20
     vim.g.neovide_scroll_animation_length = 0.1
   end
-  if fontConfig then
-    vim.o.guifont = "JetBrainsMono_Nerd_font:h12"
-  end
+  if fontConfig then vim.o.guifont = "JetBrainsMono_Nerd_font:h12" end
   if themeConfig then vim.g.neovide_theme = "auto" end
   vim.g.neovide_input_macos_option_key_is_meta = "only_left" -- use left option as meta
 end
 
 -- Allow clipboard copy paste in neovim
 -- non macos with ctrl
-vim.api.nvim_set_keymap("", "<C-v>", "+p<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("!", "<C-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<C-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<C-v>", "<C-R>+", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("", "<C-v>", "+p<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("!", "<C-v>", "<C-R>+", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("t", "<C-v>", "<C-R>+", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("v", "<C-v>", "<C-R>+", { noremap = true, silent = true })
 -- macos with meta
-vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 vim.opt.linespace = 11
 
 -- bind macros to a less common key bc im too dumb rn
 -- vim.api.nvim_set_keymap("n", "q", "", { nowait = true })
 
 -- easier escape from terminal mode
--- vim.api.nvim_set_keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true })
+vim.api.nvim_set_keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- bindings for saving files with ctrl-s or cmd-s
 vim.keymap.set("n", "<C-s>", ":w<CR>")
