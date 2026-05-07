@@ -1,5 +1,10 @@
 [mgr]
 prepend_keymap = [
+  { on = "<Esc>", run = "quit", desc = "Quit Yazi" },
+  { on = [
+    "R",
+  ], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
+  { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
   { on = [
     "g",
     "r",
@@ -22,7 +27,7 @@ prepend_keymap = [
   ], run = "plugin chmod", desc = "Chmod on selected files" },
   { on = [
     "g",
-    "i",
+    "t",
   ], run = "plugin lazygit", desc = "run lazygit" },
   { on = "[", run = "plugin whoosh jump_by_key", desc = "Jump bookmark by key" },
   { on = "}", run = "plugin whoosh jump_by_fzf", desc = "Direct fuzzy search for bookmarks" },

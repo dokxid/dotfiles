@@ -67,7 +67,10 @@ image = [
   { run = "gimp %s", orphan = true, for = "unix" },
 ]
 extract = [{ run = "ya pub extract --list %s", desc = "Extract here" }]
-edit = [{ run = 'neovide "$@" --frame none', block = false, for = "unix" }]
+edit = [
+  { run = 'neovide "$@" --frame none --chdir %d1', block = false, orphan = true, for = "unix" },
+  { run = 'nvim "$@"', orphan = true, for = "unix" },
+]
 download = [
   { run = "ya emit download --open %S", desc = "Download and open" },
   { run = "ya emit download %S", desc = "Download" },

@@ -1,6 +1,8 @@
 require("folder-rules"):setup()
 require("git"):setup()
 require("starship"):setup()
+-- require("autosession"):setup()
+require("recycle-bin"):setup()
 
 -- You can configure your bookmarks using simplified syntax
 local bookmarks = {
