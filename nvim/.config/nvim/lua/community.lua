@@ -10,12 +10,12 @@ return {
 
   -- language support
   { import = "astrocommunity.pack.html-css" },
-  -- { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.zig" },
   -- { import = "astrocommunity.pack.haskell" },
-  { import = "astrocommunity.pack.vue" },
+  -- { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.docker" },
-  -- { import = "astrocommunity.pack.eslint" },
+  { import = "astrocommunity.pack.eslint" },
 
   -- recipes
   { import = "astrocommunity.recipes.neovide" },
