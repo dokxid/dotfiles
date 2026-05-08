@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ale.sh/karabiner-jsonschema.json",
+  "title": "rebind-cmd-q",
+  "rules": [
+    {
+      "description": "rebind-cmd-q",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q",
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
