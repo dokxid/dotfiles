@@ -2,7 +2,7 @@
 -- Configuration documentation can be found with `:h astrolsp`
 
 local stop_lsp_fmt = {
-  selene = false,
+  -- selene = false,
   -- vue_ls = false,
   -- vtsls = false,
 }

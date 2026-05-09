@@ -6,34 +6,21 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
-
-  -- language support
-  { import = "astrocommunity.pack.html-css" },
-  { import = "astrocommunity.pack.typescript" },
-  { import = "astrocommunity.pack.zig" },
-  -- { import = "astrocommunity.pack.haskell" },
-  -- { import = "astrocommunity.pack.vue" },
-  { import = "astrocommunity.pack.docker" },
-  { import = "astrocommunity.pack.eslint" },
 
   -- recipes
-  { import = "astrocommunity.recipes.neovide" },
-  { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
-  -- { import = "astrocommunity.recipes.picker-nvchad-theme" },
 
   -- diagnostics
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
-  -- { import = "astrocommunity.lsp.ts-error-translator-nvim" },
+  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
   -- theme
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
   -- completion
   -- { import = "astrocommunity.completion.nvim-cmp" },
-  -- { import = "astrocommunity.completion.copilot-lua" },
+  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- { import = "astrocommunity.ai.opencode-nvim" },
 
   -- motion

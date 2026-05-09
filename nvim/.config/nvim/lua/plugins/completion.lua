@@ -102,7 +102,8 @@ return {
         ["<C-D>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
         ["<C-E>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
-        ["<C-Z>"] = cmp.mapping(cmp.mapping.confirm { select = false }, { "i", "c" }),
+        ["<C-Z>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
+        ["<Tab>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
         -- ["<C-Z>"] = cmp.mapping(function(fallback)
         --   if is_visible(cmp) then
         --     cmp.select_next_item()

@@ -16,7 +16,6 @@ return {
     vim.o.autoread = true -- Required for `opts.events.reload`
 
     local Terminal = require("toggleterm.terminal").Terminal
-    vim.notify(vim.fn.getcwd(), "warn")
     local opencode_instance = Terminal:new {
       cmd = "opencode",
       display_name = "opencode",

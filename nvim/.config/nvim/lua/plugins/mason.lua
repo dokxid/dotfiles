@@ -1,4 +1,4 @@
--- Customize Mason
+NO_SSH()
 
 ---@type LazySpec
 return {
