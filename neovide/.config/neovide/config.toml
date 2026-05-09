@@ -1,6 +1,4 @@
 title-hidden = true
-# frame = "buttonless"
-frame = "none"
 tabs = false
 
 [font]
