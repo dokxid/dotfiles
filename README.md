@@ -1,7 +1,8 @@
 # my dotfiles
 
 these are my dotfiles, feel free to explore
-base is omarchy default
+
+strikethroughed things like ~~this~~ marks unused / deprecated configs
 
 ## reason:
 
@@ -12,39 +13,61 @@ base is omarchy default
 ### shell related stuff
 
 - bash
-- zsh
 - fish
 - starship
-- zellij
+- ~~zsh~~
 
-### terminals
+### tuis
 
-- iterm2
-- ghostty
+- [yazi](https://github.com/sxyazi/yazi) -> [config docs](https://yazi-rs.github.io/docs/configuration/overview)
+- [btop](https://github.com/aristocratos/btop) -> [default configs](https://github.com/aristocratos/btop#btopconf-auto-generated-if-not-found)
+- lazygit
+- lazyjournal
+- opencode
 
-### window managers / desktop environments
+### terminal emulators
 
-- hyprland
+- [wezterm](https://github.com/wezterm/wezterm) -> [config reference](https://wezterm.org/config/lua/config/index.html)
+- tmux
+- ~~iterm2~~
+- ~~ghostty~~
+- ~~zellij~~
 
-### input mappers
+### window managers / shells
 
-- hyprland (hypr/keybinds.conf)
+- [hyprland](https://github.com/hyprwm/Hyprland) -> [wiki](https://wiki.hypr.land/)
+- [quickshell](https://git.outfoxxed.me/quickshell/quickshell) -> [documentation](https://quickshell.org/docs/v0.3.0/types/)
+- [paneru](https://github.com/karinushka/paneru)
 
-### ide / text editor
+### editors / dev support
 
-- nvim
+- neovim
+  - uses AstroNvim v6 as base, so neovim >v0.12 for full functionality
 - neovide
+- git
 
-### artstations
+### creative tools
 
 - blender
+- obs
+  - just LUTs
 
-### media viewers / utilities
+### media players / utilities
 
-### misc applications
+- mpd
+  - ~~mpDris2~~
+- rmpc
 
-yazi
+### misc
 
-## thanks and credits
+#### qol scripts
+- too specific, located in `<repo_root>/scripts/scripts`
 
-using omarchy as base
+#### linux (potentially archlinux stuff)
+- xdg desktop portal
+  - mostly for [xdg-desktop-portal-termfilechooser](https://github.com/hunkyburrito/xdg-desktop-portal-termfilechooser)
+- [helium](https://github.com/imputnet/helium)
+  - browser flags for archlinux aur
+
+#### macos
+- karabiner elements
