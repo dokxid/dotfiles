@@ -1,11 +1,58 @@
 quitOnTopLevelReturn: true
 notARepository: skip
+
 gui:
   scrollOffMargin: 5
   nerdFontsVersion: "3"
   showRandomTip: false
+  scrollHeight: 4
+  skipAmendWarning: true
+  skipStashWarning: true
+  showRootItemInFileTree: false
+  showListFooter: false
+  branchColorPatterns:
+    'main': '#f38ba8'
+    'ISSUE-\d+': '#fab387'
+    '^\d+-': '#fab387'
+    'staging': '#89b4fa'
+    '^docs/': '#89b4fa'
+
 git:
   parseEmoji: true
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate
+    --date=relative --pretty=medium --oneline {{branchName}} --"
+  skipHookPrefix: wip!
+  autoForwardBranches: allBranches
+
 os:
-  edit: "$EDITOR {{filename}}"
-  editAtLine: "$EDITOR +{{line}} {{filename}}"
+  editPreset: "nvim"
+
+theme:
+  activeBorderColor:
+    - '#fab387'
+    - bold
+  inactiveBorderColor:
+    - '#a6adc8'
+  searchingActiveBorderColor:
+    - '#f9e2af'
+  optionsTextColor:
+    - '#89b4fa'
+  selectedLineBgColor:
+    - '#313244'
+  inactiveViewSelectedLineBgColor:
+    - '#6c7086'
+  cherryPickedCommitFgColor:
+    - '#fab387'
+  cherryPickedCommitBgColor:
+    - '#45475a'
+  markedBaseCommitFgColor:
+    - '#89b4fa'
+  markedBaseCommitBgColor:
+    - '#f9e2af'
+  unstagedChangesColor:
+    - '#f38ba8'
+  defaultFgColor:
+    - '#cdd6f4'
+
+authorColors:
+  '*': '#b4befe'
