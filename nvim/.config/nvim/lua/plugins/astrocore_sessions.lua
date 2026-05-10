@@ -1,9 +1,31 @@
-local home_path = os.getenv "HOME"
-local config_path = os.getenv "XDG_CONFIG_HOME" or os.getenv "HOME" .. "/.config/"
-local dotfiles_path = os.getenv "HOME" .. "/dotfiles/"
-local home = "󱂵 "
-local repo = "󱞊 "
-local config = "󱁿 "
+-- filter by dirsessions
+local function generate_dirsessions()
+  local cwd = vim.fn.getcwd()
+  local sessions = {}
+  for idx, session in ipairs(require("resession").list { dir = "dirsession" }) do
+    local sanitized_dirpath = session:gsub("__", ":/"):gsub("_", "/")
+    local path_structure = {}
+    local display_value
+    for item in string.gmatch(sanitized_dirpath, "[^/]+") do
+      table.insert(path_structure, item)
+    end
+    if path_structure[5] == ".config" and path_structure[4] == path_structure[6] then
+      display_value = string.format(".dot/%s", path_structure[6])
+    else
+      display_value = sanitized_dirpath
+    end
+
+    sessions[#sessions + 1] = {
+      score = 0,
+      text = session,
+      value = session,
+      idx = idx,
+      display_value = display_value,
+      file = sanitized_dirpath,
+    }
+  end
+  return sessions
+end
 
 return {
   {
@@ -36,10 +58,7 @@ return {
               -- Only load the session if nvim was started with no args
               if vim.fn.argc(-1) == 0 then
                 -- try to load a directory session using the current working directory
-                require("resession").load(
-                  vim.fn.getcwd(),
-                  { dir = "dirsession", silence_errors = true }
-                )
+                require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
               end
             end,
           },
@@ -58,11 +77,50 @@ return {
       },
       -- These are processed in order, so put more specific matches first
       path_icons = {
-        { match = config_path,           icon = config, highlight = "Directory" },
-        { match = dotfiles_path,         icon = config, highlight = "Special" },
-        { match = home_path .. "/repos", icon = repo,   highlight = "Special" },
-        { match = home_path,             icon = home,   highlight = "Directory" },
+        {
+          match = os.getenv "XDG_CONFIG_HOME" or os.getenv "HOME" .. "/.config/",
+          icon = " ",
+          highlight = "Directory",
+        },
+        {
+          match = ".dot/",
+          icon = " ",
+          highlight = "Special",
+        },
+        {
+          match = os.getenv "HOME" .. "/dotfiles",
+          icon = " ",
+          highlight = "Special",
+        },
+        {
+          match = os.getenv "HOME" .. "/repos",
+          icon = " ",
+          highlight = "Special",
+        },
+        {
+          match = os.getenv "HOME",
+          icon = "󰄛 ",
+          highlight = "Directory",
+        },
       },
     },
-  }
+    dependencies = {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>fe"] = {
+              function()
+                require("pick-resession").pick {
+                  snacks_finder = generate_dirsessions,
+                  dir = "dirsession",
+                }
+              end,
+              desc = "find session",
+            },
+          },
+        },
+      },
+    },
+  },
 }

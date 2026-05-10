@@ -1,6 +1,7 @@
 return {
   "NickvanDyke/opencode.nvim",
   version = "*",
+  enabled = false,
   config = function()
     -- local port = 4199
 
@@ -23,7 +24,7 @@ return {
       direction = "vertical",
       close_on_exit = true,
       size = vim.o.columns * 0.3,
-      hidden = true
+      hidden = true,
     }
     opencode_instance:spawn()
 

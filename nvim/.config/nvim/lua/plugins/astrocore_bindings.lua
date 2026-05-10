@@ -55,10 +55,6 @@ return {
         },
 
         -- pickers
-        ["<Leader>fe"] = {
-          function() require("pick-resession").pick() end,
-          desc = "find session",
-        },
         ["<Leader>fw"] = {
           function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() } } end,
           desc = "grep",

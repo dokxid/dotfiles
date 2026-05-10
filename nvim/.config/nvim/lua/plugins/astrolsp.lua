@@ -52,9 +52,18 @@ return {
       "gdscript",
     },
     -- customize language server configuration options passed to `lspconfig`
-    ---@diagnostic disable: missing-fields
     config = {
-      -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
+      ["lua_ls"] = {
+        settings = {
+          Lua = {
+            workspace = {
+              library = {
+                "/home/dokxid/.luarocks/share/lua/5.5/wezterm/types",
+              },
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {

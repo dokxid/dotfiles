@@ -151,6 +151,16 @@ local keys = {
 		action = act.ActivateTabRelative(1),
 	},
 	{
+		key = "w",
+		mods = "ALT",
+		action = act.CloseCurrentTab({ confirm = true }),
+	},
+	{
+		key = "t",
+		mods = "ALT",
+		action = act.SpawnTab("CurrentPaneDomain"),
+	},
+	{
 		key = "/",
 		mods = "ALT",
 		action = act.ShowLauncher,
