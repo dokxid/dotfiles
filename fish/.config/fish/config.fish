@@ -3,6 +3,9 @@
 # sudo sh -c "echo $(which zsh) >> /etc/shells"
 # chsh -s $(which zsh)
 
+# fish specific configs
+set fish_greeting
+
 # defaults
 export EDITOR="neovide --no-fork --frame none"
 
@@ -13,13 +16,12 @@ alias src "source ~/.config/fish/config.fish"
 alias lg lazygit
 alias ld lazydocker
 alias lj lazyjournal
-alias vim nvim
 alias n nvim
+alias nv nvim
+alias nvi nvim
+alias vim nvim
 alias s "sesh connect (sesh list | fzf)"
 alias ctl systemctl
-
-# fish specific configs
-set fish_greeting
 
 # app inits
 starship init fish | source
