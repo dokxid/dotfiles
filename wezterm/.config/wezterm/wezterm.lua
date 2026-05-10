@@ -3,6 +3,9 @@ local wezterm = require("wezterm") ---@type Wezterm
 local c = wezterm.config_builder()
 local act = wezterm.action
 
+-- refactored imports
+local bindings = require("bindings")
+
 -- https://github.com/abidibo/wezterm-cmdpicker
 local cmdpicker = wezterm.plugin.require("https://github.com/abidibo/wezterm-cmdpicker")
 cmdpicker.add_keys(c, {
@@ -30,10 +33,11 @@ c.key_tables = {
 }
 
 -- system
--- disable_default_key_bindings = true,
+c.enable_kitty_keyboard = true
+c.disable_default_key_bindings = bindings.disable_default_bindings
 c.default_prog = { "fish", "-l" }
 c.leader = { key = "F1", mods = "", timeout_milliseconds = 5000 }
-c.keys = require("bindings")
+c.keys = bindings.keys
 
 -- font
 c.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold", italic = false })

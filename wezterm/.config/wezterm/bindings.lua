@@ -3,6 +3,8 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local cmdpicker = wezterm.plugin.require("https://github.com/abidibo/wezterm-cmdpicker")
 
+local bindings = {}
+
 local function paste_wayland(pane)
 	local success, stdout = wezterm.run_child_process({ "wl-paste", "--no-newline" })
 	if success then
@@ -10,7 +12,8 @@ local function paste_wayland(pane)
 	end
 end
 
-local keys = {
+bindings.disable_default_bindings = true
+bindings.keys = {
 
 	-- keytables
 	{
@@ -200,5 +203,5 @@ local keys = {
 	},
 }
 
-cmdpicker.add_keys(keys) -- register only, no config object needed
-return keys
+cmdpicker.add_keys(bindings.keys) -- register only, no config object needed
+return bindings
