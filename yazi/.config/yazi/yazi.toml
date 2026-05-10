@@ -57,8 +57,11 @@ rules = [
 [opener]
 play = [
   { run = "xdg-open %s", orphan = true, for = "unix" },
+  { run = "open %s", desc = "Play", for = "macos" },
+  { run = "termux-open %s1", desc = "Play", for = "android" },
   { run = "losslesscut %s", orphan = true, for = "unix" },
   { run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
+  { run = "mediainfo %s1 & pause", block = true, desc = "Show media info", for = "windows" },
 ]
 image = [
   { run = "satty -f %s", orphan = true, for = "unix" },
@@ -68,12 +71,27 @@ image = [
 ]
 extract = [{ run = "ya pub extract --list %s", desc = "Extract here" }]
 edit = [
+  { run = "${EDITOR:-vi} %s", desc = "$EDITOR", for = "unix", block = true },
   { run = 'neovide "$@" --frame none --chdir %d1', block = false, orphan = true, for = "unix" },
-  { run = 'nvim "$@"', orphan = true, for = "unix" },
+  { run = "code %s", desc = "code", for = "windows", orphan = true },
+  { run = "code -w %s", desc = "code (block)", for = "windows", block = true },
+]
+open = [
+  { run = "xdg-open %s1", desc = "Open", for = "linux" },
+  { run = "open %s", desc = "Open", for = "macos" },
+  { run = 'start "" %s1', desc = "Open", for = "windows", orphan = true },
+  { run = "termux-open %s1", desc = "Open", for = "android" },
 ]
 download = [
   { run = "ya emit download --open %S", desc = "Download and open" },
   { run = "ya emit download %S", desc = "Download" },
+]
+reveal = [
+  { run = "xdg-open %d1", desc = "Reveal", for = "linux" },
+  { run = "open -R %s1", desc = "Reveal", for = "macos" },
+  { run = "explorer /select,%s1", desc = "Reveal", for = "windows", orphan = true },
+  { run = "termux-open %d1", desc = "Reveal", for = "android" },
+  { run = "clear; exiftool %s1; echo 'Press enter to exit'; read _", desc = "Show EXIF", for = "unix", block = true },
 ]
 
 [[plugin.prepend_fetchers]]
