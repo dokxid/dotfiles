@@ -1,42 +1,10 @@
-local Snacks = require "snacks" -- Add this at the top if 'snacks' is a module
+local Snacks = require "snacks"
+
 return {
   "folke/snacks.nvim",
   ---@type snacks.picker.Config
   opts = {
-    dashboard =
-      ---@class snacks.dashboard.Config
-      {
-        preset = {
-          header = [[the potato editor]],
-          keys = {
-            { icon = " ", key = "e", desc = "sessions", action = ":lua require('pick-resession').pick()" },
-            { icon = " ", key = "p", desc = "projects", action = ":lua Snacks.dashboard.pick('projects')" },
-            { icon = " ", key = "o", desc = "recent files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-            {
-              icon = " ",
-              key = ",",
-              desc = ".config/nvim",
-              action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-            },
-            { icon = "󰒲 ", key = "l", desc = ":lazy zzz", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-          },
-        },
-        sections = {
-          -- { section = "startup", padding = 2 },
-          {
-            pane = 1,
-            cmd = "if not test '$zen' = ''; cat ~/.config/nvim/dashboard_header; sleep 0.1; end",
-            section = "terminal",
-            height = 13,
-            padding = 2,
-          },
-          { section = "header", padding = 2 },
-          { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-          { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-        },
-      },
-
+    dashboard = require "plugins.snacks.dashboard",
     picker = {
       win = {
         preview = {
@@ -62,8 +30,38 @@ return {
       },
     },
   },
-  keys = {
-    { "<leader>bb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-    { "<leader>fz", function() Snacks.picker.zoxide() end, desc = "find zoxide" },
+  keys = {},
+  dependencies = {
+    "AstroNvim/astrocore",
+    ---@type AstroCoreOpts
+    opts = {
+      mappings = {
+        n = {
+          ["<leader>bb"] = { function() Snacks.picker.buffers() end, desc = "Buffers" },
+          ["<leader>fZ"] = { function() Snacks.picker.zoxide() end, desc = "find zoxide" },
+          ["<Leader>fw"] = {
+            function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() } } end,
+            desc = "grep",
+          },
+          ["<Leader>fW"] = {
+            function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() }, hidden = true, ignored = true } end,
+            desc = "grep in all files",
+          },
+          ["<Leader>fk"] = {
+            function()
+              require("snacks").picker.keymaps {
+                matcher = {
+                  fuzzy = false,
+                },
+                layout = {
+                  preset = "vertical",
+                },
+              }
+            end,
+            desc = "show keymaps",
+          },
+        },
+      },
+    },
   },
 }

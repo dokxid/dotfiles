@@ -52,7 +52,7 @@ return {
         wrap = false, -- sets vim.opt.wrap
         shiftwidth = 2, -- sets vim.opt.shiftwidth
         tabstop = 2, -- sets vim.opt.tabstop
-        cmdheight = 0, -- sets vim.opt.cmdheight
+        cmdheight = 0,
         scrolloff = 10, -- sets vim.opt.scrolloff
         laststatus = 3, -- sets vim.opt.laststatus
       },

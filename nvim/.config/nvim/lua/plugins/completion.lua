@@ -4,8 +4,10 @@ local function has_words_before()
 end
 local function is_visible(cmp) return cmp.core.view:visible() or vim.fn.pumvisible() == 1 end
 
+---@type LazySpec
 return {
   "hrsh7th/nvim-cmp",
+  enabled = false,
   dependencies = {
     { "hrsh7th/cmp-buffer", lazy = true },
     { "hrsh7th/cmp-path", lazy = true },
@@ -103,7 +105,7 @@ return {
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
         ["<C-E>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
         ["<C-Z>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
-        ["<Tab>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
+        -- ["<Tab>"] = cmp.mapping(cmp.mapping.confirm { select = true }, { "i", "c" }),
         -- ["<C-Z>"] = cmp.mapping(function(fallback)
         --   if is_visible(cmp) then
         --     cmp.select_next_item()

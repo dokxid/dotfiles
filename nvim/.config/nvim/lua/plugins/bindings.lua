@@ -1,3 +1,7 @@
+local layouts = {
+  keybindings = {},
+}
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -41,27 +45,18 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
-        ["<Leader>bb"] = false,
         ["Q"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
 
-        -- https://docs.astronvim.com/recipes/dashboard/#open-dashboard-automatically-when-no-more-buffers
+        --- LEADERS
+        -- ["<Leader>bb"] = false,
         ["<Leader>c"] = {
+          -- https://docs.astronvim.com/recipes/dashboard/#open-dashboard-automatically-when-no-more-buffers
           function()
             local bufs = vim.fn.getbufinfo { buflisted = 1 }
             require("astrocore.buffer").close(0)
             if not bufs[2] then require("snacks").dashboard() end
           end,
           desc = "Close buffer",
-        },
-
-        -- pickers
-        ["<Leader>fw"] = {
-          function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() } } end,
-          desc = "grep",
-        },
-        ["<Leader>fW"] = {
-          function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() }, hidden = true, ignored = true } end,
-          desc = "grep in all files",
         },
 
         -- neo-tree

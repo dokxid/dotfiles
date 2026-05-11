@@ -18,6 +18,13 @@ return {
       inlay_hints = false, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
+    capabilities = {
+      workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = false,
+        },
+      },
+    },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
@@ -120,5 +127,19 @@ return {
       -- this would disable semanticTokensProvider for all clients
       if stop_lsp_fmt[client.name] then client.server_capabilities.documentFormattingProvider = nil end
     end,
+  },
+  dependencies = {
+    {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      -- overrides `require("mason-tool-installer").setup(...)`
+      optional = true,
+      opts = {
+        -- Make sure to use the names found in `:Mason`
+        ensure_installed = {
+          -- install language servers
+        },
+      },
+      run_on_start = false,
+    },
   },
 }

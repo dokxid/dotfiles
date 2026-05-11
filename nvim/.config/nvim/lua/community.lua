@@ -19,17 +19,12 @@ return {
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
   -- completion
-  -- { import = "astrocommunity.completion.nvim-cmp" },
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
-  -- { import = "astrocommunity.ai.opencode-nvim" },
 
   -- motion
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.motion.nvim-spider" },
 
   -- editing-support
-  -- { import = "astrocommunity.fuzzy-finder.telescope-nvim" },
-  -- { import = "astrocommunity.editing-support.codecompanion-nvim" },
   { import = "astrocommunity.editing-support.vim-move" },
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   { import = "astrocommunity.register.nvim-neoclip-lua" },
@@ -43,7 +38,7 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
 
   -- scrolling
-  -- { import = "astrocommunity.scrolling.nvim-scrollbar" },
+  { import = "astrocommunity.scrolling.nvim-scrollbar" },
   -- { import = "astrocommunity.scrolling.satellite-nvim" },
 
   -- note-taking
@@ -51,7 +46,7 @@ return {
   -- { import = "astrocommunity.note-taking.obsidian-nvim" },
 
   -- code-runner
-  { import = "astrocommunity.code-runner.compiler-nvim" },
+  -- { import = "astrocommunity.code-runner.compiler-nvim" },
 
   -- utility
   { import = "astrocommunity.terminal-integration.flatten-nvim" },

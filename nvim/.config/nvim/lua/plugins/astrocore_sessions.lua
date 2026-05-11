@@ -37,15 +37,15 @@ return {
         -- Configure auto saving
         autosave = {
           last = true, -- auto save last session
-          cwd = true,  -- auto save session for each working directory
+          cwd = true, -- auto save session for each working directory
           enabled = true,
           notify = true,
         },
         -- Patterns to ignore when saving sessions
         ignore = {
-          dirs = {},                                -- working directories to ignore sessions in
+          dirs = {}, -- working directories to ignore sessions in
           filetypes = { "gitcommit", "gitrebase" }, -- filetypes to ignore sessions
-          buftypes = {},                            -- buffer types to ignore sessions
+          buftypes = {}, -- buffer types to ignore sessions
         },
       },
       autocmds = {
@@ -58,7 +58,10 @@ return {
               -- Only load the session if nvim was started with no args
               if vim.fn.argc(-1) == 0 then
                 -- try to load a directory session using the current working directory
-                require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
+                local cwd = vim.fn.getcwd()
+                if not (cwd == os.getenv "HOME") then
+                  require("resession").load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = false })
+                end
               end
             end,
           },
