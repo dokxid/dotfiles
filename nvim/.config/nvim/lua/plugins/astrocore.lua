@@ -41,7 +41,6 @@ return {
         [".env.*"] = "sh",
       },
     },
-
     options = {
       opt = { -- vim.opt.<key>
         shell = "/usr/bin/env fish",
@@ -55,6 +54,7 @@ return {
         cmdheight = 0,
         scrolloff = 10, -- sets vim.opt.scrolloff
         laststatus = 3, -- sets vim.opt.laststatus
+        linespace = 11,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

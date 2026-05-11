@@ -12,8 +12,8 @@ return {
 
   -- diagnostics
   { import = "astrocommunity.diagnostics.trouble-nvim" },
-  { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
-  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
+  -- { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
+  -- { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
   -- theme
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
@@ -22,8 +22,8 @@ return {
   { import = "astrocommunity.completion.blink-copilot" },
 
   -- motion
-  { import = "astrocommunity.motion.nvim-surround" },
-  { import = "astrocommunity.motion.nvim-spider" },
+  -- { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.motion.mini-surround" },
 
   -- editing-support
   { import = "astrocommunity.editing-support.vim-move" },
@@ -34,16 +34,10 @@ return {
   { import = "astrocommunity.utility.nvim-toggler" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
 
-  -- motion
-  { import = "astrocommunity.motion.nvim-surround" },
-  { import = "astrocommunity.motion.flash-nvim" },
-
   -- scrolling
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
-  -- { import = "astrocommunity.scrolling.satellite-nvim" },
 
   -- note-taking
-  -- { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   -- { import = "astrocommunity.note-taking.obsidian-nvim" },
 
   -- code-runner

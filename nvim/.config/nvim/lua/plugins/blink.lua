@@ -4,7 +4,7 @@ local debug_sources = vim.list_extend(vim.deepcopy(default_sources), { "dap" })
 ---@type LazySpec
 return {
   "Saghen/blink.cmp",
-  -- enabled = false,
+  enabled = true,
   dependencies = {
     "xzbdmw/colorful-menu.nvim",
     "saghen/blink.lib",
@@ -164,7 +164,7 @@ return {
       },
       documentation = {
         auto_show = true,
-        auto_show_delay_ms = 100,
+        auto_show_delay_ms = 500,
         update_delay_ms = 50,
         window = {
           max_width = math.min(80, vim.o.columns),

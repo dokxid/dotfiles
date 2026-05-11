@@ -45,14 +45,45 @@ return {
         snacks = {
           indent_scope_color = "lavender",
         },
+        treesitter = true,
+        blink_cmp = {
+          style = "bordered",
+        },
+        flash = true,
       },
+      transparent_background = true,
       dim_inactive = {
         enabled = true, -- dims the background color of inactive window
         shade = "dark",
         percentage = 0.05, -- percentage of the shade to apply to the inactive window
       },
-      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      styles = {
+        comments = { "italic", "dim" }, -- Change the style of comments
+        conditionals = { "italic" },
+        loops = { "italic" },
+        functions = { "bold" },
+        keywords = { "italic", "dim" },
+        strings = { "italic", "dim" },
+        variables = {},
+        numbers = { "italic" },
+        booleans = { "italic" },
+
+        properties = {},
+        types = { "bold" },
+        operators = { "bold" },
+        component = { "bold" },
+        start_tag = { "bold" },
+        end_tag = { "bold" },
+        miscs = {},
+      },
+      flavour = "mocha", -- latte, frappe, macchiato, :mocha
       term_colors = true,
+      custom_highlights = {
+        component = { style = { "bold" } },
+        start_tag = { style = { "bold" } },
+        end_tag = { style = { "bold" } },
+        tag_name = { style = { "bold" } },
+      },
     },
   },
   {
