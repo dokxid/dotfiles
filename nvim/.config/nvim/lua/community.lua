@@ -19,6 +19,7 @@ return {
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
 
   -- completion
+  { import = "astrocommunity.completion.blink-copilot" },
 
   -- motion
   { import = "astrocommunity.motion.nvim-surround" },

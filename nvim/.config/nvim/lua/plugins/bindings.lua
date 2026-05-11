@@ -48,7 +48,7 @@ return {
         ["Q"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
 
         --- LEADERS
-        -- ["<Leader>bb"] = false,
+        ["<Leader>bb"] = false,
         ["<Leader>c"] = {
           -- https://docs.astronvim.com/recipes/dashboard/#open-dashboard-automatically-when-no-more-buffers
           function()

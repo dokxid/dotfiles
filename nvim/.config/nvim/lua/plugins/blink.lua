@@ -16,7 +16,6 @@ return {
   opts = {
     keymap = {
       preset = "super-tab",
-      ["<C-Space>"] = { "show" },
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
     signature = {
@@ -68,7 +67,37 @@ return {
     },
     appearance = {
       kind_icons = {
-        Snippet = "",
+        Copilot = "",
+        Text = "󰉿",
+        Method = "󰊕",
+        Function = "󰊕",
+        Constructor = "󰒓",
+
+        Field = "󰜢",
+        Variable = "󰆦",
+        Property = "󰖷",
+
+        Class = "󱡠",
+        Interface = "󱡠",
+        Struct = "󱡠",
+        Module = "󰅩",
+
+        Unit = "󰪚",
+        Value = "󰦨",
+        Enum = "󰦨",
+        EnumMember = "󰦨",
+
+        Keyword = "󰻾",
+        Constant = "󰏿",
+
+        Snippet = "󱄽",
+        Color = "󰏘",
+        File = "󰈔",
+        Reference = "󰬲",
+        Folder = "󰉋",
+        Event = "󱐋",
+        Operator = "󰪚",
+        TypeParameter = "󰬛",
       },
     },
     cmdline = {

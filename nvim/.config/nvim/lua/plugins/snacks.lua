@@ -30,15 +30,16 @@ return {
       },
     },
   },
-  keys = {},
+  keys = {
+    { "<leader>bb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<leader>fz", function() Snacks.picker.zoxide() end, desc = "find zoxide" },
+  },
   dependencies = {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = {
       mappings = {
         n = {
-          ["<leader>bb"] = { function() Snacks.picker.buffers() end, desc = "Buffers" },
-          ["<leader>fZ"] = { function() Snacks.picker.zoxide() end, desc = "find zoxide" },
           ["<Leader>fw"] = {
             function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() } } end,
             desc = "grep",
