@@ -1,4 +1,4 @@
-local prefix = "cc"
+local prefix = "x"
 return {
   "echasnovski/mini.surround",
   dependencies = {

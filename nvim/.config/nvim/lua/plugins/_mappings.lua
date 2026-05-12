@@ -109,6 +109,7 @@ return {
 
         -- nops
         ["q"] = "<Nop>",
+        ["x"] = "<Nop>",
       },
       i = {
         ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },

@@ -1,6 +1,5 @@
 -- filter by dirsessions
 local function generate_dirsessions()
-  local cwd = vim.fn.getcwd()
   local sessions = {}
   for idx, session in ipairs(require("resession").list { dir = "dirsession" }) do
     local sanitized_dirpath = session:gsub("__", ":/"):gsub("_", "/")
@@ -30,6 +29,14 @@ end
 return {
   {
     "AstroNvim/astrocore",
+    fn = {
+      picker = function()
+        require("pick-resession").pick {
+          snacks_finder = generate_dirsessions,
+          dir = "dirsession",
+        }
+      end,
+    },
     ---@type AstroCoreOpts
     opts = {
       -- Configuration table of session options for AstroNvim's session management powered by Resession
@@ -55,9 +62,8 @@ return {
             desc = "Restore previous directory session if neovim opened with no arguments",
             nested = true, -- trigger other autocommands as buffers open
             callback = function()
-              -- Only load the session if nvim was started with no args
               if vim.fn.argc(-1) == 0 then
-                -- try to load a directory session using the current working directory
+                -- try to load a directory session using the current working directory if no args
                 local cwd = vim.fn.getcwd()
                 -- except home dir
                 if not (cwd == os.getenv "HOME") then

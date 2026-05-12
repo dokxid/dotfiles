@@ -12,14 +12,9 @@ return {
 
   -- diagnostics
   { import = "astrocommunity.diagnostics.trouble-nvim" },
-  -- { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
-  -- { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
   -- theme
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-
-  -- completion
-  { import = "astrocommunity.completion.blink-copilot" },
 
   -- motion
   { import = "astrocommunity.motion.mini-surround" },
@@ -29,21 +24,15 @@ return {
   { import = "astrocommunity.editing-support.auto-save-nvim" },
   { import = "astrocommunity.register.nvim-neoclip-lua" },
   { import = "astrocommunity.indent.snacks-indent-hlchunk" },
-  { import = "astrocommunity.search.grug-far-nvim" },
   { import = "astrocommunity.utility.nvim-toggler" },
   { import = "astrocommunity.recipes.picker-lsp-mappings" },
 
   -- scrolling
   { import = "astrocommunity.scrolling.nvim-scrollbar" },
 
-  -- note-taking
-  -- { import = "astrocommunity.note-taking.obsidian-nvim" },
-
   -- utility
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.editing-support.suda-vim" },
-  -- { import = "astrocommunity.editing-support.true-zen-nvim" },
-  -- { import = "astrocommunity.utility.hover-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },
 
   -- docker

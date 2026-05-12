@@ -8,12 +8,16 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "nvim-tree/nvim-web-devicons", -- optional, but recommended
+    "nvim-tree/nvim-web-devicons",
+    "saifulapm/neotree-file-nesting-config",
   },
 
   ---@module 'neo-tree'
   ---@type neotree.Config
   opts = {
+    close_if_last_window = true,
+    hide_root_node = true,
+    retain_hidden_root_indent = true,
     event_handlers = {
       {
         event = "file_open_requested",
@@ -21,18 +25,28 @@ return {
       },
     },
     window = {
-      -- position = "float",
+      width = 40,
       mappings = {
-        ["<Tab>"] = "next_source",
-        ["K"] = {
+        ["<space>"] = "",
+        ["<esc>"] = "close_window",
+        ["e"] = "close_window",
+        ["a"] = "focus_preview",
+        ["<tab>"] = {
           "toggle_preview",
           config = {
             use_float = true,
-            title = "preview",
+            use_snacks_image = true,
+            use_image_nvim = true,
           },
         },
-        ["."] = "toggle_hidden",
-        ["`"] = "set_root",
+        ["A"] = {
+          "add",
+          -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
+          -- some commands may take optional config options, see `:h neo-tree-mappings` for details
+          config = {
+            show_path = "relative", -- "none", "relative", "absolute"
+          },
+        },
       },
     },
     default_component_configs = {
@@ -50,10 +64,21 @@ return {
         expander_expanded = "",
       },
     },
+    nesting_rules = {
+      ["_"] = { -- match any node
+        collapse = true,
+        match = function(node) return node.type == "directory" and node.name:match "^src$" end,
+      },
+    },
     filesystem = {
+      mappings = {
+        ["."] = "toggle_hidden",
+        ["R"] = "set_root",
+      },
       group_empty_dirs = false,
       scan_mode = "deep",
       filtered_items = {
+        show_hidden_count = false,
         visible = false, -- hide filtered items on open
         hide_gitignored = true,
         hide_dotfiles = false,
@@ -79,4 +104,9 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    opts.nesting_rules = require("neotree-file-nesting-config").nesting_rules
+    require("neo-tree").setup(opts)
+  end,
+  commands = {},
 }
