@@ -1,16 +1,9 @@
-local default_sources = { "lsp", "path", "calc", "snippets", "buffer" }
+local default_sources = { "copilot", "lsp", "path", "calc", "buffer" }
 local debug_sources = vim.list_extend(vim.deepcopy(default_sources), { "dap" })
 
 ---@type LazySpec
 return {
   "Saghen/blink.cmp",
-  enabled = true,
-  dependencies = {
-    "xzbdmw/colorful-menu.nvim",
-    "saghen/blink.lib",
-    "rafamadriz/friendly-snippets",
-    "saghen/blink.compat",
-  },
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -29,6 +22,12 @@ return {
       default = default_sources,
       per_filetype = { ["dap-repl"] = debug_sources, ["dap-view"] = debug_sources },
       providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          async = true,
+        },
         lsp = {
           async = true,
         },
@@ -45,23 +44,6 @@ return {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
           fallbacks = { "lsp" },
-        },
-        emoji = {
-          module = "blink-emoji",
-          name = "Emoji",
-          score_offset = 15,
-          opts = {
-            insert = true,
-            ---@type string|table|fun():table
-            trigger = function() return { ":" } end,
-          },
-          should_show_items = function()
-            return vim.tbl_contains(
-              -- Enable emoji completion only for these filetypes.
-              { "gitcommit", "markdown", "octo" },
-              vim.o.filetype
-            )
-          end,
         },
       },
     },
@@ -169,6 +151,27 @@ return {
         window = {
           max_width = math.min(80, vim.o.columns),
           border = "rounded",
+        },
+      },
+    },
+  },
+  dependencies = {
+    "xzbdmw/colorful-menu.nvim",
+    "saghen/blink.lib",
+    "rafamadriz/friendly-snippets",
+    "saghen/blink.compat",
+    {
+      "fang2hou/blink-copilot",
+      lazy = true,
+      spec = {
+        {
+          "zbirenbaum/copilot.lua",
+          cmd = "Copilot",
+          event = "User AstroFile",
+          opts = {
+            panel = { enabled = false },
+            suggestion = { enabled = false },
+          },
         },
       },
     },
