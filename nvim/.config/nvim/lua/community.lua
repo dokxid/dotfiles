@@ -22,7 +22,6 @@ return {
   { import = "astrocommunity.completion.blink-copilot" },
 
   -- motion
-  -- { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.motion.mini-surround" },
 
   -- editing-support
@@ -40,15 +39,12 @@ return {
   -- note-taking
   -- { import = "astrocommunity.note-taking.obsidian-nvim" },
 
-  -- code-runner
-  -- { import = "astrocommunity.code-runner.compiler-nvim" },
-
   -- utility
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.editing-support.suda-vim" },
   -- { import = "astrocommunity.editing-support.true-zen-nvim" },
   -- { import = "astrocommunity.utility.hover-nvim" },
-  -- { import = "astrocommunity.utility.noice-nvim" },
+  { import = "astrocommunity.utility.noice-nvim" },
 
   -- docker
   { import = "astrocommunity.docker.lazydocker" },

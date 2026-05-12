@@ -42,23 +42,21 @@ return {
       },
     },
     options = {
-      opt = { -- vim.opt.<key>
+      opt = {
         shell = "/usr/bin/env fish",
-        relativenumber = true, -- sets vim.opt.relativenumber
-        number = true, -- sets vim.opt.number
-        spell = false, -- sets vim.opt.spell
-        signcolumn = "yes", -- sets vim.opt.signcolumn to yes
-        wrap = false, -- sets vim.opt.wrap
-        shiftwidth = 2, -- sets vim.opt.shiftwidth
-        tabstop = 2, -- sets vim.opt.tabstop
+        relativenumber = true,
+        number = true,
+        spell = false,
+        signcolumn = "yes",
+        wrap = false,
+        shiftwidth = 2,
+        tabstop = 2,
         cmdheight = 0,
-        scrolloff = 10, -- sets vim.opt.scrolloff
-        laststatus = 3, -- sets vim.opt.laststatus
+        scrolloff = 10,
+        laststatus = 3,
         linespace = 11,
       },
-      g = { -- vim.g.<key>
-        -- configure global vim variables (vim.g)
-      },
+      g = {},
     },
   },
 }

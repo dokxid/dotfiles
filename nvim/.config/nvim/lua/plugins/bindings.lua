@@ -92,8 +92,8 @@ return {
         ["<Leader>Q"] = false,
 
         -- text manipulation
-        ["<S-Down>"] = { "<Cmd>move .+1<CR>", desc = "Move line down" },
-        ["<S-Up>"] = { "<Cmd>move .-2<CR>", desc = "Move line up" },
+        ["<C-S-Down>"] = { "<Cmd>move .+1<CR>", desc = "Move line down" },
+        ["<C-S-Up>"] = { "<Cmd>move .-2<CR>", desc = "Move line up" },
         ["<C-S-Left>"] = { "<S-v><<Esc>", desc = "Move line down" },
         ["<C-S-Right>"] = { "<S-v>><Esc>", desc = "Move line up" },
 
