@@ -44,7 +44,7 @@ return {
     options = {
       opt = {
         shell = "/usr/bin/env fish",
-        relativenumber = true,
+        relativenumber = false,
         number = true,
         spell = false,
         signcolumn = "yes",
@@ -55,6 +55,7 @@ return {
         scrolloff = 10,
         laststatus = 3,
         linespace = 11,
+        cursorline = false,
       },
       g = {},
     },

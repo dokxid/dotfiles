@@ -44,16 +44,23 @@ return {
         colorful_winsep = { enabled = true, color = "lavender" },
         snacks = {
           indent_scope_color = "lavender",
+          enabled = true,
         },
         treesitter = true,
         blink_cmp = {
           style = "bordered",
         },
         flash = true,
+        gitsigns = {
+          enabled = true,
+          transparent = false,
+        },
+        grug_far = true,
+        which_key = true,
       },
       transparent_background = true,
       dim_inactive = {
-        enabled = true, -- dims the background color of inactive window
+        enabled = false, -- dims the background color of inactive window
         shade = "dark",
         percentage = 0.05, -- percentage of the shade to apply to the inactive window
       },

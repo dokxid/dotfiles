@@ -3,9 +3,18 @@ return {
   preset = {
     header = [[the potato editor]],
     keys = {
-      { icon = " ", key = "e", desc = "sessions", action = ":lua require('pick-resession').pick()" },
-      { icon = " ", key = "p", desc = "projects", action = ":lua Snacks.dashboard.pick('projects')" },
-      { icon = " ", key = "o", desc = "recent files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+      {
+        icon = " ",
+        key = "e",
+        desc = "sessions",
+        action = ":lua require('pick-resession').pick {snacks_finder = generate_dirsessions, dir = 'dirsession', } ",
+      },
+      {
+        icon = " ",
+        key = "o",
+        desc = "recent files",
+        action = ":lua require('pick-resession').pick {snacks_finder = generate_dirsessions, dir = 'dirsession', } ",
+      },
       {
         icon = " ",
         key = ",",
@@ -26,7 +35,5 @@ return {
     },
     { section = "header", padding = 2 },
     { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-    { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-    { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
   },
 }
