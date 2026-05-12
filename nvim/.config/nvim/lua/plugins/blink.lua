@@ -160,6 +160,7 @@ return {
     "saghen/blink.lib",
     "rafamadriz/friendly-snippets",
     "saghen/blink.compat",
+    "onsails/lspkind.nvim",
     {
       "fang2hou/blink-copilot",
       lazy = true,

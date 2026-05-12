@@ -16,16 +16,27 @@ return {
     opts.statusline = { -- statusline
       hl = { fg = "fg", bg = "bg" },
       status.component.mode {
-        -- mode_text = { padding = { left = 1, right = 1 } },
-        -- hl = function()
-        --   local hl = require("astroui.status").hl.get_attributes "mode"
-        --   hl.bold = true
-        --   return hl
-        -- end,
+        -- hl = {
+        --   bg = require("astroui.status").hl.get_attributes("mode").bg,
+        --   fg = require("catppuccin.palettes").get_palette().surface0,
+        --   bold = true,
+        -- },
       },
-      status.component.git_branch(),
-      status.component.git_diff(),
-      status.component.file_info(),
+      -- status.component.git_diff {
+      --   padding = { left = 0, right = 1 },
+      -- },
+      status.component.builder {
+        provider = function()
+          local icon = "  "
+          local cwd = vim.fn.getcwd(0)
+          cwd = vim.fn.fnamemodify(cwd, ":~")
+          return icon .. cwd
+        end,
+        padding = { left = 1, right = 1 },
+        hl = { fg = require("catppuccin.palettes").get_palette("mocha").lavender, italic = true },
+      },
+      -- status.component.git_branch(),
+      -- status.component.file_info(),
       status.component.diagnostics(),
       status.component.fill(),
       status.component.cmd_info(),
@@ -33,7 +44,11 @@ return {
       -- status.component.virtual_env(),
       status.component.lsp(),
       -- status.component.treesitter(),
-      status.component.nav(),
+      status.component.builder {
+        provider = "%10(󰷈 %l/%L%)", -- show hour and minute in 24 hour format
+        padding = { left = 1, right = 1 },
+        hl = { fg = require("catppuccin.palettes").get_palette("mocha").peach, bold = true },
+      },
     }
   end,
 }

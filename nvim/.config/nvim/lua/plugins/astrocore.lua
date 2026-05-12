@@ -55,7 +55,7 @@ return {
         scrolloff = 10,
         laststatus = 3,
         linespace = 11,
-        cursorlineopt = "number",
+        cursorlineopt = "both",
       },
       g = {},
     },

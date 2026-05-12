@@ -35,8 +35,25 @@ return {
     },
   },
   {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      numhl = false,
+      signcolumn = true,
+      sign_priority = 6,
+    },
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
+    dependencies = {
+      {
+        "rasulomaroff/reactive.nvim",
+        opts = {
+          load = { "catppuccin-mocha-cursor", "catppuccin-mocha-cursorline" },
+        },
+      },
+    },
+    ---@type CatppuccinOptions
     opts = {
       auto_integrations = true,
       integrations = {
@@ -53,24 +70,26 @@ return {
         flash = true,
         gitsigns = {
           enabled = true,
-          transparent = false,
+          transparent = true,
         },
         grug_far = true,
         which_key = true,
+        neotree = true,
       },
       transparent_background = true,
+      float = {
+        transparent = true,
+        solid = true,
+      },
       dim_inactive = {
         enabled = false, -- dims the background color of inactive window
         shade = "dark",
         percentage = 0.05, -- percentage of the shade to apply to the inactive window
       },
       styles = {
-        comments = { "italic", "dim" }, -- Change the style of comments
         conditionals = { "italic" },
         loops = { "italic" },
         functions = { "bold" },
-        keywords = { "italic", "dim" },
-        strings = { "italic", "dim" },
         variables = {},
         numbers = { "italic" },
         booleans = { "italic" },
@@ -85,11 +104,25 @@ return {
       },
       flavour = "mocha", -- latte, frappe, macchiato, :mocha
       term_colors = true,
-      custom_highlights = {
-        component = { style = { "bold" } },
-        start_tag = { style = { "bold" } },
-        end_tag = { style = { "bold" } },
-        tag_name = { style = { "bold" } },
+      highlight_overrides = {
+        all = function(colors)
+          return {
+            -- Comment = { fg = colors.flamingo },
+          }
+        end,
+        latte = function(colors)
+          return {
+            -- Comment = { fg = latte.flamingo },
+          }
+        end,
+        ---@type CtpHighlightOverrideFn
+        mocha = function(colors)
+          return {
+            comment = { fg = colors.subtext0, style = { "italic", "dim" } },
+            keyword = { style = { "italic", "dim" } },
+            string = { fg = colors.teal, style = { "italic", "dim" } },
+          }
+        end,
       },
     },
   },

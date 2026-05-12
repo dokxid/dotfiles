@@ -15,6 +15,19 @@ return {
   ---@module 'neo-tree'
   ---@type neotree.Config
   opts = {
+    source_selector = {
+      truncation_character = "",
+      winbar = false,
+      statusline = true,
+      content_layout = "center",
+      sources = {
+        { source = "filesystem" },
+        { source = "buffers" },
+        { source = "git_status" },
+      },
+      separator = { left = "", right = "" },
+      separator_active = nil,
+    },
     close_if_last_window = true,
     hide_root_node = true,
     retain_hidden_root_indent = true,
