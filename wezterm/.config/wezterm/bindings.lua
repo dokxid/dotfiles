@@ -12,8 +12,15 @@ local function paste_wayland(pane)
 	end
 end
 
-bindings.disable_default_bindings = true
+bindings.disable_default_bindings = false
 bindings.keys = {
+
+	-- unbinds
+	{
+		key = "r",
+		mods = "CTRL",
+		action = act.Nop,
+	},
 
 	-- keytables
 	{
