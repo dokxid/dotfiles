@@ -151,13 +151,13 @@ bindings.keys = {
 		action = act.ActivateTabRelative(1),
 	},
 	{
-		key = "LeftArrow",
-		mods = "ALT|CTRL",
+		key = "[",
+		mods = "ALT",
 		action = act.ActivateTabRelative(-1),
 	},
 	{
-		key = "RightArrow",
-		mods = "ALT|CTRL",
+		key = "]",
+		mods = "ALT",
 		action = act.ActivateTabRelative(1),
 	},
 	{
