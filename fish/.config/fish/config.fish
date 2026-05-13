@@ -7,10 +7,7 @@
 set fish_greeting
 
 # defaults
-export EDITOR="neovide --no-fork --frame none"
-
-# ssh-agent
-set init_ssh ssh-agent -c
+set -gx EDITOR nvim
 
 alias src "source ~/.config/fish/config.fish"
 alias lg lazygit
@@ -23,17 +20,25 @@ alias vim nvim
 alias s "sesh connect (sesh list | fzf)"
 alias ctl systemctl
 
-# app inits
+# theme
+set -gx LS_COLORS (vivid generate rose-pine)
+fish_config theme choose catppuccin-mocha
+
+# app inits / defaults
 starship init fish | source
+fzf_configure_bindings --variables=\e\cv
+set init_ssh ssh-agent -c
+set -x BUN_INSTALL "$HOME/.bun"
+set -x CARGO_HOME "$HOME/.local/share/cargo"
+set fzf_directory_opts --bind "ctrl-o:execute(nvim {} &> /dev/tty)" --bind "ctrl-t:toggle-preview"
+set -gx FZF_DEFAULT_OPTS "--style full --border --padding 1,2 --border-label ' fzf ' --input-label ' input ' --header-label ' file type '"
 
 # paths
 fish_add_path ~/scripts
-### bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
-### rust
-set --export CARGO_HOME "$HOME/.local/share/cargo"
-set --export PATH $CARGO_HOME/bin $PATH
+fish_add_path ~/go/bin
+fish_add_path $BUN_INSTALL/bin
+fish_add_path $CARGO_HOME/bin
+
 ### os specific stuff
 switch (uname)
     case Linux
@@ -55,12 +60,3 @@ switch (uname)
     case FreeBSD NetBSD DRagonFly
     case '*'
 end
-
-# theme
-# @fish-lsp-disable-next-line 7001
-set -gx LS_COLORS (vivid generate rose-pine)
-
-# fzf
-fzf_configure_bindings --variables=\e\cv
-set fzf_directory_opts --bind "ctrl-o:execute(nvim {} &> /dev/tty)" --bind "ctrl-t:toggle-preview"
-set -gx FZF_DEFAULT_OPTS "--style full --border --padding 1,2 --border-label ' fzf ' --input-label ' input ' --header-label ' file type '"
