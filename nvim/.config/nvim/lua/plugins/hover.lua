@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 -- https://github.com/lewis6991/hover.nvim
 return {
   "lewis6991/hover.nvim",

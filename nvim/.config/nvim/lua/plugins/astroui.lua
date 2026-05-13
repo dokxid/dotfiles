@@ -43,6 +43,22 @@ return {
     },
   },
   {
+    "folke/noice.nvim",
+    opts = {
+      cmdline = {
+        ---@type table<string, CmdlineFormat>
+        format = {
+          cmdline = { conceal = false },
+          help = { conceal = false },
+        },
+      },
+      presets = {
+        bottom_search = false,
+        lsp_doc_border = true,
+      },
+    },
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     dependencies = {
