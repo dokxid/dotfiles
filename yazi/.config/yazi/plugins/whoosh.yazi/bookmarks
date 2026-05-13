@@ -1,0 +1,15 @@
+yazi	/home/dokxid/dotfiles/yazi/.config/yazi	c,y
+videos	/home/dokxid/Videos	v,v
+tmux	/home/dokxid/dotfiles/tmux/.config/tmux	c,t
+systemd	/etc/systemd	M,s
+repos	/home/dokxid/repos	r
+pictures	/home/dokxid/Pictures	p
+omarchy scripts	/home/dokxid/.local/share/omarchy/bin	s,o
+obs	/mnt/nvme/footage/obs	v,o
+nvim	/home/dokxid/dotfiles/nvim/.config/nvim	c,v
+.local/nvim	/home/dokxid/.local/share/nvim/lazy	l,n
+hyprland	/home/dokxid/dotfiles/hypr/.config/hypr	c,h
+home	/home/dokxid	h
+dotfiles	/home/dokxid/dotfiles	c,d
+desktop entries	/usr/share/applications	0
+.config	/home/dokxid/.config	c,c
