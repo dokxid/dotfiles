@@ -1,6 +1,5 @@
-local layouts = {
-  keybindings = {},
-}
+-- configuration:
+-- https://docs.astronvim.com/recipes/mappings/
 
 ---@type LazySpec
 return {
@@ -10,44 +9,18 @@ return {
     mappings = {
 
       n = {
-        -- lsp
-        ["gt"] = {
-          function() vim.lsp.buf.type_definition() end,
-          desc = "go to type definition",
-        },
-
-        -- utils
-        ["<F6>"] = {
-          "<cmd>CompilerOpen<cr>",
-          desc = "Open compiler",
-        },
-
         -- splits
-        ["\\"] = {
-          "<cmd>vsplit<cr>",
-          desc = "vertical split",
-        },
-        ["|"] = {
-          "<cmd>split<cr>",
-          desc = "horizontal split",
-        },
+        ["|"] = { "<cmd>vsplit<cr>", desc = "vertical split" },
+        ["\\"] = { "<cmd>split<cr>", desc = "horizontal split" },
+        ["Q"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
 
         -- buffers
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["}"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["{"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-        ["<Leader>bd"] = {
-          function()
-            require("astroui.status.heirline").buffer_picker(
-              function(bufnr) require("astrocore.buffer").close(bufnr) end
-            )
-          end,
-          desc = "Close buffer from tabline",
-        },
-        ["Q"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
 
-        --- LEADERS
+        -- leaders
         ["<Leader>bb"] = false,
         ["<Leader>c"] = {
           -- https://docs.astronvim.com/recipes/dashboard/#open-dashboard-automatically-when-no-more-buffers
@@ -58,31 +31,14 @@ return {
           end,
           desc = "Close buffer",
         },
-        ["<C-Space>"] = "<Nop>",
-
-        -- neo-tree
-        ["<Leader>e"] = { desc = "explorer" },
-        ["<Leader>ee"] = {
-          ":Neotree toggle<CR>",
-          desc = "explorer neo tree",
-        },
-        ["<Leader>ef"] = {
-          ":Neotree float buffers<CR>",
-          desc = "git neo tree",
-        },
-        ["<Leader>er"] = {
-          ":Neotree float git_status git_base=main<CR>",
-          desc = "git neo tree",
-        },
-
-        -- terminal
-        ["<F12>"] = { "<Cmd>ToggleTerm name=default<CR>", desc = "ToggleTerm" },
-
-        -- misc
         ["<Leader>a"] = { desc = "misc" },
-        ["<Leader>ar"] = {
+        ["<Leader>."] = {
           "<cmd>AstroRoot<cr>",
           desc = "astroroot",
+        },
+        ["<Leader>ar"] = {
+          "<cmd>AstroReload<cr>",
+          desc = "astroreload",
         },
         ["<Leader>ad"] = {
           "<cmd>DiffviewOpen<ct>",
@@ -90,6 +46,17 @@ return {
         },
         ["<Leader>w"] = false,
         ["<Leader>Q"] = false,
+
+        -- terminal
+        ["<F12>"] = { "<Cmd>ToggleTerm name=default<CR>", desc = "ToggleTerm" },
+
+        -- util
+        ["<Esc>"] = { "<Cmd>nohlsearch<CR>", desc = "Clear search highlights" },
+        ["<C-s>"] = { ":w<CR>", desc = "save file" },
+
+        -- view manipulation
+        ["<PageUp>"] = { "<C-u>", desc = "Scroll up" },
+        ["<PageDown>"] = { "<C-d>", desc = "Scroll down" },
 
         -- text manipulation
         ["<C-S-Down>"] = { "<Cmd>move .+1<CR>", desc = "Move line down" },
@@ -120,6 +87,10 @@ return {
       t = {
         ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
         ["qq"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
+        ["<Esc><Esc>"] = {
+          "<C-\\><C-n>",
+          desc = "exit terminal mode",
+        },
       },
       v = {
         -- nops

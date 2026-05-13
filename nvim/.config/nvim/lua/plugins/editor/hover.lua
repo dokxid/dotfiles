@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- https://github.com/lewis6991/hover.nvim
 return {
   "lewis6991/hover.nvim",
@@ -14,12 +12,12 @@ return {
           "hover.providers.dap",
           "hover.providers.man",
           "hover.providers.dictionary",
+          "hover.providers.fold_preview",
+          "hover.providers.highlight",
           -- Optional, disabled by default:
           -- 'hover.providers.gh',
           -- 'hover.providers.gh_user',
           -- 'hover.providers.jira',
-          "hover.providers.fold_preview",
-          "hover.providers.highlight",
         },
         mappings = {
           n = {

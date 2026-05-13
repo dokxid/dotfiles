@@ -2,16 +2,20 @@ local Snacks = require "snacks"
 
 return {
   "folke/snacks.nvim",
-  ---@type snacks.picker.Config
+  ---@type Snacks.picker.Config
   opts = {
-    dashboard = require "plugins.snacks.dashboard",
+    -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
     picker = {
       win = {
         preview = {
           wo = { wrap = true },
         },
+        input = {
+          ["<Esc>"] = { "close", mode = { "n", "i" } },
+          ["/"] = "toggle_focus",
+        },
       },
-      ---@class snacks.picker.buffers.Config: snacks.picker.Config
+      ---@class Snacks.picker.buffers.Config: snacks.picker.Config
       buffers = {
         win = {
           input = {
@@ -40,17 +44,21 @@ return {
     opts = {
       mappings = {
         n = {
+          ["<Leader><space>"] = {
+            function() Snacks.picker.smart() end,
+            desc = "smart find",
+          },
           ["<Leader>fw"] = {
-            function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() } } end,
+            function() Snacks.picker.grep { dirs = { vim.fn.getcwd() } } end,
             desc = "grep",
           },
           ["<Leader>fW"] = {
-            function() require("snacks").picker.grep { dirs = { vim.fn.getcwd() }, hidden = true, ignored = true } end,
+            function() Snacks.picker.grep { dirs = { vim.fn.getcwd() }, hidden = true, ignored = true } end,
             desc = "grep in all files",
           },
           ["<Leader>fk"] = {
             function()
-              require("snacks").picker.keymaps {
+              Snacks.picker.keymaps {
                 matcher = {
                   fuzzy = false,
                 },

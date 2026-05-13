@@ -3,7 +3,6 @@ if vim.g.neovide then return {} end
 -- emulate smooth scrolling outside of neovide
 return {
   "karb94/neoscroll.nvim",
-  enabled = false,
   opts = {
     easing = "circular",
     hide_cursor = false,
