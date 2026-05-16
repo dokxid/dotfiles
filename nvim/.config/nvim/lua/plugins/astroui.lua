@@ -1,5 +1,6 @@
--- AstroUI provides the basis for configuring the AstroNvim User Interface
--- Configuration documentation can be found with `:h astroui`
+-- configuration:
+-- https://github.com/AstroNvim/astroui#%EF%B8%8F-configuration
+-- or under `:h astroui`
 
 ---@type LazySpec
 return {
@@ -7,20 +8,16 @@ return {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
     opts = {
-      -- change colorscheme
       colorscheme = "catppuccin",
-      -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
       highlights = {
-        init = { -- this table overrides highlights in all themes
+        init = {
           -- Normal = { bg = "#000000" },
         },
-        astrodark = { -- a table of overrides/changes when applying the astrotheme theme
+        astrodark = {
           -- Normal = { bg = "#000000" },
         },
       },
-      -- Icons can be configured throughout the interface
       icons = {
-        -- configure the loading of the lsp in the status line
         LSPLoading1 = "⠋",
         LSPLoading2 = "⠙",
         LSPLoading3 = "⠹",
@@ -35,41 +32,8 @@ return {
     },
   },
   {
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      numhl = false,
-      signcolumn = true,
-      sign_priority = 6,
-    },
-  },
-  {
-    "folke/noice.nvim",
-    opts = {
-      cmdline = {
-        ---@type table<string, CmdlineFormat>
-        format = {
-          cmdline = { conceal = false },
-          help = { conceal = false },
-        },
-      },
-      presets = {
-        bottom_search = false,
-        lsp_doc_border = true,
-      },
-    },
-  },
-  {
     "catppuccin/nvim",
     name = "catppuccin",
-    dependencies = {
-      {
-        "rasulomaroff/reactive.nvim",
-        enabled = false,
-        opts = {
-          load = { "catppuccin-mocha-cursor", "catppuccin-mocha-cursorline" },
-        },
-      },
-    },
     ---@type CatppuccinOptions
     opts = {
       flavour = "auto",
@@ -128,7 +92,6 @@ return {
         which_key = true,
         neotree = true,
       },
-      term_colors = true,
       -- highlight_overrides = {
       --   all = function(colors)
       --     return {
@@ -149,6 +112,15 @@ return {
       --     }
       --   end,
       -- },
+    },
+    dependencies = {
+      {
+        "rasulomaroff/reactive.nvim",
+        enabled = false,
+        opts = {
+          load = { "catppuccin-mocha-cursor", "catppuccin-mocha-cursorline" },
+        },
+      },
     },
   },
   {
@@ -182,5 +154,29 @@ return {
   {
     "f-person/auto-dark-mode.nvim",
     opts = {},
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      numhl = false,
+      signcolumn = true,
+      sign_priority = 6,
+    },
+  },
+  {
+    "folke/noice.nvim",
+    opts = {
+      cmdline = {
+        ---@type table<string, CmdlineFormat>
+        format = {
+          cmdline = { conceal = false },
+          help = { conceal = false },
+        },
+      },
+      presets = {
+        bottom_search = false,
+        lsp_doc_border = true,
+      },
+    },
   },
 }
