@@ -13,6 +13,7 @@ return {
             ["<Right>"] = { function() require("origami").l() end },
             ["`"] = { function() require("origami").caret() end },
             ["~"] = { function() require("origami").dollar() end },
+            ["zc"] = "<Nop>",
           },
         },
       },

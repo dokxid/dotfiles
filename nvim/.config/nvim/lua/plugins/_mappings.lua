@@ -28,8 +28,11 @@ return {
         ["{"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- leaders
-        ["<Leader>bb"] = false,
         ["<Leader>c"] = { close_buffer, desc = "close buffer" },
+        ["<Leader>C"] = {
+          function() require("astrocore.buffer").close_all(true) end,
+          desc = "close all buffers except current one",
+        },
         ["<Leader>a"] = { desc = "misc" },
         ["<Leader>."] = {
           "<cmd>AstroRoot<cr>",
@@ -43,8 +46,12 @@ return {
           "<cmd>DiffviewOpen<ct>",
           desc = "diff view: working tree changes",
         },
+        ["<Leader>bb"] = false,
+        ["<Leader>bc"] = false,
         ["<Leader>w"] = false,
         ["<Leader>Q"] = false,
+        ["<Leader>h"] = false,
+        ["<Leader>o"] = false,
 
         -- terminal
         ["<F12>"] = { "<Cmd>ToggleTerm name=default<CR>", desc = "ToggleTerm" },
@@ -61,10 +68,7 @@ return {
         ["~"] = { "$", desc = "go to end of line" },
 
         -- text manipulation
-        ["<C-S-Down>"] = { "<Cmd>move .+1<CR>", desc = "Move line down" },
-        ["<C-S-Up>"] = { "<Cmd>move .-2<CR>", desc = "Move line up" },
-        ["<C-S-Left>"] = { "<S-v><<Esc>", desc = "Move line down" },
-        ["<C-S-Right>"] = { "<S-v>><Esc>", desc = "Move line up" },
+        ["<C-/>"] = { require("vim._comment").operator() .. "_", desc = "Toggle comment" },
 
         -- splits
         ["<C-Left>"] = { function() require("smart-splits").move_cursor_left() end, desc = "Move to left split" },
@@ -79,6 +83,10 @@ return {
         ["<C-J>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
         ["<C-H>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
         ["<C-L>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
+        ["<C-S-Up>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" },
+        ["<C-S-Down>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
+        ["<C-S-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
+        ["<C-S-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
 
         -- nops
         ["q"] = "<Nop>",

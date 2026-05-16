@@ -49,7 +49,7 @@ return {
       ---@param opts AstroCoreOpts
       opts = function(_, opts)
         local maps = assert(opts.mappings)
-        local prefix = "<Leader>C"
+        local prefix = "<Leader>L"
         maps.n[prefix] = { desc = require("astroui").get_icon("log", 1, true) .. "log" }
         maps.n[prefix .. "c"] = {
           "<Plug>CandelaUi",
