@@ -8,7 +8,7 @@ return {
     ---@type AstroUIOpts
     opts = {
       -- change colorscheme
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "catppuccin",
       -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
       highlights = {
         init = { -- this table overrides highlights in all themes
@@ -72,6 +72,41 @@ return {
     },
     ---@type CatppuccinOptions
     opts = {
+      flavour = "auto",
+      background = {
+        light = "latte",
+        dark = "mocha",
+      },
+      transparent_background = false,
+      float = {
+        transparent = true,
+        solid = true,
+      },
+      term_colors = true,
+      dim_inactive = {
+        enabled = false, -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.05, -- percentage of the shade to apply to the inactive window
+      },
+      no_italic = false, -- Force no italic
+      no_bold = false, -- Force no bold
+      no_underline = false, -- Force no underline
+      styles = {
+        conditionals = { "italic" },
+        loops = { "italic" },
+        functions = { "bold" },
+        variables = {},
+        numbers = { "italic" },
+        booleans = { "italic" },
+
+        properties = {},
+        types = { "bold" },
+        operators = { "bold" },
+        component = { "bold" },
+        start_tag = { "bold" },
+        end_tag = { "bold" },
+        miscs = {},
+      },
       auto_integrations = true,
       integrations = {
         avante = { rounded = true },
@@ -93,54 +128,27 @@ return {
         which_key = true,
         neotree = true,
       },
-      transparent_background = false,
-      float = {
-        transparent = true,
-        solid = true,
-      },
-      dim_inactive = {
-        enabled = false, -- dims the background color of inactive window
-        shade = "dark",
-        percentage = 0.05, -- percentage of the shade to apply to the inactive window
-      },
-      styles = {
-        conditionals = { "italic" },
-        loops = { "italic" },
-        functions = { "bold" },
-        variables = {},
-        numbers = { "italic" },
-        booleans = { "italic" },
-
-        properties = {},
-        types = { "bold" },
-        operators = { "bold" },
-        component = { "bold" },
-        start_tag = { "bold" },
-        end_tag = { "bold" },
-        miscs = {},
-      },
-      flavour = "mocha", -- latte, frappe, macchiato, :mocha
       term_colors = true,
-      highlight_overrides = {
-        all = function(colors)
-          return {
-            -- Comment = { fg = colors.flamingo },
-          }
-        end,
-        latte = function(colors)
-          return {
-            -- Comment = { fg = latte.flamingo },
-          }
-        end,
-        ---@type CtpHighlightOverrideFn
-        mocha = function(colors)
-          return {
-            comment = { fg = colors.subtext0, style = { "italic", "dim" } },
-            keyword = { style = { "italic", "dim" } },
-            string = { fg = colors.teal, style = { "italic", "dim" } },
-          }
-        end,
-      },
+      -- highlight_overrides = {
+      --   all = function(colors)
+      --     return {
+      --       -- Comment = { fg = colors.flamingo },
+      --     }
+      --   end,
+      --   latte = function(colors)
+      --     return {
+      --       -- Comment = { fg = latte.flamingo },
+      --     }
+      --   end,
+      --   ---@type CtpHighlightOverrideFn
+      --   mocha = function(colors)
+      --     return {
+      --       comment = { fg = colors.subtext0, style = { "italic", "dim" } },
+      --       keyword = { style = { "italic", "dim" } },
+      --       string = { fg = colors.teal, style = { "italic", "dim" } },
+      --     }
+      --   end,
+      -- },
     },
   },
   {

@@ -5,7 +5,7 @@ return {
   dependencies = {
     {
       "AstroNvim/astrocore",
-      ---@type Flash.Config
+      ---@type AstroCoreOpts
       opts = {
         label = {
           rainbow = {

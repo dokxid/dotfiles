@@ -57,7 +57,7 @@ return {
         -- view/cursor manipulation
         ["<PageUp>"] = { "<C-u>", desc = "Scroll up" },
         ["<PageDown>"] = { "<C-d>", desc = "Scroll down" },
-        ["`"] = { "0w", desc = "go to start of line" },
+        ["`"] = { "^", desc = "go to start of line" },
         ["~"] = { "$", desc = "go to end of line" },
 
         -- text manipulation
