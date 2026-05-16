@@ -9,6 +9,18 @@ return {
 
     autocmds = {},
 
+    commands = {
+      LspLogClear = {
+        function()
+          local lsplogpath = vim.fn.stdpath "state" .. "/lsp.log"
+          if io.close(io.open(lsplogpath, "w+b")) == false then
+            vim.notify("Clearing LSP Log failed.", vim.log.levels.WARN)
+          end
+        end,
+        desc = "Clear the LSP log file",
+      },
+    },
+
     features = {
       large_buf = { size = 1024 * 256, lines = 10000 },
       autopairs = true,
