@@ -45,18 +45,21 @@ c.keys = bindings.keys
 c.initial_rows = 40
 c.initial_cols = 120
 c.font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "DemiBold" })
-c.font_size = 13
-c.line_height = 1.5
+c.font_size = 12
+c.line_height = 1.7
+-- c.freetype_load_flags = "NO_HINTING"
 
 -- appearance
 local function scheme_for_appearance(appearance)
 	if appearance:find("Dark") then
 		return "Catppuccin Mocha"
 	else
-		return "Catppuccin Latte"
+		return "Catppuccin Mocha"
+		-- return "Catppuccin Latte"
 	end
 end
 c.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
+
 local padding = {
 	left = 40,
 	right = 40,
@@ -83,12 +86,24 @@ end)
 c.window_close_confirmation = "NeverPrompt"
 c.pane_focus_follows_mouse = true
 
+function basename(s)
+	return string.gsub(s, "(.*[/\\])(.*)", "%2")
+end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local pane = tab.active_pane
+	local title = pane.pane_index .. "|" .. basename(pane.foreground_process_name)
+	return {
+		{ Text = " " .. title .. " " },
+	}
+end)
+
 -- tabbar
-c.use_fancy_tab_bar = true
+c.use_fancy_tab_bar = false
 c.hide_tab_bar_if_only_one_tab = false
 c.show_new_tab_button_in_tab_bar = false
 c.tab_bar_at_bottom = true
-c.tab_max_width = 20
+c.tab_max_width = 15
 c.colors = {
 	tab_bar = {
 		inactive_tab = {
@@ -104,57 +119,85 @@ c.colors = {
 	},
 }
 
--- Equivalent to POSIX basename(3)
--- Given "/foo/bar" returns "bar"
--- Given "c:\\foo\\bar" returns "bar"
-local function basename(s)
-	return string.gsub(s, "(.*[/\\])(.*)", "%2")
-end
-
-local function nvim_dir(s)
-	return s
-	-- return string.gsub(s, ".* [-+]{0,1}(.*) - Nvim", "%1")
-end
-
-local function tab_title(tab_info)
-	local title = basename(tab_info.foreground_process_name)
-	-- if the tab title is explicitly set, take that
-	if title and #title > 0 then
-		return title
-	end
-	-- Otherwise, use the title from the active pane
-	-- in that tab
-	return tab_info.active_pane.title
-end
-
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local window = tab.window
-	window.toast_notification("tab title", tab.title)
-	local pane = tab.active_pane
-	local exec = basename(pane.foreground_process_name)
-	return { { Text = " " .. exec .. nvim_dir(pane.title) } }
-end)
 c.window_frame = {
-	font = wezterm.font({ family = "JetBrainsMono", weight = "Bold" }),
+	font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "Bold" }),
 	font_size = 11,
 	inactive_titlebar_bg = "#1e1e2e",
 	active_titlebar_bg = "#1e1e2e",
 	inactive_titlebar_fg = "#cdd6f4",
 	active_titlebar_fg = "#cdd6f4",
 }
+
 wezterm.on("update-right-status", function(window, pane)
-	local leader = ""
-	if window:leader_is_active() then
-		leader = "leader pressed... "
+	local cells = {}
+
+	-- cwd and hostname
+	local cwd_uri = pane:get_current_working_dir()
+	if cwd_uri then
+		local cwd = ""
+		local hostname = ""
+		if type(cwd_uri) == "userdata" then
+			cwd = cwd_uri.file_path
+			hostname = cwd_uri.host or wezterm.hostname()
+		end
+		local dot = hostname:find("[.]")
+		if dot then
+			hostname = hostname:sub(1, dot - 1)
+		end
+		if not hostname == "" then
+			hostname = wezterm.hostname()
+		end
+		table.insert(cells, "  " .. cwd)
+		-- table.insert(cells, hostname)
 	end
-	window:set_right_status(leader)
+
+	local workspace = "  " .. window:active_workspace()
+	table.insert(cells, workspace)
+
+	-- I like my date/time in this style: "Wed Mar 3 08:14"
+	local date = wezterm.strftime("󰥔  %a %d.%m %H:%M:%S")
+	table.insert(cells, date)
+
+	local colors = {
+		"#b4befe",
+		"#89b4fa",
+		"#f38ba8",
+		"#89b4fa",
+	}
+	-- The powerline < symbol
+	local LEFT_ARROW = utf8.char(0xe0b3)
+	-- The filled in variant of the < symbol
+	local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+
+	-- Foreground color for the text across the fade
+	local text_fg = "#1e1e2e"
+
+	-- The elements to be formatted
+	local elements = {}
+	-- How many cells have been formatted
+	local num_cells = 0
+
+	-- Translate a cell into elements
+	function push(text, is_last)
+		local cell_no = num_cells + 1
+		table.insert(elements, { Foreground = { Color = text_fg } })
+		table.insert(elements, { Background = { Color = colors[cell_no] } })
+		table.insert(elements, { Text = " " .. text .. " " })
+		if not is_last then
+			table.insert(elements, { Foreground = { Color = colors[cell_no + 1] } })
+			table.insert(elements, { Text = SOLID_LEFT_ARROW })
+		end
+		num_cells = num_cells + 1
+	end
+
+	while #cells > 0 do
+		local cell = table.remove(cells, 1)
+		push(cell, #cells == 0)
+	end
+
+	window:set_right_status(wezterm.format(elements))
 end)
 
--- plugins applying configs
-sessions.apply_to_config(c, {
-	auto_save_interval_s = 30,
-	git_branch_warn = true,
-})
 cmdpicker.apply_to_config(c)
 
 -- keep at end, return config
