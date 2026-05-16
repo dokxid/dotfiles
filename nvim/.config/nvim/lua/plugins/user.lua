@@ -4,16 +4,7 @@
 
 ---@type LazySpec
 return {
-  {
-    "L3MON4D3/LuaSnip",
-    config = function(plugin, opts)
-      require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-      -- add more custom luasnip configuration such as filetype extend or custom snippets
-      local luasnip = require "luasnip"
-      luasnip.filetype_extend("javascript", { "javascriptreact" })
-    end,
-  },
-
+  "mbbill/undotree",
   {
     "windwp/nvim-autopairs",
     config = function(plugin, opts)
@@ -44,66 +35,17 @@ return {
     end,
   },
   {
-    "f-person/auto-dark-mode.nvim",
-    opts = {},
-  },
-  {
-    "andrewferrier/wrapping.nvim",
+    "azorng/vision.nvim",
     opts = {
-      auto_set_mode_filetype_allowlist = {
-        "asciidoc",
-        "gitcommit",
-        "latex",
-        "mail",
-        "markdown",
-        "rst",
-        "tex",
-        "text",
+      selection = {
+        clear_after_send = true,
       },
-      softener = {
-        markdown = true,
+      context = {
+        current_file = true,
+        cursor = false,
+        current_line = false,
+        diagnostics = true,
       },
     },
-  },
-  {
-    "max397574/better-escape.nvim",
-    opts = {
-      timeout = vim.o.timeoutlen, -- after `timeout` passes, you can press the escape key and the plugin will ignore it
-      default_mappings = true, -- setting this to false removes all the default mappings
-      mappings = {
-        -- i for insert
-        i = {
-          j = {
-            -- These can all also be functions
-            k = "<Esc>",
-            j = "<Esc>",
-          },
-        },
-        c = {
-          j = {
-            k = "<C-c>",
-            j = "<C-c>",
-          },
-        },
-        t = {
-          j = {
-            k = "<C-\\><C-n>",
-          },
-        },
-        v = {
-          j = {
-            k = "<Esc>",
-          },
-        },
-        s = {
-          j = {
-            k = "<Esc>",
-          },
-        },
-      },
-    },
-  },
-  {
-    "mbbill/undotree",
   },
 }

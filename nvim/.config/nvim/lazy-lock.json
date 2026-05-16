@@ -85,6 +85,7 @@
   "tsc.nvim": { "branch": "main", "commit": "e083bcf1e54bc3af7df92b33235efb334e8c782c" },
   "undotree": { "branch": "master", "commit": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d" },
   "vim-move": { "branch": "master", "commit": "267fd1cff61fc643dfb5f9b188c434906f5214aa" },
+  "vision.nvim": { "branch": "main", "commit": "98bc0d277e534aca778eb708b3c633c0766e9b8e" },
   "which-key.nvim": { "branch": "main", "commit": "fcbf4eea17cb299c02557d576f0d568878e354a4" },
   "wrapping.nvim": { "branch": "master", "commit": "3ecfb37cdc189a4e32d646e1c2ae0f46b9d62740" },
   "yazi.nvim": { "branch": "main", "commit": "172bd64a4c2d3adbe2e0ef56289f47ffe139ca55" }

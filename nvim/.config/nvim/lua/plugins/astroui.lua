@@ -179,4 +179,8 @@ return {
     config = true,
     event = { "WinLeave" },
   },
+  {
+    "f-person/auto-dark-mode.nvim",
+    opts = {},
+  },
 }
