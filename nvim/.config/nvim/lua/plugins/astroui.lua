@@ -8,7 +8,7 @@ return {
     "AstroNvim/astroui",
     ---@type AstroUIOpts
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "catppuccin-mocha",
       highlights = {
         init = {
           -- Normal = { bg = "#000000" },
@@ -171,6 +171,12 @@ return {
         format = {
           cmdline = { conceal = false },
           help = { conceal = false },
+        },
+      },
+      routes = {
+        {
+          filter = { event = "msg_show", kind = "search_count" },
+          opts = { skip = true },
         },
       },
       presets = {
