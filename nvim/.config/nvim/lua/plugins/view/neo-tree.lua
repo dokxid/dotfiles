@@ -8,10 +8,10 @@ local mappings = {
         require("neo-tree.command").execute {
           toggle = true,
           source = "filesystem",
-          position = "right",
+          position = "left",
         }
       end,
-      desc = "explorer neo tree",
+      desc = "open neotree",
     },
   },
 }
@@ -27,8 +27,8 @@ return {
     opts = {
       source_selector = {
         truncation_character = "",
-        winbar = false,
-        statusline = true,
+        winbar = true,
+        statusline = false,
         content_layout = "center",
         sources = {
           { source = "filesystem" },

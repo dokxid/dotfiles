@@ -1,6 +1,6 @@
 return {
   "zhisme/copy_with_context.nvim",
-  enabled = false,
+  enabled = true,
   config = function()
     require("copy_with_context").setup {
       -- Customize mappings

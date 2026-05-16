@@ -14,7 +14,6 @@ require("lazy").setup({
   { import = "community" },
   { import = "community_nonssh" },
   { import = "plugins" },
-  { import = "plugins.snacks" },
   { import = "plugins.motion" },
   { import = "plugins.completion" },
   { import = "plugins.editor" },

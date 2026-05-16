@@ -1,6 +1,13 @@
 -- configuration:
 -- https://docs.astronvim.com/recipes/mappings/
 
+-- https://docs.astronvim.com/recipes/dashboard/#open-dashboard-automatically-when-no-more-buffers
+local function close_buffer()
+  local bufs = vim.fn.getbufinfo { buflisted = 1 }
+  require("astrocore.buffer").close(0)
+  if not bufs[2] then require("snacks").dashboard() end
+end
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -22,15 +29,7 @@ return {
 
         -- leaders
         ["<Leader>bb"] = false,
-        ["<Leader>c"] = {
-          -- https://docs.astronvim.com/recipes/dashboard/#open-dashboard-automatically-when-no-more-buffers
-          function()
-            local bufs = vim.fn.getbufinfo { buflisted = 1 }
-            require("astrocore.buffer").close(0)
-            if not bufs[2] then require("snacks").dashboard() end
-          end,
-          desc = "Close buffer",
-        },
+        ["<Leader>c"] = { close_buffer, desc = "close buffer" },
         ["<Leader>a"] = { desc = "misc" },
         ["<Leader>."] = {
           "<cmd>AstroRoot<cr>",
@@ -53,10 +52,13 @@ return {
         -- util
         ["<Esc>"] = { "<Cmd>nohlsearch<CR>", desc = "Clear search highlights" },
         ["<C-s>"] = { ":w<CR>", desc = "save file" },
+        ["<C-w>"] = { close_buffer, desc = "close buffer" },
 
-        -- view manipulation
+        -- view/cursor manipulation
         ["<PageUp>"] = { "<C-u>", desc = "Scroll up" },
         ["<PageDown>"] = { "<C-d>", desc = "Scroll down" },
+        ["`"] = { "0w", desc = "go to start of line" },
+        ["~"] = { "$", desc = "go to end of line" },
 
         -- text manipulation
         ["<C-S-Down>"] = { "<Cmd>move .+1<CR>", desc = "Move line down" },
@@ -69,6 +71,10 @@ return {
         ["<C-Down>"] = { function() require("smart-splits").move_cursor_down() end, desc = "Move to below split" },
         ["<C-Up>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Move to above split" },
         ["<C-Right>"] = { function() require("smart-splits").move_cursor_right() end, desc = "Move to right split" },
+        ["<C-A-Left>"] = { function() require("smart-splits").swap_buf_left() end, desc = "swap with left split" },
+        ["<C-A-Down>"] = { function() require("smart-splits").swap_buf_down() end, desc = "swap with below split" },
+        ["<C-A-Up>"] = { function() require("smart-splits").swap_buf_up() end, desc = "swap with above split" },
+        ["<C-A-Right>"] = { function() require("smart-splits").swap_buf_right() end, desc = "swap with right split" },
         ["<C-K>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" },
         ["<C-J>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
         ["<C-H>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
@@ -93,6 +99,9 @@ return {
         },
       },
       v = {
+        ["v"] = { "<Esc><C-V>", desc = "block select" },
+        ["<S-Down>"] = { ":move '>+1<CR>gv=gv", desc = "Move selection down" },
+        ["<S-Up>"] = { ":move '<-2<CR>gv=gv", desc = "Move selection up" },
         -- nops
         ["q"] = "<Nop>",
       },

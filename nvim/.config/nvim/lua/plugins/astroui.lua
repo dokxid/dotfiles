@@ -93,7 +93,7 @@ return {
         which_key = true,
         neotree = true,
       },
-      transparent_background = true,
+      transparent_background = false,
       float = {
         transparent = true,
         solid = true,

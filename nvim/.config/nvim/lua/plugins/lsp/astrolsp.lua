@@ -130,26 +130,6 @@ return {
   },
   dependencies = {
     {
-      "AstroNvim/astrocore",
-      ---@type AstroCoreOpts
-      opts = {
-        mappings = {
-          n = {
-            ["<Leader>e"] = {
-              function()
-                require("neo-tree.command").execute {
-                  toggle = true,
-                  source = "filesystem",
-                  position = "right",
-                }
-              end,
-              desc = "explorer neo tree",
-            },
-          },
-        },
-      },
-    },
-    {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       -- overrides `require("mason-tool-installer").setup(...)`
       optional = true,
