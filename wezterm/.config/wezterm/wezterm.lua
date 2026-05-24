@@ -59,9 +59,6 @@ c.line_height = 1.7
 local appearance = look.dark_mode and "dark" or "light"
 if wezterm.GLOBAL.appearance ~= appearance then
 	wezterm.GLOBAL.appearance = appearance
-	print("Setting OS_APPEARANCE to " .. appearance)
-	print(appearance)
-	print(look.dark_mode)
 	wezterm.background_child_process({
 		shell,
 		"-c",

@@ -10,7 +10,6 @@ helpers.is_macos = function()
 end
 
 helpers.get_appearance = function()
-	print(wezterm.gui.get_appearance())
 	if not wezterm.gui then
 		return "dark"
 	end

@@ -3,7 +3,6 @@ local look = {}
 local appearance = require("helpers").get_appearance()
 
 look.appearance_config = function()
-  print("Appearance: " .. appearance)
   if appearance:find("dark") then
     return {
       dark_mode = true,
