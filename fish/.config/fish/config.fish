@@ -22,19 +22,27 @@ alias nv nvim
 alias nvi nvim
 alias vim nvim
 alias ctl systemctl
+alias unset "set -e"
 
-# theme
-set -gx LS_COLORS (vivid generate catppuccin-mocha)
-fish_config theme choose catppuccin-mocha
-
-# app inits / defaults
+### theme
 starship init fish | source
+fish_config theme choose catppuccin-mocha
+# sets colors for ls, tree, fd, bfs, dust 
+set -gx LS_COLORS (vivid generate catppuccin-mocha)
+# fzf
+set fzf_directory_opts --bind "ctrl-o:execute(nvim {} &> /dev/tty)" --bind "ctrl-t:toggle-preview"
+set -gx FZF_DEFAULT_OPTS "\
+--color=bg+:#313244,spinner:#F5E0DC,hl:#F38BA8 \
+--color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+--color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+--color=selected-bg:#45475A \
+--color=border:#6C7086,label:#CDD6F4"
+
+### app inits / defaults
 fzf_configure_bindings --variables=\e\cv
 set init_ssh ssh-agent -c
 set -x BUN_INSTALL "$HOME/.bun"
 set -x CARGO_HOME "$HOME/.local/share/cargo"
-set fzf_directory_opts --bind "ctrl-o:execute(nvim {} &> /dev/tty)" --bind "ctrl-t:toggle-preview"
-set -gx FZF_DEFAULT_OPTS "--style full --border --padding 1,2 --border-label ' fzf ' --input-label ' input ' --header-label ' file type '"
 
 # paths
 fish_add_path ~/scripts
