@@ -9,6 +9,7 @@ local mappings = {
           toggle = true,
           source = "filesystem",
           position = "left",
+          reveal_force_cwd = false,
         }
       end,
       desc = "open neotree",
@@ -100,7 +101,7 @@ return {
           ["."] = "toggle_hidden",
           ["R"] = "set_root",
         },
-        group_empty_dirs = false,
+        group_empty_dirs = true,
         scan_mode = "deep",
         filtered_items = {
           show_hidden_count = false,
