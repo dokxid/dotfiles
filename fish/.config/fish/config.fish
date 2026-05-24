@@ -10,18 +10,21 @@ set fish_greeting
 set -gx EDITOR nvim
 
 alias src "source ~/.config/fish/config.fish"
+alias sr "source ~/.config/fish/config.fish"
+alias sc "source ~/.config/fish/config.fish"
+alias s "source ~/.config/fish/config.fish"
 alias lg lazygit
+alias ljj lazyjj
 alias ld lazydocker
 alias lj lazyjournal
 alias n nvim
 alias nv nvim
 alias nvi nvim
 alias vim nvim
-alias s "sesh connect (sesh list | fzf)"
 alias ctl systemctl
 
 # theme
-set -gx LS_COLORS (vivid generate rose-pine)
+set -gx LS_COLORS (vivid generate catppuccin-mocha)
 fish_config theme choose catppuccin-mocha
 
 # app inits / defaults
