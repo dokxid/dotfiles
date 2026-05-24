@@ -9,4 +9,16 @@ helpers.is_macos = function()
 	return wezterm.target_triple:find("darwin") ~= nil
 end
 
+helpers.get_appearance = function()
+	print(wezterm.gui.get_appearance())
+	if not wezterm.gui then
+		return "dark"
+	end
+	if wezterm.gui.get_appearance():find("Dark") then
+		return "dark"
+	else
+		return "light"
+	end
+end
+
 return helpers

@@ -225,7 +225,7 @@ bindings.keys = {
 		action = act({ EmitEvent = "save_session" }),
 	},
 	{
-		key = "o",
+		key = "l",
 		mods = "ALT",
 		action = act({ EmitEvent = "load_session" }),
 	},

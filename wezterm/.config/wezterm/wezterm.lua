@@ -4,7 +4,9 @@ local c = wezterm.config_builder()
 local act = wezterm.action
 
 -- refactored imports
+local helpers = require("helpers")
 local bindings = require("bindings")
+local look = require("look").appearance_config()
 
 -- https://github.com/abidibo/wezterm-cmdpicker
 local cmdpicker = wezterm.plugin.require("https://github.com/abidibo/wezterm-cmdpicker")
@@ -33,10 +35,12 @@ c.key_tables = {
 }
 
 -- system
-c.disable_default_key_bindings = bindings.disable_default_bindings
-c.default_prog = { "fish", "-l" }
+-- needed in case u have a different login shell (im too scared to change mine rn on my linux)
+local shell = os.getenv("SHELL_OVERRIDE") == nil and os.getenv("SHELL") or os.getenv("SHELL_OVERRIDE")
+c.default_prog = { shell, "-l" }
 
 -- keys
+c.disable_default_key_bindings = bindings.disable_default_bindings
 c.leader = { key = "F1", mods = "", timeout_milliseconds = 5000 }
 c.enable_kitty_keyboard = true
 c.keys = bindings.keys
@@ -50,15 +54,22 @@ c.line_height = 1.7
 -- c.freetype_load_flags = "NO_HINTING"
 
 -- appearance
-local function scheme_for_appearance(appearance)
-	if appearance:find("Dark") then
-		return "Catppuccin Mocha"
-	else
-		return "Catppuccin Mocha"
-		-- return "Catppuccin Latte"
-	end
+-- taken from https://github.com/wezterm/wezterm/discussions/5951#discussioncomment-10338465
+-- will give fish a universal variable OS_APPEARANCE to listen on
+local appearance = look.dark_mode and "dark" or "light"
+if wezterm.GLOBAL.appearance ~= appearance then
+	wezterm.GLOBAL.appearance = appearance
+	print("Setting OS_APPEARANCE to " .. appearance)
+	print(appearance)
+	print(look.dark_mode)
+	wezterm.background_child_process({
+		shell,
+		"-c",
+		"set --universal OS_APPEARANCE " .. appearance,
+	})
 end
-c.color_scheme = scheme_for_appearance(wezterm.gui.get_appearance())
+
+c.color_scheme = look.scheme
 
 local padding = {
 	left = 40,
