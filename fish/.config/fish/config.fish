@@ -60,3 +60,6 @@ switch (uname)
     case FreeBSD NetBSD DRagonFly
     case '*'
 end
+
+# setup zoxide
+zoxide init fish --cmd cd | source
