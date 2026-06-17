@@ -32,8 +32,12 @@ direction = "Natural"
 # vertical_modifier = "alt"
 
 [decorations.inactive.dim]
-opacity = -0.05
-opacity_night = -0.15
+opacity = 0
+opacity_night = 0
+
+[decorations.active.border]
+enabled = false
+width = 0.0
 
 [bindings]
 # Moves the focus between windows. If there are no windows when moving up or
