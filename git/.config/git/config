@@ -13,5 +13,8 @@
 [rebase]
   autoStash = true
 
+[submodule]
+	recurse = true
+
 [core]
 	editor = nvim
