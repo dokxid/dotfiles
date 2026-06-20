@@ -9,17 +9,15 @@ preset_column_widths = [ 0.40, 0.50, 0.60, 1.00 ]
 # Animation speed in 1/10th of display resolution per second.
 # E.g. a value of 20 means: move at a speed of two display sizes per second.
 # To disable animations, leave this unset or set to a very large value.
-animation_speed = 12
+animation_speed = 30
 
 # Automatically center the focused window when switching focus with keyboard,
 # i.e. 'window_focus_west' or 'window_focus_east'.
 # auto_center = true
 
 [padding]
-top = 0
-bottom = 0
-left = 0
-right = 0
+top = 12
+bottom = 12
 
 [swipe]
 sensitivity = 0.35
@@ -126,6 +124,21 @@ index = 100
 # floating = false
 # grid = "6:6:1:1:4:4"
 
+[windows.calculator]
+title = ".*"
+bundle_id = "com.apple.calculator"
+floating = true
+
+[windows.finder-info]
+title = ".* Info"
+bundle_id = "com.apple.finder"
+floating = true
+
+[windows.music]
+title = ".*"
+bundle_id = "com.apple.Music"
+width = 0.75
+
 [windows.all]
 # Matches all windows and adds a few pixels of spacing to their borders.
 # Note: horizontal_padding and vertical_padding create gaps on all sides of
@@ -133,5 +146,6 @@ index = 100
 # appears between windows. Use the [options] padding_* settings above to
 # control screen edge margins independently.
 title = ".*"
-horizontal_padding = 4
-vertical_padding = 4
+horizontal_padding = 6
+vertical_padding = 0
+width = 0.5
