@@ -2,8 +2,9 @@
 
 [options]
 
+horizontal_mouse_warp = -1
 mouse_follows_focus = true
-# focus_follows_mouse = false
+focus_follows_mouse = true
 preset_column_widths = [ 0.40, 0.50, 0.60, 1.00 ]
 
 # Animation speed in 1/10th of display resolution per second.
@@ -13,7 +14,11 @@ animation_speed = 30
 
 # Automatically center the focused window when switching focus with keyboard,
 # i.e. 'window_focus_west' or 'window_focus_east'.
-# auto_center = true
+auto_center = false
+disable_native_tabs = true
+virtual_workspace_animations = true
+window_resize_cycle = false
+# mouse_resize_modifier = "cmd + "
 
 [padding]
 top = 12
@@ -21,15 +26,26 @@ bottom = 12
 
 [swipe]
 sensitivity = 0.35
-deceleration = 4.0
+deceleration = 20.0
+continuous = true
 
 [swipe.gesture]
 fingers_count = 4
 direction = "Natural"
-continuous = true
+vertical = false
 
 [swipe.scroll]
+modifier = "cmd + alt + ctrl"
 # vertical_modifier = "alt"
+
+[restore]
+enabled = false
+startup_grace_ms = 2000
+missing_windows = "ignore"
+
+[decorations]
+workspace_menu_status = false
+workspace_popup_status = true
 
 [decorations.inactive.dim]
 opacity = 0
@@ -49,7 +65,8 @@ window_swap_west = "cmd + alt + ctrl + shift - leftarrow"
 window_swap_east = "cmd + alt + ctrl + shift - rightarrow"
 window_swap_north = "cmd + alt + ctrl + shift - l"
 window_swap_south = "cmd + alt + ctrl + shift - h"
-# window_snap = "cmd + shift + alt + ctrl - c"
+window_snap = "cmd + shift + alt - f"
+window_togglefloatlayer = "cmd + alt + ctrl - a"
 
 # vertical (workspace) movement
 window_virtual_north = "cmd + alt + ctrl - uparrow"
@@ -71,21 +88,21 @@ window_virtualmovenum_6 = "cmd + alt + ctrl + shift - 6"
 
 # column resizing
 window_grow = "cmd + alt + ctrl - c"
-window_shrink = "cmd + alt + ctrl - x"
-window_fullwidth = "cmd + alt + ctrl - f"
+window_shrink = "cmd + alt + ctrl + shift - c"
+window_fullwidth = "cmd + alt + ctrl + shift - f"
 
 # Toggles the window for management. If unmanaged, the window will be "floating".
 window_manage = "cmd + alt + ctrl - t"
 
 # column stacking
 window_stack = "cmd + alt + ctrl - ["
-window_unstack = "cmd + alt + ctrl - ]"
+window_unstack = "cmd + alt + ctrl + shift - ["
 
 # Moves currently focused window to the next display.
-window_nextdisplay = "alt + shift - n"
+window_nextdisplay = "cmd + alt + ctrl + shift - ]"
 
 # Moves the mouse pointer to the next display.
-mouse_nextdisplay = "alt - n"
+mouse_nextdisplay = "cmd + alt + ctrl - ]"
 
 # Size stacked windows in the column to equal heights.
 # window_equalize = "alt + shift - e"
