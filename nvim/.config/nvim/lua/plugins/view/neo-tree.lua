@@ -9,7 +9,7 @@ local mappings = {
           toggle = true,
           source = "filesystem",
           position = "left",
-          reveal_force_cwd = false,
+          reveal_force_cwd = true,
         }
       end,
       desc = "open neotree",
