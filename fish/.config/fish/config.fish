@@ -91,6 +91,6 @@ end
 # setup zoxide
 zoxide init fish --cmd cd | source
 
-# Created by `pipx` on 2026-06-19 18:10:01
-set PATH $PATH /Users/yuni/.local/bin
-/Users/yuni/.local/bin/mise activate fish | source
+# setup mise
+fish_add_path /Users/yuni/.local/bin
+mise activate fish | source
