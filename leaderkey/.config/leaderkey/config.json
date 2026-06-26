@@ -1,0 +1,52 @@
+{
+  "actions" : [
+    {
+      "key" : "enter",
+      "label" : "terminal",
+      "type" : "application",
+      "value" : "/Applications/WezTerm.app"
+    },
+    {
+      "key" : "b",
+      "label" : "browser",
+      "type" : "application",
+      "value" : "/Applications/Zen.app"
+    },
+    {
+      "key" : "m",
+      "label" : "email",
+      "type" : "application",
+      "value" : "/Applications/Thunderbird.app"
+    },
+    {
+      "key" : ",",
+      "label" : "music",
+      "type" : "application",
+      "value" : "/System/Applications/Music.app"
+    },
+    {
+      "key" : "e",
+      "label" : "neovide",
+      "type" : "application",
+      "value" : "/Applications/Neovide.app"
+    },
+    {
+      "key" : "o",
+      "label" : "obsidian",
+      "type" : "application",
+      "value" : "/Applications/Obsidian.app"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "c",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/system/open-camera"
+        }
+      ],
+      "key" : "r",
+      "type" : "group"
+    }
+  ],
+  "type" : "group"
+}
