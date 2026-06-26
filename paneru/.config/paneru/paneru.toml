@@ -15,7 +15,7 @@ animation_speed = 30
 # Automatically center the focused window when switching focus with keyboard,
 # i.e. 'window_focus_west' or 'window_focus_east'.
 auto_center = false
-disable_native_tabs = true
+disable_native_tabs = false
 virtual_workspace_animations = true
 window_resize_cycle = false
 # mouse_resize_modifier = "cmd + "
@@ -140,6 +140,16 @@ index = 100
 # title = "Passwords.*"
 # floating = false
 # grid = "6:6:1:1:4:4"
+
+[windows.ableton]
+bundle_id = "com.ableton.live"
+title = ".*"
+manage = true
+
+[windows.td]
+bundle_id = "ca.derivative.TouchDesigner"
+title = ".*"
+manage = true
 
 [windows.calculator]
 title = ".*"
