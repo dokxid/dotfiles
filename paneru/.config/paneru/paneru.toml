@@ -66,7 +66,7 @@ window_swap_east = "cmd + alt + ctrl + shift - rightarrow"
 window_swap_north = "cmd + alt + ctrl + shift - l"
 window_swap_south = "cmd + alt + ctrl + shift - h"
 window_snap = "cmd + shift + alt - f"
-window_togglefloatlayer = "cmd + alt + ctrl - a"
+# window_togglefloatlayer = "cmd + alt + ctrl - a"
 
 # vertical (workspace) movement
 window_virtual_north = "cmd + alt + ctrl - uparrow"
