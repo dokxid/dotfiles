@@ -5,10 +5,14 @@
   "agent": {
     "plan": {
       "temperature": 0.3,
+      "options": {},
+      "permission": {}
     },
     "build": {
       "temperature": 0.1,
       "disable": true,
+      "options": {},
+      "permission": {}
     },
     "edit": {
       "description": "Full development agent with all tools enabled",
@@ -22,8 +26,17 @@
         "glob": true,
         "grep": true,
         "read": true,
-        "webfetch": true,
+        "webfetch": true
       },
+      "options": {},
+      "permission": {
+        "edit": "allow",
+        "bash": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "read": "allow",
+        "webfetch": "allow"
+      }
     }
   },
   "permission": {
@@ -47,7 +60,7 @@
     "webfetch": "allow",
     "edit": "ask",
     "bash": "ask",
-    "todowrite": "allow",
+    "todowrite": "allow"
   },
   "mcp": {
     "postgres": {
