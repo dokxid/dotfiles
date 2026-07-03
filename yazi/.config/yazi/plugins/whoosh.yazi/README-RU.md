@@ -4,6 +4,10 @@
   <i>Сохраняйте, ищите и мгновенно переходите к любимым путям</i>
 </p>
 
+<p align="center">
+  <img src="image/plugin.png" width="900" alt="Превью плагина" />
+</p>
+
 ---
 > [!TIP]
 > **Английская версия:** [README.md](README.md)
@@ -21,16 +25,17 @@
 > - **История директорий по вкладкам** - Независимая история для каждой вкладки с возвратом через Backspace
 > - **Навигация по истории Tab** - Просмотр и переход к недавно посещенным директориям через fzf
 > - **Быстрое создание закладок** - Создание временных закладок прямо из меню навигации
-> - **Настраиваемые клавиши меню** - Переопределяйте привязки Tab/Backspace/Enter/Space через `init.lua`
-
-<div style="text-align: center;">
-  <img src="image/plugin.png" alt="Превью плагина" width="1100px">
-</div>
+> - **Переход в корень проекта** - Переход в корень текущего Git-репозитория через `-`
+> - **Настраиваемые клавиши меню** - Переопределяйте привязки Tab/Backspace/Enter/Space/- через `init.lua`
 
 ## Установка
 
 > [!IMPORTANT]
 > Требуется Yazi v26.1.4+
+
+```sh
+ya pkg add WhoSowSee/whoosh
+```
 
 ```sh
 # Ручная установка
@@ -95,6 +100,7 @@ require("whoosh"):setup {
     fuzzy_search = "<Space>",        -- Нечеткий поиск (fzf)
     history = "<Tab>",               -- Открыть историю директорий
     previous_dir = "<Backspace>",    -- Вернуться в предыдущую директорию
+    project_root = "-",              -- Переход в корень текущего Git-репозитория
   },
 
   -- Путь к файлу для хранения пользовательских закладок
@@ -243,6 +249,7 @@ desc = "Переименовать закладку через fzf"
 - **Нечеткий поиск** - Нажмите `<Space>` для открытия поиска fzf
 - **История директорий** - Нажмите `<Tab>` для просмотра истории через fzf (только если есть история)
 - **Предыдущая директория** - Нажмите `<Backspace>` для возврата к предыдущей директории (только если доступно)
+- **Корень проекта** - Нажмите `-` для перехода в корень текущего Git-репозитория (если вы внутри репозитория)
 - **Все закладки** - Как постоянные, так и временные закладки с четким визуальным различием
 
 ### Навигация по истории директорий
@@ -320,7 +327,7 @@ require("whoosh"):setup {
 | `bookmarks`                                    | table   | `{}`                    | Предварительно настроенные закладки (нельзя удалить через плагин)          |
 | `jump_notify`                                  | boolean | `false`                 | Показывать уведомление при переходе к закладке                             |
 | `keys`                                         | string  | `"0123456789abcdef..."` | Символы, используемые для автогенерации ключей закладок                    |
-| `special_keys`                                 | table   | `см. описание`           | Настройка клавиш встроенного меню (Enter/Space/Tab/Backspace); можно задать `false` для отключения |
+| `special_keys`                                 | table   | `см. описание`           | Настройка клавиш встроенного меню (Enter/Space/-/Tab/Backspace); можно задать `false` для отключения |
 | `path`                                         | string  | Зависит от ОС           | Путь к файлу, где хранятся пользовательские закладки                       |
 | `home_alias_enabled`                          | boolean | `true`                  | Подменять домашнюю директорию на `~` в отображении пути                    |
 | `path_truncate_enabled`                        | boolean | `false`                 | Включить/выключить сокращение путей в меню навигации                       |
@@ -440,6 +447,10 @@ local bookmarks = {
 
 Последовательности должны передаваться единым аргументом; формы с разделением пробелами не поддерживаются. Формат совпадает с окном редактирования закладки, поэтому можно комбинировать отдельные символы, значения через запятую и специальные клавиши вроде `<Space>` или `<A-l>`.
 
+Корень проекта определяется динамически: whoosh идет вверх от текущей директории, пока не найдет файл или директорию `.git`. Этот путь не сохраняется в файл закладок.
+
+Специальные клавиши меню обрабатываются раньше клавиш закладок, поэтому закладка с той же клавишей будет перекрыта специальным действием.
+
 ### Управление меню навигации
 
 При использовании `jump_by_key` доступны следующие специальные элементы управления:
@@ -450,9 +461,43 @@ local bookmarks = {
 | `<Space>`            | Открыть нечеткий поиск закладок                          |
 | `<Tab>`              | Открыть историю директорий (только если есть история)    |
 | `<Backspace>`        | Вернуться к предыдущей директории (только если доступно) |
+| `-`                  | Перейти в корень текущего Git-репозитория                |
 | `[a-zA-Z0-9]`        | Перейти к закладке с соответствующей клавишей            |
 
 ## Вдохновлено
 
 - [yamb](https://github.com/h-hg/yamb.yazi)
 - [bunny](https://github.com/stelcodes/bunny.yazi)
+
+## История звёзд
+
+<p align="center">
+  <a href="https://starchart.cc/WhoSowSee/whoosh.yazi">
+    <picture>
+      <source
+        media="(prefers-color-scheme: dark)"
+        srcset="https://starchart.cc/WhoSowSee/whoosh.yazi.svg?variant=custom&background=%230d1117&axis=%238b949e&line=%232f81f7"
+      />
+      <source
+        media="(prefers-color-scheme: light)"
+        srcset="https://starchart.cc/WhoSowSee/whoosh.yazi.svg?variant=custom&background=%23ffffff&axis=%2357606a&line=%230969da"
+      />
+      <img
+        alt="Stargazers over time"
+        src="https://starchart.cc/WhoSowSee/whoosh.yazi.svg?variant=custom&background=%23ffffff&axis=%2357606a&line=%230969da"
+      />
+    </picture>
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" alt="catppuccin" />
+</p>
+
+<p align="center">
+  <i><code>&copy 2026-present <a href="https://github.com/WhoSowSee">WhoSowSee</a></code></i>
+</p>
+
+<p align="center">
+  <a href="https://github.com/WhoSowSee/whoosh.yazi/blob/main/LICENSE"><img src="https://img.shields.io/github/license/WhoSowSee/whoosh.yazi?style=for-the-badge&color=CBA6F7&logoColor=cdd6f4&labelColor=302D41" alt="LICENSE"></a>
+</p>
