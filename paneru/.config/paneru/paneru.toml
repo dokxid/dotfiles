@@ -1,11 +1,10 @@
 # syntax=toml
 
 [options]
-
 horizontal_mouse_warp = -1
 mouse_follows_focus = true
 focus_follows_mouse = true
-preset_column_widths = [ 0.40, 0.50, 0.60, 1.00 ]
+preset_column_widths = [0.40, 0.50, 0.60, 1.00]
 
 # Animation speed in 1/10th of display resolution per second.
 # E.g. a value of 20 means: move at a speed of two display sizes per second.
@@ -15,14 +14,14 @@ animation_speed = 30
 # Automatically center the focused window when switching focus with keyboard,
 # i.e. 'window_focus_west' or 'window_focus_east'.
 auto_center = false
-disable_native_tabs = false
+disable_native_tabs = true
 virtual_workspace_animations = true
 window_resize_cycle = false
 # mouse_resize_modifier = "cmd + "
 
 [padding]
-top = 12
-bottom = 12
+top = 25
+bottom = 5
 
 [swipe]
 sensitivity = 0.35
@@ -109,7 +108,6 @@ mouse_nextdisplay = "cmd + alt + ctrl - ]"
 
 # Window properties, matched by a RegExp title string.
 [windows]
-
 [windows.pip]
 # Title RegExp pattern is required.
 title = "Picture.*(in)?.*[Pp]icture"
@@ -165,6 +163,11 @@ floating = true
 title = ".*"
 bundle_id = "com.apple.Music"
 width = 0.75
+
+[windows.ofx]
+title = ".*"
+bundle_id = "cc.openFrameworks.testv1"
+manage = false
 
 [windows.all]
 # Matches all windows and adds a few pixels of spacing to their borders.

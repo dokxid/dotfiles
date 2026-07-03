@@ -51,11 +51,11 @@ selection-background = #f5e0dc
 selection-foreground = #1e1e2e
 split-preserve-zoom = true
 theme = Catppuccin Mocha
-wait-after-command = true
-window-new-tab-position = end
+wait-after-command = false
+window-new-tab-position = current
 window-padding-x = 20
 window-padding-y = 20
-window-save-state = always
+window-save-state = never
 working-directory = home
 
 # binds
