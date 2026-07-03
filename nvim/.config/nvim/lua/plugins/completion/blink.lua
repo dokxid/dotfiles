@@ -1,4 +1,4 @@
-local default_sources = { "copilot", "lsp", "path", "calc", "buffer" }
+local default_sources = { "minuet", "lsp", "path", "calc", "buffer" }
 local debug_sources = vim.list_extend(vim.deepcopy(default_sources), { "dap" })
 
 ---@type LazySpec
@@ -22,11 +22,12 @@ return {
       default = default_sources,
       per_filetype = { ["dap-repl"] = debug_sources, ["dap-view"] = debug_sources },
       providers = {
-        copilot = {
-          name = "copilot",
-          module = "blink-copilot",
-          score_offset = 100,
+        minuet = {
+          name = "minuet",
+          module = "minuet.blink",
+          score_offset = 50,
           async = true,
+          timeout_ms = 3000,
         },
         lsp = {
           async = true,
@@ -50,6 +51,7 @@ return {
     appearance = {
       kind_icons = {
         Copilot = "",
+        Minuet = "",
         Text = "󰉿",
         Method = "󰊕",
         Function = "󰊕",
@@ -99,6 +101,9 @@ return {
       },
     },
     completion = {
+      trigger = {
+        prefetch_on_insert = false,
+      },
       ghost_text = {
         enabled = true,
       },
@@ -135,6 +140,7 @@ return {
                   ["lsp"] = "",
                   ["path"] = "󰉋",
                   ["snippets"] = "",
+                  ["minuet"] = "",
                 }
 
                 return map[ctx.item.source_id]
@@ -162,16 +168,27 @@ return {
     "saghen/blink.compat",
     "onsails/lspkind.nvim",
     {
-      "fang2hou/blink-copilot",
-      lazy = true,
-      spec = {
-        {
-          "zbirenbaum/copilot.lua",
-          cmd = "Copilot",
-          event = "User AstroFile",
-          opts = {
-            panel = { enabled = false },
-            suggestion = { enabled = false },
+      "milanglacier/minuet-ai.nvim",
+      lazy = false,
+      opts = {
+        provider = "openai_compatible",
+        request_timeout = 2.5,
+        throttle = 1000,
+        debounce = 400,
+        provider_options = {
+          openai_compatible = {
+            api_key = "COMPLETION_PROVIDER_API_KEY",
+            end_point = os.getenv "COMPLETION_PROVIDER_ENDPOINT",
+            model = "gwdg/devstral-2-123b-instruct-2512",
+            name = "devstral",
+            stream = true,
+            optional = {
+              stream = true,
+              max_tokens = 128,
+              top_p = 0.5,
+              reasoning_effort = "none",
+              thinking = { type = "disabled" },
+            },
           },
         },
       },

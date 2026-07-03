@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "nvimtools/none-ls-extras.nvim",
   },
@@ -19,10 +19,10 @@ return {
     opts.sources = require("astrocore").list_insert_unique(opts.sources, {
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
-      -- null_ls.builtins.formatting.prettier,
-      require "none-ls.code_actions.eslint_d",
-      require "none-ls.diagnostics.eslint_d",
-      require "none-ls.formatting.eslint_d",
+      null_ls.builtins.formatting.prettier,
+      -- require "none-ls.code_actions.eslint_d",
+      -- require "none-ls.diagnostics.eslint_d",
+      -- require "none-ls.formatting.eslint_d",
     })
     -- opts.sources = {
     -- ESLint for formatting (which uses Prettier plugin internally)

@@ -39,4 +39,11 @@ return {
 
   -- docker
   { import = "astrocommunity.docker.lazydocker" },
+
+  -- python
+  { import = "astrocommunity.pack.python.base" },
+  { import = "astrocommunity.pack.python.basedpyright" },
+  { import = "astrocommunity.pack.python.black" },
+  { import = "astrocommunity.pack.python.isort" },
+  -- { import = "astrocommunity.pack.typescript" },
 }

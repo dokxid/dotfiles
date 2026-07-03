@@ -69,7 +69,7 @@ return {
       end,
     },
     {
-      "zbirenbaum/copilot.lua",
+      "milanglacier/minuet-ai.nvim",
       optional = true,
       opts = {
         filetypes = {

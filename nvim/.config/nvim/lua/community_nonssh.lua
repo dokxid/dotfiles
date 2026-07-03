@@ -20,4 +20,8 @@ return {
 
   -- neovide support
   { import = "astrocommunity.recipes.neovide" },
+  {
+    "jglasovic/venv-lsp.nvim",
+    config = function() require("venv-lsp").setup() end,
+  },
 }
