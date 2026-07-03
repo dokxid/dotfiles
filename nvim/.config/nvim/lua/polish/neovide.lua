@@ -31,12 +31,15 @@ if animationConfig then
   vim.g.neovide_scroll_animation_length = 0.1
 end
 
-if fontConfig then vim.o.guifont = "JetBrainsMono_Nerd_font:h12" end
+if fontConfig then
+  vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h12" }
+  vim.opt.linespace = 20
+end
 
 if themeConfig then vim.g.neovide_theme = "auto" end
 
 if transparencyConfig then
-  vim.g.neovide_opacity = IS_MACOS() and 0.95 or 0.7
+  vim.g.neovide_opacity = IS_MACOS() and 1.0 or 0.7
   vim.g.neovide_normal_opacity = 1
   vim.g.neovide_floating_blur_amount_x = 4.0
   vim.g.neovide_floating_blur_amount_y = 4.0

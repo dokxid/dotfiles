@@ -11,9 +11,9 @@ local look = require("look").appearance_config()
 -- https://github.com/abidibo/wezterm-cmdpicker
 local cmdpicker = wezterm.plugin.require("https://github.com/abidibo/wezterm-cmdpicker")
 cmdpicker.add_keys(c, {
-	{ key = "n", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain"),        desc = "New tab" },
+	{ key = "n", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain"), desc = "New tab" },
 	{ key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }), desc = "Close pane" },
-	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState,                  desc = "Toggle zoom" },
+	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState, desc = "Toggle zoom" },
 })
 
 -- https://github.com/abidibo/wezterm-sessions
@@ -22,15 +22,15 @@ local sessions = wezterm.plugin.require("https://github.com/abidibo/wezterm-sess
 -- keytables
 c.key_tables = {
 	resize_pane = {
-		{ key = "Escape",     action = "PopKeyTable" },
-		{ key = "LeftArrow",  action = act.AdjustPaneSize({ "Left", 1 }) },
-		{ key = "h",          action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "Escape", action = "PopKeyTable" },
+		{ key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
 		{ key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
-		{ key = "l",          action = act.AdjustPaneSize({ "Right", 1 }) },
-		{ key = "UpArrow",    action = act.AdjustPaneSize({ "Up", 1 }) },
-		{ key = "k",          action = act.AdjustPaneSize({ "Up", 1 }) },
-		{ key = "DownArrow",  action = act.AdjustPaneSize({ "Down", 1 }) },
-		{ key = "j",          action = act.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
 	},
 }
 
@@ -74,7 +74,7 @@ local padding = {
 	top = 40,
 	bottom = 0,
 }
-c.window_background_opacity = 0.7
+c.window_background_opacity = helpers.is_linux() and 0.7 or 1.0
 wezterm.on("update-status", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	if string.find(pane:get_title(), "- [Nn]-vi-m$") then

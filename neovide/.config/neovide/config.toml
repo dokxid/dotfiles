@@ -1,6 +1,11 @@
+# set on macos:
+# launchctl setenv NEOVIDE_FRAME buttonless
+
 title-hidden = true
 tabs = false
 
 [font]
-normal = ["JetBrainsMono NF"]
+hinting = "full"
+edging = "antialias"
+family = "JetBrainsMono Nerd Font"
 size = 13

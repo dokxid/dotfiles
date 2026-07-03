@@ -15,6 +15,8 @@ return {
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.eslint" },
   { import = "astrocommunity.pack.go" },
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.toml" },
 
   -- neovide support
   { import = "astrocommunity.recipes.neovide" },

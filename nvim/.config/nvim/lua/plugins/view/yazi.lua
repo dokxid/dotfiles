@@ -30,8 +30,9 @@ return {
       open_file_in_vertical_split = "|",
       open_file_in_horizontal_split = "\\",
       cycle_open_buffers = "<tab>",
+      change_working_directory = "<c-w>",
     },
-    highlight_hovered_buffers_in_same_directory = true,
+    highlight_hovered_buffers_in_same_directory = false,
   },
 
   -- https://github.com/mikavilpas/yazi.nvim/issues/802
@@ -47,7 +48,6 @@ return {
           v = mappings,
           l = mappings,
           o = mappings,
-          t = mappings,
         },
       },
     },
