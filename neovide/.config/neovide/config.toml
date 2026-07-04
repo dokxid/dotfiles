@@ -7,5 +7,6 @@ tabs = false
 [font]
 hinting = "full"
 edging = "antialias"
-family = "JetBrainsMono Nerd Font"
+normal = "JetBrainsMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
 size = 13
