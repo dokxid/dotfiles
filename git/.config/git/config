@@ -6,6 +6,7 @@
 
 [pull]
 	rebase = true
+	recurse = false
 
 [init]
 	defaultBranch = main
