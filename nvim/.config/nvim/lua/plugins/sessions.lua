@@ -1,15 +1,21 @@
 -- filter by dirsessions
-local function generate_dirsessions()
+function GENERATE_DIRSESSIONS()
   local sessions = {}
   for idx, session in ipairs(require("resession").list { dir = "dirsession" }) do
     local sanitized_dirpath = session:gsub("__", ":/"):gsub("_", "/")
     local path_structure = {}
     local display_value
+
     for item in string.gmatch(sanitized_dirpath, "[^/]+") do
       table.insert(path_structure, item)
     end
-    if path_structure[5] == ".config" and path_structure[4] == path_structure[6] then
-      display_value = string.format(".dot/%s", path_structure[6])
+
+    if string.match(sanitized_dirpath, os.getenv "HOME" .. "/dotfiles/") then
+      display_value = string.format(".dot/%s", (".dots/" .. path_structure[#path_structure]))
+    elseif string.match(sanitized_dirpath, os.getenv "HOME" .. "/projects/") then
+      display_value = string.format(".projects/%s", (".proj/" .. path_structure[#path_structure]))
+    elseif string.match(sanitized_dirpath, "/repos") then
+      display_value = string.format(".repos/%s", (".repo/" .. path_structure[#path_structure]))
     else
       display_value = sanitized_dirpath
     end
@@ -32,7 +38,7 @@ return {
     fn = {
       picker = function()
         require("pick-resession").pick {
-          snacks_finder = generate_dirsessions,
+          snacks_finder = GENERATE_DIRSESSIONS,
           dir = "dirsession",
         }
       end,
@@ -90,7 +96,7 @@ return {
         {
           match = os.getenv "XDG_CONFIG_HOME" or os.getenv "HOME" .. "/.config/",
           icon = " ",
-          highlight = "Directory",
+          highlight = "Special",
         },
         {
           match = ".dot/",
@@ -98,13 +104,13 @@ return {
           highlight = "Special",
         },
         {
-          match = os.getenv "HOME" .. "/dotfiles",
-          icon = " ",
+          match = ".repos/",
+          icon = " ",
           highlight = "Special",
         },
         {
-          match = os.getenv "HOME" .. "/repos",
-          icon = " ",
+          match = ".projects/",
+          icon = "󰄛 ",
           highlight = "Special",
         },
         {
@@ -122,7 +128,7 @@ return {
             ["<Leader>fe"] = {
               function()
                 require("pick-resession").pick {
-                  snacks_finder = generate_dirsessions,
+                  snacks_finder = GENERATE_DIRSESSIONS,
                   dir = "dirsession",
                 }
               end,

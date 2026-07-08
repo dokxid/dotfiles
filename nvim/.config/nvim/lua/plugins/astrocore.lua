@@ -62,30 +62,5 @@ return {
       highlighturl = true,
       notifications = true,
     },
-
-    diagnostics = {
-      virtual_text = true,
-      underline = true,
-      update_in_insert = false,
-    },
-
-    -- passed to `vim.filetype.add`
-    filetypes = {
-      extension = {
-        foo = "fooscript",
-        fish = "fish",
-        kdl = "kdl",
-        gd = "gdscript",
-      },
-      filename = {
-        [".foorc"] = "fooscript",
-        ["compose.*%.ya?ml"] = "yaml.docker-compose",
-        ["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
-      },
-      pattern = {
-        [".*/etc/foo/.*"] = "fooscript",
-        [".env.*"] = "sh",
-      },
-    },
   },
 }

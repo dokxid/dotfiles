@@ -33,7 +33,7 @@ end
 
 if fontConfig then
   vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h12" }
-  vim.opt.linespace = 20
+  vim.opt.linespace = IS_MACOS() and 20 or 13
 end
 
 if themeConfig then vim.g.neovide_theme = "auto" end

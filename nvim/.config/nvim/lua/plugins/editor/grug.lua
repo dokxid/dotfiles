@@ -28,8 +28,7 @@ return {
       "AstroNvim/astrocore",
       ---@param opts AstroCoreOpts
       opts = function(_, opts)
-        local maps, prefix = opts.mappings, "<Leader>r"
-
+        local maps, prefix = opts.mappings, "<Leader>R"
         maps.n[prefix] = { desc = require("astroui").get_icon("GrugFar", 1, true) .. "search/replace" }
         maps.n[prefix .. "s"] = {
           function() grug_far_open() end,

@@ -60,6 +60,13 @@ return {
     },
     -- customize language server configuration options passed to `lspconfig`
     config = {
+      ["yamlls"] = {
+        filetypes = {
+          "yaml",
+          "yaml.gitlab",
+          "yaml.helm-values",
+        },
+      },
       ["lua_ls"] = {
         settings = {
           Lua = {
@@ -129,6 +136,31 @@ return {
     end,
   },
   dependencies = {
+    {
+      "AstroNvim/astrocore",
+      ---@type AstroCoreOpts
+      opts = {
+        diagnostics = {
+          virtual_text = true,
+          underline = true,
+          update_in_insert = false,
+        },
+        -- passed to `vim.filetype.add`
+        filetypes = {
+          extension = {
+            fish = "fish",
+            kdl = "kdl",
+            gd = "gdscript",
+          },
+          filename = {},
+          pattern = {
+            [".env.*"] = "sh",
+            ["compose.*%.ya?ml"] = "yaml.docker-compose",
+            ["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
+          },
+        },
+      },
+    },
     {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       -- overrides `require("mason-tool-installer").setup(...)`

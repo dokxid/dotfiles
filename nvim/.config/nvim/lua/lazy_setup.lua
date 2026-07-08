@@ -12,7 +12,7 @@ require("lazy").setup({
     },
   },
   { import = "community" },
-  { import = "community_nonssh" },
+  { import = "host_only" },
   { import = "plugins" },
   { import = "plugins.motion" },
   { import = "plugins.completion" },
