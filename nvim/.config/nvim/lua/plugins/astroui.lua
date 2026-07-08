@@ -166,6 +166,11 @@ return {
   {
     "folke/noice.nvim",
     opts = {
+      lsp = {
+        hover = {
+          enabled = true,
+        },
+      },
       cmdline = {
         ---@type table<string, CmdlineFormat>
         format = {

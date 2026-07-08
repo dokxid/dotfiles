@@ -25,7 +25,7 @@ end
 -- in your config table
 return {
   "okuuva/auto-save.nvim",
-  enabled = false,
+  enabled = true,
   opts = {
     condition = save_condition,
   },

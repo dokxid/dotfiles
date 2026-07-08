@@ -9,7 +9,7 @@ local mappings = {
           toggle = true,
           source = "filesystem",
           position = "left",
-          reveal_force_cwd = false,
+          reveal_force_cwd = true,
         }
       end,
       desc = "open neotree",
@@ -41,7 +41,7 @@ return {
       },
       close_if_last_window = true,
       hide_root_node = true,
-      retain_hidden_root_indent = true,
+      retain_hidden_root_indent = false,
       event_handlers = {
         {
           event = "file_open_requested",
@@ -51,8 +51,8 @@ return {
       window = {
         width = 30,
         mappings = {
-          ["\\"] = "open_split",
-          ["|"] = "open_vsplit",
+          ["<s-down>"] = "open_split",
+          ["<s-right>"] = "open_vsplit",
           ["<space>"] = "",
           ["<esc>"] = "close_window",
           ["e"] = "close_window",
@@ -117,7 +117,7 @@ return {
             -- ".gitignore",
             "package-lock.json",
             ".changeset",
-            -- ".prettierrc.json",
+            ".prettierrc.json",
           },
           never_show = {
             ".DS_Store",

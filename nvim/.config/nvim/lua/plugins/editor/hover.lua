@@ -1,7 +1,7 @@
 -- https://github.com/lewis6991/hover.nvim
 return {
   "lewis6991/hover.nvim",
-  lazy = true,
+  lazy = false,
   specs = {
     {
       "AstroNvim/astrocore",

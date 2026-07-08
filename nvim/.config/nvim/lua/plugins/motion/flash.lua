@@ -7,32 +7,6 @@ return {
       "AstroNvim/astrocore",
       ---@type AstroCoreOpts
       opts = {
-        label = {
-          rainbow = {
-            enabled = true,
-            shade = 3,
-          },
-        },
-        modes = {
-          char = {
-            jump_labels = true,
-            search = { wrap = true },
-          },
-          treesitter = {
-            label = { before = true, after = true, style = "overlay" },
-            highlight = {
-              backdrop = true,
-              matches = true,
-            },
-          },
-          treesitter_search = {
-            label = { before = true, after = true, style = "overlay" },
-            highlight = {
-              backdrop = true,
-              matches = true,
-            },
-          },
-        },
         mappings = {
           x = {
             ["s"] = {
@@ -97,5 +71,41 @@ return {
       },
     },
   },
-  opts = {},
+  opts = {
+    label = {
+      rainbow = {
+        enabled = true,
+        shade = 5,
+      },
+    },
+    modes = {
+      char = {
+        keys = {
+          ["f"] = "<s-right>",
+          ["F"] = "<s-left>",
+          "t",
+          "T",
+          ";",
+          ",",
+        },
+        jump_labels = true,
+        auto_hide = true,
+        search = { wrap = true },
+      },
+      treesitter = {
+        label = { before = true, after = true, style = "overlay" },
+        highlight = {
+          backdrop = true,
+          matches = true,
+        },
+      },
+      treesitter_search = {
+        label = { before = true, after = true, style = "overlay" },
+        highlight = {
+          backdrop = true,
+          matches = true,
+        },
+      },
+    },
+  },
 }
