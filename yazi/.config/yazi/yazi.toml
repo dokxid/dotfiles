@@ -19,6 +19,7 @@ rules = [
   # Image
   { mime = "image/*", use = [
     "open",
+    "image",
     "reveal",
   ] },
   # Media
@@ -64,6 +65,7 @@ play = [
   { run = "mediainfo %s1 & pause", block = true, desc = "Show media info", for = "windows" },
 ]
 image = [
+  { run = "nomacs %s", orphan = true, for = "unix" },
   { run = "satty -f %s", orphan = true, for = "unix" },
   { run = "imv %s", orphan = true, for = "unix" },
   { run = "krita %s", orphan = true, for = "unix" },
