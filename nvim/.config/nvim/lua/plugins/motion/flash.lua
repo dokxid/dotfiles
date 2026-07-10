@@ -81,8 +81,8 @@ return {
     modes = {
       char = {
         keys = {
-          ["f"] = "<s-right>",
-          ["F"] = "<s-left>",
+          "f",
+          "F",
           "t",
           "T",
           ";",

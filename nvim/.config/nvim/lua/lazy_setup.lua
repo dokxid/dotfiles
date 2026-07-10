@@ -1,3 +1,8 @@
+local function import_non_ssh(path)
+  if vim.g.ssh then return {} end
+  return { import = path }
+end
+
 require("lazy").setup({
   {
     "AstroNvim/AstroNvim",
@@ -11,14 +16,15 @@ require("lazy").setup({
       update_notifications = true, -- Enable/disable notification about running `:Lazy update` twice to update pinned plugins
     },
   },
+
   { import = "community" },
-  { import = "host_only" },
   { import = "plugins" },
   { import = "plugins.motion" },
   { import = "plugins.completion" },
   { import = "plugins.editor" },
   { import = "plugins.view" },
   { import = "plugins.lsp" },
+  import_non_ssh "host_only",
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrotheme", "habamax" } },

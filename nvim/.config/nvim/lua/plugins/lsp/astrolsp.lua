@@ -141,7 +141,7 @@ return {
       ---@type AstroCoreOpts
       opts = {
         diagnostics = {
-          virtual_text = true,
+          virtual_text = false,
           underline = true,
           update_in_insert = false,
         },

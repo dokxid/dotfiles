@@ -1,1 +1,1 @@
-if vim.g.neovide or vim.v.servername then require "polish.neovide" end
+if vim.g.neovide then require "polish.neovide" end

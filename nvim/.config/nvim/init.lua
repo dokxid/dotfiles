@@ -1,5 +1,3 @@
--- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
--- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
 if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
@@ -11,6 +9,14 @@ if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
     vim.fn.getchar()
     vim.cmd.quit()
   end
+end
+
+-- set global ssh variable
+if os.getenv "SSH_CONNECTION" or vim.g.remote_neovim_host then
+  vim.notify(string.format "ssh detected, setting env variable")
+  vim.g.ssh = true
+else
+  vim.g.ssh = nil
 end
 
 vim.opt.rtp:prepend(lazypath)

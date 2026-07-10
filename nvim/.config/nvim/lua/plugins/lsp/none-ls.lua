@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = {
     "nvimtools/none-ls-extras.nvim",
   },

@@ -19,7 +19,7 @@ return {
         shiftwidth = 2,
         tabstop = 2,
         cmdheight = 0,
-        scrolloff = 10,
+        scrolloff = 5,
         laststatus = 3,
         linespace = 11,
         cursorlineopt = "both",

@@ -51,7 +51,7 @@ return {
         autosave = {
           last = true, -- auto save last session
           cwd = true, -- auto save session for each working directory
-          enabled = true,
+          enabled = false,
           notify = true,
         },
         -- Patterns to ignore when saving sessions
@@ -86,7 +86,7 @@ return {
     "scottmckendry/pick-resession.nvim",
     opts = {
       prompt_title = "sessions",
-      layout = "default", -- "default", "dropdown", "ivy", "select", "vscode"
+      layout = "vscode", -- "default", "dropdown", "ivy", "select", "vscode"
       default_icon = {
         icon = " ",
         highlight = "Directory",

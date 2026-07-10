@@ -1,4 +1,9 @@
-local default_sources = { "minuet", "lsp", "path", "calc", "buffer" }
+local default_sources = {
+  -- "minuet",
+  "lsp",
+  "path",
+  "calc",
+}
 local debug_sources = vim.list_extend(vim.deepcopy(default_sources), { "dap" })
 
 ---@type LazySpec
@@ -108,12 +113,16 @@ return {
         enabled = true,
       },
       keyword = {
-        range = "prefix",
+        range = "full",
       },
       list = {
         selection = {
           preselect = false,
           auto_insert = true,
+        },
+        cycle = {
+          from_bottom = true,
+          from_top = true,
         },
       },
       accept = {
@@ -151,7 +160,7 @@ return {
         },
       },
       documentation = {
-        auto_show = true,
+        auto_show = false,
         auto_show_delay_ms = 500,
         update_delay_ms = 50,
         window = {
@@ -169,7 +178,8 @@ return {
     "onsails/lspkind.nvim",
     {
       "milanglacier/minuet-ai.nvim",
-      lazy = false,
+      lazy = true,
+      enabled = true,
       opts = {
         provider = "openai_compatible",
         request_timeout = 2.5,
@@ -179,8 +189,7 @@ return {
           openai_compatible = {
             api_key = "COMPLETION_PROVIDER_API_KEY",
             end_point = os.getenv "COMPLETION_PROVIDER_ENDPOINT",
-            model = "gwdg/devstral-2-123b-instruct-2512",
-            name = "devstral",
+            model = "fhms/qwen3-coder-30b-a3b-instruct",
             stream = true,
             optional = {
               stream = true,

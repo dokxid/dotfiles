@@ -1,8 +1,4 @@
-function NO_SSH()
-  if vim.g.remote_neovim_host then return {} end
-end
-
-NO_SSH()
+-- see https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/pack
 
 return {
 
@@ -14,13 +10,14 @@ return {
 
   -- web languages
   { import = "astrocommunity.pack.html-css" },
-  { import = "astrocommunity.pack.typescript" },
+  -- { import = "astrocommunity.pack.typescript" },
   -- { import = "astrocommunity.pack.eslint" },
 
   -- compiled languages
   -- { import = "astrocommunity.pack.zig" },
   { import = "astrocommunity.pack.go" },
   -- { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.rust" },
 
   -- jvm languages
   { import = "astrocommunity.pack.java" },

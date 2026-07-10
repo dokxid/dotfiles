@@ -68,7 +68,17 @@ return {
 
         -- util
         ["<Esc>"] = { "<Cmd>nohlsearch<CR>", desc = "Clear search highlights" },
-        ["<C-s>"] = { ":w<CR>", desc = "save file" },
+        ["<C-s>"] = {
+          function()
+            vim.cmd.write()
+            require("resession").save(vim.uv.cwd(), { dir = "dirsession" })
+          end,
+          desc = "save file and dirsessions",
+        },
+        ["<C-S>"] = {
+          function() vim.cmd.write() end,
+          desc = "save file (no dirsession save)",
+        },
         ["<C-w>"] = { close_buffer, desc = "close buffer" },
 
         -- view/cursor manipulation
@@ -79,6 +89,8 @@ return {
 
         -- text manipulation
         ["<C-/>"] = { require("vim._comment").operator() .. "_", desc = "Toggle comment" },
+        ["<C-c>"] = { function() vim.cmd [[normal! "+y]] end, desc = "copy to clipboard" },
+        ["<C-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
 
         -- splits
         ["<C-Left>"] = { function() require("smart-splits").move_cursor_left() end, desc = "Move to left split" },
@@ -107,6 +119,9 @@ return {
         ["<S-Down>"] = { "<Esc><Cmd>move .+1<CR>==gi", desc = "Move line down" },
         ["<S-Up>"] = { "<Esc><Cmd>move .-2<CR>==gi", desc = "Move line up" },
         ["<C-Space>"] = "<Nop>",
+
+        -- text manipulation
+        ["<C-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
       },
       t = {
         ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
@@ -115,9 +130,16 @@ return {
           "<C-\\><C-n>",
           desc = "exit terminal mode",
         },
+
+        -- text manipulation
+        ["<C-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
       },
       v = {
         ["v"] = { "<Esc><C-V>", desc = "block select" },
+
+        -- text manipulation
+        ["<C-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
+
         -- nops
         ["q"] = "<Nop>",
       },
