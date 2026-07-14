@@ -1,0 +1,11 @@
+require("bindings")
+require("autostart")
+require("monitors")
+require("looknfeel")
+require("input")
+require("layouts.scrolling")
+require("windows")
+
+hl.on("hyprland.start", function()
+	hl.exec_cmd("noctalia")
+end)
