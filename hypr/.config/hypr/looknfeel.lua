@@ -9,15 +9,20 @@ hl.env("XCURSOR_SIZE", "24")
 hl.animation({
 	leaf = "windows",
 	enabled = true,
-	speed = 0.8,
-	bezier = "default",
+	speed = 0.6,
+	bezier = "easeOutQuint",
+	style = "popin 80%",
+})
+hl.animation({
+	leaf = "fade",
+	enabled = false,
 })
 hl.animation({
 	leaf = "workspaces",
 	enabled = true,
-	speed = 1.5,
+	speed = 1.3,
 	bezier = "easeOutQuint",
-	style = "slidefadervert",
+	style = "slidefadevert",
 })
 hl.config({
 	misc = {
@@ -26,21 +31,21 @@ hl.config({
 	},
 	general = {
 		gaps_in = 6,
-		gaps_out = 10,
-		border_size = 2,
+		gaps_out = 6,
+		border_size = 3,
 		col = {
-			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-			inactive_border = "rgba(595959aa)",
+			active_border = { colors = { "rgba(f38ba8ff)" }, angle = 45 },
+			inactive_border = "rgba(6c7086ff)",
 		},
 		resize_on_border = false,
 		allow_tearing = false,
-		layout = "scrolling",
 	},
 	decoration = {
+		inactive_opacity = 0.8,
+		active_opacity = 0.99,
 		rounding = 20,
 		rounding_power = 2,
-		active_opacity = 1.0,
-		inactive_opacity = 1.0,
+		dim_special = 0.5,
 		shadow = {
 			enabled = true,
 			range = 4,

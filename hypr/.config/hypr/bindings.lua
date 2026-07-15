@@ -70,3 +70,7 @@ hl.bind(SUPER .. "o", hl.dsp.exec_cmd(focusScript .. "uwsm-app -- obsidian --ena
 hl.bind(SUPER_CTRL .. "o", hl.dsp.exec_cmd(tuiScript .. "opencode"))
 hl.bind(SUPER_CTRL .. "f", hl.dsp.exec_cmd(fileManagerSecondary))
 hl.bind(SUPER_CTRL .. "m", hl.dsp.exec_cmd(musicPlayerStreaming))
+
+hl.bind(SUPER_CTRL .. "i", hl.dsp.exec_cmd("vesktop", { workspace = "4 silent" }))
+
+require("bindings.noctalia")

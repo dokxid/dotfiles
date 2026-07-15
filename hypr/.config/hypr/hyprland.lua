@@ -1,11 +1,11 @@
-require("bindings")
-require("autostart")
-require("monitors")
-require("looknfeel")
 require("input")
+require("bindings")
+require("monitors")
+require("workspaces")
 require("layouts.scrolling")
 require("windows")
+require("looknfeel")
+require("autostart")
 
-hl.on("hyprland.start", function()
-	hl.exec_cmd("noctalia")
-end)
+-- For Noctalia Color templates
+require("noctalia").apply_theme()
