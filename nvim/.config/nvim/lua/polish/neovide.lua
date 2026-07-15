@@ -1,7 +1,7 @@
 function IS_MACOS() return vim.fn.has "macunix" == 1 end
 
 -- constants
-local enableClipboard = true
+local enableClipboard = false
 local animationConfig = true
 local fontConfig = true
 local themeConfig = true

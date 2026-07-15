@@ -34,7 +34,7 @@ return {
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.editing-support.suda-vim" },
   { import = "astrocommunity.utility.noice-nvim" },
-  { import = "astrocommunity.recipes.picker-nvchad-theme" },
+  -- { import = "astrocommunity.recipes.picker-nvchad-theme" },
   -- { import = "astrocommunity.utility.hover-nvim" },
 
   -- docker

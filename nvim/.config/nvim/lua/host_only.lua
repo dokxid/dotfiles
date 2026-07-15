@@ -9,7 +9,7 @@ return {
   -- { import = "astrocommunity.pack.python" },
 
   -- web languages
-  { import = "astrocommunity.pack.html-css" },
+  -- { import = "astrocommunity.pack.html-css" },
   -- { import = "astrocommunity.pack.typescript" },
   -- { import = "astrocommunity.pack.eslint" },
 
@@ -20,10 +20,11 @@ return {
   { import = "astrocommunity.pack.rust" },
 
   -- jvm languages
-  { import = "astrocommunity.pack.java" },
+  -- { import = "astrocommunity.pack.java" },
   -- { import = "astrocommunity.pack.kotlin" },
   {
     "mfussenegger/nvim-jdtls",
+    enabled = false,
     opts = {
       settings = {
         java = {
@@ -52,5 +53,5 @@ return {
   },
 
   -- neovide support
-  { import = "astrocommunity.recipes.neovide" },
+  -- { import = "astrocommunity.recipes.neovide" },
 }

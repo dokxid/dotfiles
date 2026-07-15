@@ -44,7 +44,7 @@ return {
     opts = {
       mappings = {
         n = {
-          ["<Leader><space>"] = {
+          ["<s-space>"] = {
             function() Snacks.picker.smart() end,
             desc = "smart find",
           },

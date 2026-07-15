@@ -17,7 +17,7 @@ return {
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
     signature = {
-      enabled = true,
+      enabled = false,
       window = {
         border = "rounded",
         scrollbar = false,

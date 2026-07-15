@@ -19,7 +19,7 @@ return {
         servers = {}, -- list of language server names to ignore (Ex. { "efm" })
         dirs = { "~/.local/share/*", "~/.cargo/*" }, -- list of directory patterns (Ex. { "~/.cargo/*" })
       },
-      autochdir = true,
+      autochdir = false,
       -- scope of working directory to change ("global"|"tab"|"win")
       scope = "tab",
       notify = true,

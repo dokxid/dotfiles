@@ -19,7 +19,7 @@ return {
         -- splits
         ["|"] = { "<cmd>vsplit<cr>", desc = "vertical split" },
         ["\\"] = { "<cmd>split<cr>", desc = "horizontal split" },
-        ["Q"] = { "<cmd>confirm q<cr>", desc = "Quit with confirmation" },
+        ["Q"] = { "<cmd>confirm q<cr>", desc = "quit with confirmation" },
 
         -- buffers
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
@@ -28,13 +28,14 @@ return {
         ["{"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- leaders
-        ["<Leader>c"] = { close_buffer, desc = "close buffer" },
+        ["<Leader>E"] = { function() require("yazi").yazi() end, desc = "yazi" },
+        ["<Leader>c"] = { close_buffer, desc = " bfr" },
         ["<Leader>C"] = {
           function() require("astrocore.buffer").close_all(true) end,
-          desc = "close all buffers except current one",
+          desc = " bfrs",
         },
         ["<Leader>a"] = { desc = "misc" },
-        ["<Leader>."] = {
+        ["<Leader>R"] = {
           "<cmd>AstroRoot<cr>",
           desc = "astroroot",
         },
@@ -44,11 +45,11 @@ return {
         },
         ["<Leader>ad"] = {
           "<cmd>DiffviewOpen<ct>",
-          desc = "diff view: working tree changes",
+          desc = "diff_view",
         },
         ["<Leader>p"] = { desc = " pacmans" },
-        ["<Leader>pp"] = { function() require("lazy").home() end, desc = "open lazy" },
-        ["<Leader>po"] = { "<cmd>Mason<cr>", desc = "open mason" },
+        ["<Leader>pp"] = { function() require("lazy").home() end, desc = "lazy" },
+        ["<Leader>po"] = { "<cmd>Mason<cr>", desc = "mason" },
         ["<Leader>pm"] = false,
         ["<Leader>pM"] = false,
         ["<Leader>ps"] = false,
@@ -60,8 +61,31 @@ return {
         ["<Leader>bc"] = false,
         ["<Leader>w"] = false,
         ["<Leader>Q"] = false,
+        ["<Leader>n"] = false,
         ["<Leader>h"] = false,
         ["<Leader>o"] = false,
+        ["<Leader>S"] = false,
+        ["<Leader>Sl"] = false,
+        ["<Leader>SL"] = false,
+        ["<Leader>Sd"] = false,
+        ["<Leader>SD"] = false,
+        ["<Leader>Sf"] = false,
+        ["<Leader>SF"] = false,
+        ["<Leader>Ss"] = false,
+        ["<Leader>SS"] = false,
+        ["<Leader>St"] = false,
+        ["<Leader>S."] = false,
+
+        -- session / cwd
+        ["<Leader>s"] = { desc = "󱀀 sessions" },
+        ["<Leader>sc"] = {
+          function() require("yazi").yazi { change_neovim_cwd_on_close = true } end,
+          desc = "yazi with cwd",
+        },
+        ["<Leader>ss"] = {
+          function() require("resession").save(vim.uv.cwd(), { dir = "dirsession" }) end,
+          desc = "dirsession 󰆓",
+        },
 
         -- terminal
         ["<F12>"] = { "<Cmd>ToggleTerm name=default<CR>", desc = "ToggleTerm" },
@@ -73,11 +97,11 @@ return {
             vim.cmd.write()
             require("resession").save(vim.uv.cwd(), { dir = "dirsession" })
           end,
-          desc = "save file and dirsessions",
+          desc = "file and dirses 󰆓",
         },
         ["<C-S>"] = {
           function() vim.cmd.write() end,
-          desc = "save file (no dirsession save)",
+          desc = "file 󰆓",
         },
         ["<C-w>"] = { close_buffer, desc = "close buffer" },
 

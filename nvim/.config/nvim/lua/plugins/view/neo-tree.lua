@@ -8,11 +8,22 @@ local mappings = {
         require("neo-tree.command").execute {
           toggle = true,
           source = "filesystem",
-          position = "left",
+          position = "float",
           reveal_force_cwd = true,
         }
       end,
-      desc = "open neotree",
+      desc = "neotree",
+    },
+    ["E"] = {
+      function()
+        require("neo-tree.command").execute {
+          toggle = true,
+          source = "filesystem",
+          position = "float",
+          reveal_force_cwd = true,
+        }
+      end,
+      desc = "neotree",
     },
   },
 }
@@ -26,6 +37,9 @@ return {
     ---@module 'neo-tree'
     ---@type neotree.Config
     opts = {
+      commands = {
+        open_yazi = function() require("yazi").yazi() end,
+      },
       source_selector = {
         truncation_character = "",
         winbar = true,
@@ -41,7 +55,7 @@ return {
       },
       close_if_last_window = true,
       hide_root_node = true,
-      retain_hidden_root_indent = false,
+      retain_hidden_root_indent = true,
       event_handlers = {
         {
           event = "file_open_requested",
@@ -51,12 +65,19 @@ return {
       window = {
         width = 30,
         mappings = {
+          -- mouse
+          ["<2-LeftMouse>"] = "open",
+          ["<RightMouse>"] = "toggle_node",
+
+          -- opening / nodes
           ["<s-down>"] = "open_split",
           ["<s-right>"] = "open_vsplit",
-          ["<space>"] = "",
-          ["<esc>"] = "close_window",
-          ["e"] = "close_window",
-          ["a"] = "focus_preview",
+          ["<space>"] = { "toggle_node" },
+          ["c"] = "toggle_node",
+          ["C"] = "close_node",
+
+          -- preview
+          ["l"] = "focus_preview",
           ["<tab>"] = {
             "toggle_preview",
             config = {
@@ -65,19 +86,37 @@ return {
               use_image_nvim = true,
             },
           },
+
+          -- manipulation
           ["A"] = {
-            "add",
-            -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
-            -- some commands may take optional config options, see `:h neo-tree-mappings` for details
+            "add_directory",
             config = {
-              show_path = "relative", -- "none", "relative", "absolute"
+              show_path = "relative",
             },
           },
+          ["a"] = {
+            "add",
+            config = {
+              show_path = "relative",
+            },
+          },
+
+          -- view
+          ["<esc>"] = "close_window",
+          ["e"] = "close_window",
+          ["E"] = "open_yazi",
+          ["q"] = "close_window",
+          -- [","] = "prev_source",
+          -- ["."] = "next_source",
+          ["?"] = "show_help",
         },
       },
       default_component_configs = {
         container = {
           enable_character_fade = true,
+        },
+        name = {
+          trailing_slash = true,
         },
         indent = {
           indent_size = 2,
@@ -91,9 +130,21 @@ return {
         },
       },
       nesting_rules = {
-        ["_"] = { -- match any node
-          collapse = true,
-          match = function(node) return node.type == "directory" and node.name:match "^src$" end,
+        ["package.json"] = {
+          pattern = "^package%.json$",
+          files = { "package-lock.json", "yarn*", "pnpm*", "bun*" },
+        },
+        ["mise.toml"] = {
+          pattern = "^mise%.toml$",
+          files = { "mise.local.toml" },
+        },
+        ["README.md"] = {
+          pattern = "^README%.md$",
+          files = { "LICENSE" },
+        },
+        ["nuxt.config.ts"] = {
+          pattern = "^nuxt%.config%.ts$",
+          files = { "*.config.ts", "*.config.mjs" },
         },
       },
       filesystem = {
@@ -106,18 +157,23 @@ return {
         filtered_items = {
           show_hidden_count = false,
           visible = false, -- hide filtered items on open
-          hide_gitignored = true,
+          hide_gitignored = false,
           hide_dotfiles = false,
           always_show_by_pattern = {
             ".env*",
           },
           hide_by_name = {
-            "node_modules",
+            -- "node_modules",
             ".github",
             -- ".gitignore",
             "package-lock.json",
+            "pnpm-lock.json",
+            "bun.lock",
             ".changeset",
-            ".prettierrc.json",
+            -- ".prettierrc.json",
+            ".nuxt",
+            ".output",
+            "dist",
           },
           never_show = {
             ".DS_Store",
@@ -134,7 +190,6 @@ return {
       opts.nesting_rules = require("neotree-file-nesting-config").nesting_rules
       require("neo-tree").setup(opts)
     end,
-    commands = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",

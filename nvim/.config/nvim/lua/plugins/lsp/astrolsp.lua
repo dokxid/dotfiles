@@ -40,7 +40,7 @@ return {
       disabled = { -- disable formatting capabilities for the listed language servers
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         -- "lua_ls",
-        -- "eslint",
+        "eslint",
         "vtsls",
         "ts_ls",
         "vue_ls",
@@ -60,6 +60,13 @@ return {
     },
     -- customize language server configuration options passed to `lspconfig`
     config = {
+      rust_analyzer = {
+        settings = {
+          ["rust_analyzer"] = {
+            cargo = {},
+          },
+        },
+      },
       ["yamlls"] = {
         filetypes = {
           "yaml",
@@ -171,7 +178,7 @@ return {
           -- install language servers
         },
       },
-      run_on_start = false,
+      run_on_start = true,
     },
   },
 }
