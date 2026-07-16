@@ -2,7 +2,6 @@ local Snacks = require "snacks"
 
 return {
   "folke/snacks.nvim",
-  ---@type Snacks.picker.Config
   opts = {
     -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
     picker = {
@@ -14,6 +13,23 @@ return {
           ["<Esc>"] = { "close", mode = { "n", "i" } },
           ["/"] = "toggle_focus",
         },
+      },
+      ---@class snacks.picker.smart.Config: snacks.picker.Config
+      smart = {
+        layout = {
+          cycle = true,
+          --- Use the default layout or vertical if the window is too narrow
+          preset = function() return vim.o.columns >= 120 and "default" or "vertical" end,
+        },
+        preview = false,
+        multi = { "buffers", "recent", "files" },
+        format = "file", -- use `file` format for all sources
+        matcher = {
+          cwd_bonus = true, -- boost cwd matches
+          frecency = true, -- use frecency boosting
+          sort_empty = true, -- sort even when the filter is empty
+        },
+        transform = "unique_file",
       },
       ---@class Snacks.picker.buffers.Config: snacks.picker.Config
       buffers = {
@@ -45,7 +61,13 @@ return {
       mappings = {
         n = {
           ["<s-space>"] = {
-            function() Snacks.picker.smart() end,
+            function()
+              Snacks.picker.smart {
+                layout = {
+                  preset = "vscode",
+                },
+              }
+            end,
             desc = "smart find",
           },
           ["<Leader>fw"] = {

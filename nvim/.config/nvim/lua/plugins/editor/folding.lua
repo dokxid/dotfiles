@@ -41,12 +41,12 @@ return {
       disableOnFt = { "snacks_picker_input" }, ---@type string[]
     },
     autoFold = {
-      enabled = true,
+      enabled = false,
       kinds = { "imports" }, ---@type lsp.FoldingRangeKind[]
     },
     foldKeymaps = {
       setup = true, -- modifies `h`, `l`, `^`, and `$`
-      closeOnlyOnFirstColumn = false, -- `h` and `^` only fold in the 1st column
+      closeOnlyOnFirstColumn = true, -- `h` and `^` only fold in the 1st column
       scrollLeftOnCaret = false, -- `^` should scroll left (basically mapped to `0^`)
     },
   },

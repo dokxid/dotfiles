@@ -6,8 +6,18 @@ return {
   opts = {
     ---@class Snacks.dashboard.Config
     dashboard = {
+      width = 40,
+      formats = {
+        header = { "%s", align = "center", hl = "special" },
+        keys = {},
+      },
       preset = {
-        header = [[the potato editor]],
+        header = [[
+        __/) 
+     .-(__(=:
+(  \ |    \) 
+    \| / )   
+     |/      ]],
         keys = {
           {
             icon = " ",
@@ -18,25 +28,24 @@ return {
             end,
           },
           {
-            icon = " ",
-            key = "c",
-            desc = ".config/nvim",
-            action = function() Snacks.dashboard.pick("files", { cwd = vim.fn.stdpath "config" }) end,
+            icon = " ",
+            key = "f",
+            desc = "files",
+            action = function() require("snacks").picker.smart() end,
           },
-          { icon = "󰒲 ", key = "l", desc = ":lazy zzz", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
         },
       },
       sections = {
         -- { section = "startup", padding = 2 },
-        {
-          pane = 1,
-          cmd = "if not test '$zen' = ''; cat ~/.config/nvim/dashboard_header; sleep 0.1; end",
-          section = "terminal",
-          height = 13,
-          padding = 2,
-        },
+        -- {
+        --   pane = 1,
+        --   cmd = "if not test '$zen' = ''; cat ~/.config/nvim/dashboard_header; sleep 0.1; end",
+        --   section = "terminal",
+        --   height = 13,
+        --   padding = 2,
+        -- },
         { section = "header", padding = 2 },
-        { title = "==> keys <==", section = "keys", indent = 2, padding = 1 },
+        { title = "the potato editor", section = "keys", indent = 0, padding = 1 },
       },
     },
   },
