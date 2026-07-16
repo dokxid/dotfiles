@@ -33,7 +33,7 @@ return {
           return icon .. cwd
         end,
         padding = { left = 1, right = 1 },
-        hl = { fg = require("catppuccin.palettes").get_palette("mocha").lavender, italic = true },
+        hl = { fg = require("catppuccin.palettes").get_palette().lavender, italic = true },
       },
       -- status.component.git_branch(),
       status.component.file_info(),
@@ -47,7 +47,7 @@ return {
       status.component.builder {
         provider = "%8(󰷈 %l/%L%)", -- show hour and minute in 24 hour format
         padding = { left = 1, right = 0 },
-        hl = { fg = require("catppuccin.palettes").get_palette("mocha").peach, bold = true },
+        hl = { fg = require("catppuccin.palettes").get_palette().peach, bold = true },
       },
       status.component.nav {
         padding = { left = 0, right = 0 },

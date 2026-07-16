@@ -30,8 +30,14 @@ return {
           {
             icon = " ",
             key = "f",
-            desc = "files",
-            action = function() require("snacks").picker.smart() end,
+            desc = "find",
+            action = function()
+              require("snacks").picker.smart {
+                layout = {
+                  preset = "vscode",
+                },
+              }
+            end,
           },
         },
       },

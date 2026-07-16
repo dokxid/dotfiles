@@ -62,7 +62,7 @@ return {
         n = {
           ["<s-space>"] = {
             function()
-              Snacks.picker.smart {
+              Snacks.picker.files {
                 layout = {
                   preset = "vscode",
                 },

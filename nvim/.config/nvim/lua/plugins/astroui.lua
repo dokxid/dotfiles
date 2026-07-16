@@ -30,112 +30,89 @@ return {
         LSPLoading10 = "⠏",
       },
     },
-    dependencies = {
-      {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        ---@type CatppuccinOptions
-        opts = {
-          flavour = "latte",
-          background = {
-            light = "latte",
-            dark = "mocha",
-          },
-          transparent_background = true,
-          float = {
-            transparent = true,
-            solid = true,
-          },
-          term_colors = true,
-          dim_inactive = {
-            enabled = false, -- dims the background color of inactive window
-            shade = "dark",
-            percentage = 0.05, -- percentage of the shade to apply to the inactive window
-          },
-          no_italic = false, -- Force no italic
-          no_bold = false, -- Force no bold
-          no_underline = false, -- Force no underline
-          styles = {
-            conditionals = { "italic" },
-            loops = { "italic" },
-            functions = { "bold" },
-            variables = {},
-            numbers = { "italic" },
-            booleans = { "italic" },
-
-            properties = {},
-            types = { "bold" },
-            operators = { "bold" },
-            component = { "bold" },
-            start_tag = { "bold" },
-            end_tag = { "bold" },
-            miscs = {},
-          },
-          auto_integrations = true,
-          integrations = {
-            avante = { rounded = true },
-            colorful_winsep = { enabled = true, color = "lavender" },
-            snacks = {
-              indent_scope_color = "lavender",
-              enabled = true,
-            },
-            treesitter = true,
-            blink_cmp = {
-              style = "bordered",
-            },
-            flash = true,
-            gitsigns = {
-              enabled = true,
-              transparent = true,
-            },
-            grug_far = true,
-            which_key = true,
-            neotree = true,
-          },
-          -- highlight_overrides = {
-          --   all = function(colors)
-          --     return {
-          --       -- Comment = { fg = colors.flamingo },
-          --     }
-          --   end,
-          --   latte = function(colors)
-          --     return {
-          --       -- Comment = { fg = latte.flamingo },
-          --     }
-          --   end,
-          --   ---@type CtpHighlightOverrideFn
-          --   mocha = function(colors)
-          --     return {
-          --       comment = { fg = colors.subtext0, style = { "italic", "dim" } },
-          --       keyword = { style = { "italic", "dim" } },
-          --       string = { fg = colors.teal, style = { "italic", "dim" } },
-          --     }
-          --   end,
-          -- },
-        },
-      },
-    },
   },
   {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    enabled = false,
-    lazy = true,
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    lazy = false,
+    ---@type CatppuccinOptions
     opts = {
-      variant = "auto", -- auto, main, moon, or dawn
-      dark_variant = "main", -- main, moon, or dawn
-      dim_inactive_windows = true,
-      -- groups = {
-      --   git_change = "gold",
-      --   git_dirty = "love",
-      -- },
-      -- highlight_groups = {
-      --   -- Directory = { fg = "gold" },
-      --   NeoTreeGitModified = { fg = "love", bold = true },
-      --   NeoTreeGitRenamed = { fg = "love", bold = true },
-      --   NeoTreeFileName = { fg = "gold" },
-      --   NeoTreeFileIcon = { fg = "rose" },
-      --   NeoTreeModified = { fg = "gold" },
+      -- flavour = "auto",
+      background = {
+        light = "latte",
+        dark = "mocha",
+      },
+      transparent_background = true,
+      float = {
+        transparent = true,
+        solid = true,
+      },
+      term_colors = true,
+      dim_inactive = {
+        enabled = false, -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.05, -- percentage of the shade to apply to the inactive window
+      },
+      no_italic = false, -- force no italic
+      no_bold = false, -- force no bold
+      no_underline = false, -- force no underline
+      styles = {
+        conditionals = { "italic" },
+        loops = { "italic" },
+        functions = { "bold" },
+        variables = {},
+        numbers = { "italic" },
+        booleans = { "italic" },
+
+        properties = {},
+        types = { "bold" },
+        operators = { "bold" },
+        component = { "bold" },
+        start_tag = { "bold" },
+        end_tag = { "bold" },
+        miscs = {},
+      },
+      auto_integrations = true,
+      integrations = {
+        avante = { rounded = true },
+        colorful_winsep = { enabled = true, color = "lavender" },
+        snacks = {
+          indent_scope_color = "lavender",
+          enabled = true,
+        },
+        treesitter = true,
+        blink_cmp = {
+          style = "bordered",
+        },
+        flash = true,
+        gitsigns = {
+          enabled = true,
+          transparent = true,
+        },
+        grug_far = true,
+        which_key = true,
+        neotree = true,
+      },
+      -- highlight_overrides = {
+      --   all = function(colors)
+      --     return {
+      --       -- comment = { fg = colors.flamingo },
+      --     }
+      --   end,
+      --   latte = function(colors)
+      --     return {
+      --       -- comment = { fg = latte.flamingo },
+      --     }
+      --   end,
+      --   ---@type ctphighlightoverridefn
+      --   mocha = function(colors)
+      --     return {
+      --       comment = { fg = colors.subtext0, style = { "italic", "dim" } },
+      --       keyword = { style = { "italic", "dim" } },
+      --       string = { fg = colors.teal, style = { "italic", "dim" } },
+      --     }
+      --   end,
       -- },
     },
   },
@@ -144,10 +121,10 @@ return {
     config = true,
     event = { "WinLeave" },
   },
-  {
-    "f-person/auto-dark-mode.nvim",
-    opts = {},
-  },
+  -- {
+  --   "f-person/auto-dark-mode.nvim",
+  --   opts = {},
+  -- },
   {
     "lewis6991/gitsigns.nvim",
     opts = {
