@@ -1,5 +1,0 @@
-[theme.templates]
-community_ids = ["yazi", "neovim"]
-builtin_ids = ["wezterm", "hyprland"]
-enable_builtin_templates = true
-enable_community_templates = true

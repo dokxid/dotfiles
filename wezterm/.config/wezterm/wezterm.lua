@@ -17,7 +17,7 @@ cmdpicker.add_keys(c, {
 })
 
 -- https://github.com/abidibo/wezterm-sessions
-local sessions = wezterm.plugin.require("https://github.com/abidibo/wezterm-sessions")
+-- local sessions = wezterm.plugin.require("https://github.com/abidibo/wezterm-sessions")
 
 -- keytables
 c.key_tables = {
@@ -37,7 +37,7 @@ c.key_tables = {
 -- system
 -- needed in case u have a different login shell (im too scared to change mine rn on my linux)
 local shell = os.getenv("SHELL_OVERRIDE") == nil and os.getenv("SHELL") or os.getenv("SHELL_OVERRIDE")
-c.default_prog = { shell, "-l" }
+c.default_prog = { "/usr/bin/fish", "-l" }
 
 -- keys
 c.disable_default_key_bindings = bindings.disable_default_bindings
@@ -49,8 +49,8 @@ c.keys = bindings.keys
 c.initial_rows = 40
 c.initial_cols = 120
 c.font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "DemiBold" })
-c.font_size = 12
-c.line_height = 1.7
+c.font_size = 10
+c.line_height = 1.8
 -- c.freetype_load_flags = "NO_HINTING"
 
 -- appearance
@@ -66,6 +66,7 @@ if wezterm.GLOBAL.appearance ~= appearance then
 	})
 end
 
+c.color_scheme_dirs = { "~/dotfiles/wezterm/.config/wezterm/colors" }
 c.color_scheme = look.scheme
 
 local padding = {
@@ -74,7 +75,7 @@ local padding = {
 	top = 40,
 	bottom = 0,
 }
-c.window_background_opacity = helpers.is_linux() and 0.7 or 1.0
+c.window_background_opacity = helpers.is_linux() and 1.0 or 1.0
 wezterm.on("update-status", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
 	if string.find(pane:get_title(), "- [Nn]-vi-m$") then

@@ -1,5 +1,0 @@
-[include]
-files = ["~/.config/noctalia/components/", "~/.config/noctalia/other/"]
-
-[theme]
-mode = "dark"

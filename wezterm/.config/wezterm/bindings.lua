@@ -280,6 +280,16 @@ bindings.keys = {
 			end),
 		}),
 	},
+	{
+		key = "f",
+		mods = "CTRL",
+		action = act.Search({ CaseInSensitiveString = "" }),
+	},
+	{
+		key = "/",
+		mods = "CTRL",
+		action = act.Search({ CaseInSensitiveString = "" }),
+	},
 }
 
 cmdpicker.add_keys(bindings.keys) -- register only, no config object needed
