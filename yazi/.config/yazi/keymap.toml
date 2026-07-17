@@ -2,14 +2,14 @@
 append_keymap = []
 prepend_keymap = [
   # vanilla yazi
-  { on = "<Esc>", run = "quit", desc = "Quit Yazi" },
-  { on = "<PageUp>", run = "seek -1", desc = "seek preview -1" },
-  { on = "<PageDown>", run = "seek +1", desc = "seek preview +1" },
+  # { on = "<Esc>", run = "quit", desc = "Quit Yazi" },
+  { on = "<s-up>", run = "seek -1", desc = "seek preview +1" },
+  { on = "<s-down>", run = "seek +1", desc = "seek preview -1" },
   { on = "?", run = "help", desc = "Show help" },
   { on = "!", for = "unix", run = "shell fish --block", desc = "open a shell here" },
 
   # utils
-  { on = "R", run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
+  { on = "T", run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
   { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
   { on = [
     "c",
@@ -25,13 +25,8 @@ prepend_keymap = [
     ",",
     ",",
   ], run = "plugin what-size", desc = "Calc size of selection or cwd" },
-  { on = "<C-r>", run = "plugin duck-radar", desc = "recent files" },
 
   # find / navigation
-  { on = [
-    "g",
-    "r",
-  ], run = 'shell -- y emit cd "$(git rev-parse --show-toplevel)"', desc = "go to root git directory" },
   { on = [
     "g",
     "r",
@@ -44,21 +39,11 @@ prepend_keymap = [
 
   # bookmarks
   { on = "b", run = "plugin whoosh jump_by_key", desc = "Jump bookmark by key" },
-  { on = "<C-space>", run = "plugin whoosh jump_by_fzf", desc = "Direct fuzzy search for bookmarks" },
-  { on = "<C-c>", run = "plugin whoosh jump_key_cc", desc = "jump to ~/.config" },
-  { on = "<C-b>", run = "plugin whoosh jump_by_fzf", desc = "Jump bookmark by fzf" },
+  { on = "<c-space>", run = "plugin whoosh jump_by_fzf", desc = "Direct fuzzy search for bookmarks" },
   { on = [
     "[",
     "a",
-  ], run = "plugin whoosh save", desc = "Add bookmark (hovered file/directory)" },
-  { on = [
-    "[",
-    "A",
   ], run = "plugin whoosh save_cwd", desc = "Add bookmark (current directory)" },
-  { on = [
-    "[",
-    "d",
-  ], run = "plugin whoosh delete_by_key", desc = "Delete bookmark by key" },
   { on = [
     "[",
     "<delete>",

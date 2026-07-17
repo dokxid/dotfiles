@@ -4,11 +4,6 @@ rev = "39aaf6d"
 hash = "7a4b4237223aaa94e589d1c01a23542a"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:smart-filter"
-rev = "39aaf6d"
-hash = "c887903a63a2ff520081b6d90a4b3392"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:git"
 rev = "39aaf6d"
 hash = "88e56a64b7ce7c4314427452343fef17"
@@ -34,11 +29,6 @@ rev = "dc9c103"
 hash = "949fc14ee6b6f8565ac7012d338b37c0"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:full-border"
-rev = "39aaf6d"
-hash = "7b625412411be411153886894d9acaf"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
 rev = "39aaf6d"
 hash = "15e5b67a241172cbb86b8fbf9e63692"
@@ -52,11 +42,6 @@ hash = "f0c8c378184d5f8abd1b095a443d336d"
 use = "XYenon/yafg"
 rev = "e6ba851"
 hash = "9558dd9169cbf01eac6044583c426716"
-
-[[plugin.deps]]
-use = "barbanevosa/autosession"
-rev = "7a12b20"
-hash = "f9b76184511c983db7c6f719eea1e14d"
 
 [[plugin.deps]]
 use = "uhs-robert/recycle-bin"
@@ -84,11 +69,16 @@ rev = "179ebf6"
 hash = "57056b9728006881d580ccabe8154a9c"
 
 [[plugin.deps]]
-use = "nsavvide/duck-radar"
-rev = "95530e9"
-hash = "6af7865bac705146fb056bde87de7a16"
+use = "WhoSowSee/whoosh"
+rev = "ec2e6f7"
+hash = "59e984146fa6b20c441817444d5fdd61"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "0f9204b"
 hash = "7dfe41c9c3d9be76da8a844263d0bbed"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "4770a34"
+hash = "b8f46853c27707115f25f3423a47bd38"

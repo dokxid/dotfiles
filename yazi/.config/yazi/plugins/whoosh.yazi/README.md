@@ -42,10 +42,10 @@ ya pkg add WhoSowSee/whoosh
 # Manual installation
 
 # Linux/macOS
-git clone https://gitlab.com/WhoSowSee/whoosh.yazi.git ~/.config/yazi/plugins/whoosh.yazi
+git clone https://github.com/WhoSowSee/whoosh.yazi.git ~/.config/yazi/plugins/whoosh.yazi
 
 # Windows
-git clone https://gitlab.com/WhoSowSee/whoosh.yazi.git $env:APPDATA\yazi\config\plugins\whoosh.yazi
+git clone https://github.com/WhoSowSee/whoosh.yazi.git $env:APPDATA\yazi\config\plugins\whoosh.yazi
 ```
 
 ## Usage

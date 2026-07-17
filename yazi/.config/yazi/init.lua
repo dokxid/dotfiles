@@ -3,84 +3,58 @@ require("git"):setup()
 -- require("autosession"):setup()
 require("recycle-bin"):setup()
 
--- You can configure your bookmarks using simplified syntax
-local bookmarks = {
-	{ tag = "Desktop",   path = "~/Desktop",   key = "d" },
-	{ tag = "Documents", path = "~/Documents", key = "D" },
-	{ tag = "Downloads", path = "~/Downloads", key = "o" },
-}
-
 -- nvim specific
 if os.getenv("NVIM") then
 	require("toggle-pane"):entry("min-preview")
 else
-	require("full-border"):setup({ type = ui.Border.ROUNDED })
 	require("starship"):setup()
 end
 
--- windows specific
-if ya.target_family() == "windows" then
-	local home_path = os.getenv("USERPROFILE")
-	table.insert(bookmarks, {
-		tag = "Scoop Local",
-		path = os.getenv("SCOOP") or (home_path .. "\\scoop"),
-		key = "p",
-	})
-	table.insert(bookmarks, {
-		tag = "Scoop Global",
-		path = os.getenv("SCOOP_GLOBAL") or "C:\\ProgramData\\scoop",
-		key = "P",
-	})
-end
--- require("whoosh"):setup({
--- 	-- Configuration bookmarks (cannot be deleted through plugin)
--- 	bookmarks = bookmarks,
---
--- 	-- Notification settings
--- 	jump_notify = false,
---
--- 	-- Key generation for auto-assigning bookmark keys
--- 	keys = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
---
--- 	-- Configure the built-in menu action hotkeys
--- 	-- false - hide menu item
--- 	special_keys = {
--- 		create_temp = "<Enter>", -- Create a temporary bookmark from the menu
--- 		fuzzy_search = "<Space>", -- Launch fuzzy search (fzf)
--- 		history = "<Tab>", -- Open directory history
--- 		previous_dir = "<Backspace>", -- Jump back to the previous directory
--- 	},
---
--- 	-- File path for storing user bookmarks
--- 	bookmarks_path = (
--- 		ya.target_family() == "windows"
--- 		and os.getenv("APPDATA") .. "\\yazi\\config\\plugins\\whoosh.yazi\\bookmarks"
--- 	) or (os.getenv("HOME") .. "/.config/yazi/plugins/whoosh.yazi/bookmarks"),
---
--- 	-- Replace home directory with "~"
--- 	home_alias_enabled = true, -- Toggle home aliasing in displays
---
--- 	-- Path truncation in navigation menu
--- 	path_truncate_enabled = false, -- Enable/disable path truncation
--- 	path_max_depth = 3, -- Maximum path depth before truncation
---
--- 	-- Path truncation in fuzzy search (fzf)
--- 	fzf_path_truncate_enabled = false, -- Enable/disable path truncation in fzf
--- 	fzf_path_max_depth = 5, -- Maximum path depth before truncation in fzf
---
--- 	-- Long folder name truncation
--- 	path_truncate_long_names_enabled = false, -- Enable in navigation menu
--- 	fzf_path_truncate_long_names_enabled = false, -- Enable in fzf
--- 	path_max_folder_name_length = 20, -- Max length in navigation menu
--- 	fzf_path_max_folder_name_length = 20, -- Max length in fzf
---
--- 	-- History directory settings
--- 	history_size = 10, -- Number of directories in history (default 10)
--- 	history_fzf_path_truncate_enabled = false, -- Enable/disable path truncation by depth for history
--- 	history_fzf_path_max_depth = 5, -- Maximum path depth before truncation for history (default 5)
--- 	history_fzf_path_truncate_long_names_enabled = false, -- Enable/disable long folder name truncation for history
--- 	history_fzf_path_max_folder_name_length = 30, -- Maximum length for folder names in history (default 30)
--- })
+require("whoosh"):setup({
+	bookmarks = {
+		{ tag = "desktop", path = "~/Desktop", key = { "d", "D" } },
+		{ tag = "documents", path = "~/Documents", key = { "d", "d" } },
+		{ tag = "pictures", path = "~/Pictures", key = { "d", "p" } },
+		{ tag = "videos", path = "~/Videos", key = { "d", "v" } },
+		{ tag = "home", path = "~", key = { "h" } },
+		{ tag = "downloads", path = "~/Downloads", key = { "o" } },
+		{ tag = "repos", path = "~/repos", key = { "r" } },
+		{ tag = "projects", path = "~/projects", key = { "p" } },
+		{ tag = ".local/nvim", path = "~/.local/share/nvim/lazy", key = { "l", "n" } },
+		{ tag = "dotfiles", path = "~/dotfiles", key = { "t" } },
+		{ tag = ".config", path = "~/.config", key = { "c" } },
+	},
+	jump_notify = true,
+	home_alias_enabled = true,
+	special_keys = {
+		fuzzy_search = "<Space>",
+		history = "<Backspace>",
+		project_root = "-",
+	},
+
+	-- long folder name truncation
+	path_truncate_enabled = false, -- Enable/disable path truncation
+	path_max_depth = 3, -- Maximum path depth before truncation
+	fzf_path_truncate_enabled = false, -- Enable/disable path truncation in fzf
+	fzf_path_max_depth = 5, -- Maximum path depth before truncation in fzf
+	path_truncate_long_names_enabled = false, -- Enable in navigation menu
+	fzf_path_truncate_long_names_enabled = false, -- Enable in fzf
+	path_max_folder_name_length = 20, -- Max length in navigation menu
+	fzf_path_max_folder_name_length = 20, -- Max length in fzf
+
+	-- History directory settings
+	history_size = 10, -- Number of directories in history (default 10)
+	history_fzf_path_truncate_enabled = false, -- Enable/disable path truncation by depth for history
+	history_fzf_path_max_depth = 5, -- Maximum path depth before truncation for history (default 5)
+	history_fzf_path_truncate_long_names_enabled = false, -- Enable/disable long folder name truncation for history
+	history_fzf_path_max_folder_name_length = 30, -- Maximum length for folder names in history (default 30)
+
+	-- File path for storing user bookmarks
+	bookmarks_path = (
+		ya.target_family() == "windows"
+		and os.getenv("APPDATA") .. "\\yazi\\config\\plugins\\whoosh.yazi\\bookmarks"
+	) or (os.getenv("HOME") .. "/.config/yazi/plugins/whoosh.yazi/bookmarks"),
+})
 
 require("eza-preview"):setup({
 	-- Set the tree preview to be default (default: true)
@@ -113,17 +87,3 @@ require("eza-preview"):setup({
 	-- Show git status (default: false)
 	git_status = false,
 })
-
-function Linemode:size_and_mtime()
-	local time = math.floor(self._file.cha.mtime or 0)
-	if time == 0 then
-		time = ""
-	elseif os.date("%Y", time) == os.date("%Y") then
-		time = os.date("%b %d %H:%M", time)
-	else
-		time = os.date("%b %d  %Y", time)
-	end
-
-	local size = self._file:size()
-	return string.format("%s %s", size and ya.readable_size(size) or "-", time)
-end
