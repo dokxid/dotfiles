@@ -1,0 +1,2 @@
+[hooks]
+theme_mode_changed = "NEW_THEME=\"$NOCTALIA_THEME_MODE\" ~/.config/noctalia/scripts/theme.sh"

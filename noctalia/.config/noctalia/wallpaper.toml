@@ -1,0 +1,27 @@
+[wallpaper]
+enabled = true
+fill_mode = "crop"                                                    # center | crop | fit | stretch | repeat | span
+fill_color = "#111111"                                                # optional fallback/fill color; image wallpapers take priority
+transition = ["fade", "wipe", "disc", "stripes", "zoom", "honeycomb"]
+# array of effects picked at random each transition
+# omit to use all effects
+transition_duration = 1500   # milliseconds
+edge_smoothness = 0.5        # 0.0 – 1.0
+transition_on_startup = true # animate the first wallpaper at shell startup (v4-style)
+
+# Directory browsed by the wallpaper picker panel
+directory = "/home/dokxid/Wallpapers"
+# Theme-aware directories (used when theme mode is Light/Dark; Auto falls back to directory)
+directory_light = "/home/dokxid/Wallpapers/light"
+directory_dark = "/home/dokxid/Wallpapers/dark"
+# Enable per-monitor directory overrides (default: false)
+per_monitor_directories = false
+
+[wallpaper.default]
+path = "/home/user/Wallpapers/default.png"
+
+[wallpaper.automation]
+enabled = false
+interval_seconds = 1800
+order = "random"        # random | alphabetical
+recursive = true        # scan subdirectories when selecting random wallpapers
