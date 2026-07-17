@@ -4,7 +4,7 @@ function IS_MACOS() return vim.fn.has "macunix" == 1 end
 local enableClipboard = false
 local animationConfig = true
 local fontConfig = true
-local themeConfig = true
+local themeConfig = false
 local transparencyConfig = true
 
 vim.g.neovide_input_macos_option_key_is_meta = "only_left"
@@ -32,14 +32,19 @@ if animationConfig then
 end
 
 if fontConfig then
-  vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h12" }
-  vim.opt.linespace = IS_MACOS() and 20 or 13
+  vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h11" }
+  vim.opt.linespace = IS_MACOS() and 20 or 12
 end
 
 if themeConfig then vim.g.neovide_theme = "auto" end
 
 if transparencyConfig then
-  vim.g.neovide_opacity = IS_MACOS() and 1.0 or 0.7
+  local current_theme = vim.g.colors_name
+  if string.match(current_theme, "mocha") then
+    vim.g.neovide_opacity = IS_MACOS() and 1.0 or 0.7
+  elseif string.match(current_theme, "latte") then
+    vim.g.neovide_opacity = 1.0
+  end
   vim.g.neovide_normal_opacity = 1
   vim.g.neovide_floating_blur_amount_x = 4.0
   vim.g.neovide_floating_blur_amount_y = 4.0

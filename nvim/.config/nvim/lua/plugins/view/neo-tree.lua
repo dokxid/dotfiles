@@ -89,7 +89,7 @@ return {
 
           -- manipulation
           ["A"] = {
-            "add_directory",
+            "add",
             config = {
               show_path = "relative",
             },
@@ -155,20 +155,16 @@ return {
         group_empty_dirs = true,
         scan_mode = "deep",
         filtered_items = {
-          show_hidden_count = false,
-          visible = false, -- hide filtered items on open
+          show_hidden_count = true,
+          visible = true,
           hide_gitignored = false,
           hide_dotfiles = false,
           always_show_by_pattern = {
             ".env*",
           },
           hide_by_name = {
-            -- "node_modules",
-            ".github",
+            "node_modules",
             -- ".gitignore",
-            "package-lock.json",
-            "pnpm-lock.json",
-            "bun.lock",
             ".changeset",
             -- ".prettierrc.json",
             ".nuxt",
@@ -176,13 +172,18 @@ return {
             "dist",
           },
           never_show = {
+            ".github",
+            ".idea",
             ".DS_Store",
             ".git",
+            "package-lock.json",
+            "pnpm-lock.json",
+            "bun.lock",
           },
         },
         follow_current_file = {
           enabled = true,
-          leave_dirs_open = false,
+          leave_dirs_open = true,
         },
       },
     },

@@ -29,5 +29,6 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+require "detect-theme"
 require "lazy_setup"
 require "polish"
