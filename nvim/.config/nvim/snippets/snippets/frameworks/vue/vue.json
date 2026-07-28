@@ -1,0 +1,35 @@
+{
+    "script-ts-composition": {
+        "prefix": "scriptTsSetup",
+        "body": [
+            "<script setup lang=\"ts\">",
+            "\t$0",
+            "</script>"
+        ],
+        "description": "script setup vue with lang ts composition api element"
+    },
+    "styleScoped": {
+        "prefix": "styleScoped",
+        "body": [
+            "<style scoped>",
+            "\t$0",
+            "</style>"
+        ],
+        "description": "style scoped vue attribute"
+    },
+    "Vue Single File Component Setup Composition API with Typescript": {
+        "prefix": "vbase",
+        "body": [
+            "<script setup lang=\"ts\">",
+            "",
+            "</script>",
+            "",
+            "<template>",
+            "\t<div>",
+            "",
+            "\t</div>",
+            "</template>"
+        ],
+        "description": "Base for Vue File Setup Composition API - Typescript"
+    }
+}

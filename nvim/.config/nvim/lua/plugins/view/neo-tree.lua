@@ -9,7 +9,7 @@ local mappings = {
           toggle = true,
           source = "filesystem",
           position = "float",
-          reveal_force_cwd = true,
+          reveal_force_cwd = false,
         }
       end,
       desc = "neotree",

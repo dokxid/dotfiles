@@ -23,6 +23,7 @@ return {
         scrollbar = false,
       },
     },
+    snippets = { preset = "luasnip" },
     sources = {
       default = default_sources,
       per_filetype = { ["dap-repl"] = debug_sources, ["dap-view"] = debug_sources },
@@ -32,7 +33,7 @@ return {
           module = "minuet.blink",
           score_offset = 50,
           async = true,
-          timeout_ms = 3000,
+          timeout_ms = 1000,
         },
         lsp = {
           async = true,
@@ -160,7 +161,7 @@ return {
         },
       },
       documentation = {
-        auto_show = false,
+        auto_show = true,
         auto_show_delay_ms = 500,
         update_delay_ms = 50,
         window = {
@@ -173,13 +174,12 @@ return {
   dependencies = {
     "xzbdmw/colorful-menu.nvim",
     "saghen/blink.lib",
-    "rafamadriz/friendly-snippets",
     "saghen/blink.compat",
     "onsails/lspkind.nvim",
     {
       "milanglacier/minuet-ai.nvim",
       lazy = true,
-      enabled = true,
+      enabled = false,
       opts = {
         provider = "openai_compatible",
         request_timeout = 2.5,
@@ -189,7 +189,7 @@ return {
           openai_compatible = {
             api_key = "COMPLETION_PROVIDER_API_KEY",
             end_point = os.getenv "COMPLETION_PROVIDER_ENDPOINT",
-            model = "fhms/qwen3-coder-30b-a3b-instruct",
+            model = "gwdg/qwen3-coder-next",
             stream = true,
             optional = {
               stream = true,
