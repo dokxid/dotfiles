@@ -9,7 +9,7 @@ prepend_keymap = [
   { on = "!", for = "unix", run = "shell fish --block", desc = "open a shell here" },
 
   # utils
-  { on = "T", run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
+  { on = "<C-t>", run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
   { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
   { on = [
     "c",
@@ -38,7 +38,7 @@ prepend_keymap = [
   { on = "z", run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
 
   # bookmarks
-  { on = "b", run = "plugin whoosh jump_by_key", desc = "Jump bookmark by key" },
+  { on = "e", run = "plugin whoosh jump_by_key", desc = "Jump bookmark by key" },
   { on = "<c-space>", run = "plugin whoosh jump_by_fzf", desc = "Direct fuzzy search for bookmarks" },
   { on = [
     "[",
@@ -81,40 +81,48 @@ prepend_keymap = [
 
   # view
   { on = [
-    "e",
+    "E",
     "t",
   ], run = "plugin eza-preview", desc = "Toggle tree/list dir preview" },
   { on = [
-    "e",
+    "E",
     "-",
   ], run = "plugin eza-preview inc-level", desc = "Increment tree level" },
   { on = [
-    "e",
+    "E",
     "_",
   ], run = "plugin eza-preview dec-level", desc = "Decrement tree level" },
   { on = [
-    "e",
+    "E",
     "$",
   ], run = "plugin eza-preview toggle-follow-symlinks", desc = "Toggle tree follow symlinks" },
   { on = [
-    "e",
+    "E",
     "*",
   ], run = "plugin eza-preview toggle-hidden", desc = "Toggle hidden files" },
   { on = [
-    "e",
+    "E",
     "g",
     "i",
   ], run = "plugin eza-preview toggle-git-ignore", desc = "Toggle .gitignore files" },
   { on = [
-    "e",
+    "E",
     "g",
     "s",
   ], run = "plugin eza-preview toggle-git-status", desc = "Toggle showing git status" },
   { on = "T", run = "plugin toggle-pane min-preview", desc = "Show or hide the preview pane" },
   { on = "F5", run = "show", desc = "show task manager" },
 
-  # tab navigation
-  { on = "2", run = "plugin smart-switch 1", desc = "switch or create tab 2" },
-  { on = "3", run = "plugin smart-switch 2", desc = "switch or create tab 3" },
-  { on = "4", run = "plugin smart-switch 3", desc = "switch or create tab 4" },
+  # augment command
+  { on = "1", run = "plugin augment-command.tab-switch 0", desc = "switch or create tab 0" },
+  { on = "2", run = "plugin augment-command.tab-switch 1", desc = "switch or create tab 1" },
+  { on = "3", run = "plugin augment-command.tab-switch 2", desc = "switch or create tab 2" },
+  { on = "4", run = "plugin augment-command.tab-switch 3", desc = "switch or create tab 3" },
+  { on = "5", run = "plugin augment-command.tab-switch 4", desc = "switch or create tab 4" },
+  { on = "6", run = "plugin augment-command.tab-switch 5", desc = "switch or create tab 5" },
+  { on = "7", run = "plugin augment-command.tab-switch 6", desc = "switch or create tab 6" },
+  { on = "8", run = "plugin augment-command.tab-switch 7", desc = "switch or create tab 7" },
+  { on = "9", run = "plugin augment-command.tab-switch 8", desc = "switch or create tab 8" },
+  { on = "<Enter>", run = "plugin augment-command.open" },
+  { on = "<Right>", run = "plugin augment-command.enter" },
 ]
