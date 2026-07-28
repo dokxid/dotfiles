@@ -25,6 +25,13 @@ alias vim nvim
 alias ctl systemctl
 alias unset "set -e"
 
+# mise aliases
+alias mr "mise run"
+alias m mise
+
+# hyprland specific
+alias clients "hyprctl clients | grep -e 'Window' -e 'Class'"
+
 # binds
 bind ctrl-alt-c clear-screen
 bind -M insert ctrl-alt-c clear-screen
@@ -55,10 +62,14 @@ set -gx _ZO_FZF_OPTS "\
 --color=border:#6C7086,label:#CDD6F4"
 
 ### app inits / defaults
+set -gx APP_DIR "$HOME/nvme/apps"
 fzf_configure_bindings --variables=\e\cv
 set init_ssh ssh-agent -c
-set -x BUN_INSTALL "$HOME/.bun"
-set -x CARGO_HOME "$HOME/.local/share/cargo"
+set -gx BUN_INSTALL "$APP_DIR/bun"
+set -gx RUSTUP_HOME "$APP_DIR/rustup"
+set -gx WINEPREFIX "$APP_DIR/wine"
+set -gx BUN_INSTALL_CACHE_DIR "$HOME/nvme/.cache/bun"
+set -gx CARGO_HOME "$HOME/.local/share/cargo"
 
 # paths
 fish_add_path ~/scripts
@@ -75,9 +86,9 @@ switch (uname)
         export XDG_STATE_HOME=$HOME/.local/state
         # xdg config home vars
         export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
-        export CARGO_HOME=$XDG_DATA_HOME/cargo
-        fenv source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
-        set --export SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+        set --export SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
+        fish_add_path ~/scripts/hyprland/
+        fish_add_path ~/scripts/xdg/
     case Darwin
         eval "$(/opt/homebrew/bin/brew shellenv)"
         export XDG_CONFIG_HOME=$HOME/.config
@@ -92,5 +103,13 @@ end
 zoxide init fish --cmd cd | source
 
 # setup mise
-fish_add_path /Users/yuni/.local/bin
+fish_add_path ~/.local/bin
 mise activate fish | source
+
+# source secrets
+for i in ~/.secrets/*.fish
+    source $i
+end
+
+# polish (post setup)
+init_pnpm
