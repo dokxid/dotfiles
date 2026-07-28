@@ -1,4 +1,5 @@
 local DIRECTIONS = require("layouts.general").DIRECTIONS
+local m = require("globals").MODIFIERS
 
 -- layout rules
 hl.config({ scrolling = {
@@ -9,7 +10,7 @@ hl.config({ scrolling = {
 -- all dirs
 for dir, keys in pairs(DIRECTIONS) do
 	for _, key in ipairs(keys) do
-		hl.bind(SUPER .. key, function()
+		hl.bind(m.SUPER .. key, function()
 			hl.dispatch(hl.dsp.layout("focus " .. dir))
 			hl.dispatch(hl.dsp.window.alter_zorder({ mode = "top" }))
 		end)
@@ -20,15 +21,15 @@ end
 for dir, keys in pairs(DIRECTIONS) do
 	if string.match(dir, "^[du]") then
 		for _, key in ipairs(keys) do
-			hl.bind(SUPER_SHIFT .. key, hl.dsp.window.swap({ direction = dir }))
+			hl.bind(m.SUPER_SHIFT .. key, hl.dsp.window.swap({ direction = dir }))
 		end
 	else
 		for _, key in ipairs(keys) do
-			hl.bind(SUPER_SHIFT .. key, hl.dsp.layout("swapcol " .. string.sub(dir, 1, 1)))
+			hl.bind(m.SUPER_SHIFT .. key, hl.dsp.layout("swapcol " .. string.sub(dir, 1, 1)))
 		end
 	end
 end
 
-hl.bind(SUPER .. "minus", hl.dsp.layout("colresize -conf"))
-hl.bind(SUPER .. "equal", hl.dsp.layout("colresize +conf"))
-hl.bind(SUPER_ALT .. "space", hl.dsp.layout("consume_or_expel prev"))
+hl.bind(m.SUPER .. "minus", hl.dsp.layout("colresize -conf"))
+hl.bind(m.SUPER .. "equal", hl.dsp.layout("colresize +conf"))
+hl.bind(m.SUPER_ALT .. "space", hl.dsp.layout("consume_or_expel prev"))

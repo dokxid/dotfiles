@@ -1,3 +1,4 @@
+local m = require("globals").MODIFIERS
 local ipc = "noctalia msg "
 
 -- media keys
@@ -8,10 +9,10 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"))
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"))
 
 -- core
-hl.bind(SUPER_SHIFT .. "space", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
-hl.bind(SUPER .. "backspace", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
-hl.bind(SUPER .. "comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
+hl.bind(m.SUPER_SHIFT .. "space", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind(m.SUPER .. "backspace", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
+hl.bind(m.SUPER .. "comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
 
 -- util
 hl.bind("mouse:276", hl.dsp.exec_cmd(ipc .. "window-switcher"))
-hl.bind(SUPER .. "r", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
+hl.bind(m.SUPER .. "r", hl.dsp.exec_cmd(ipc .. "screenshot-region"))

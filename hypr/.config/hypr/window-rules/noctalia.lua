@@ -14,5 +14,3 @@ hl.window_rule({
 	float = true,
 	size = { 1080, 920 },
 })
-
-require("noctalia").apply_theme()

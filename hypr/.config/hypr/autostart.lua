@@ -17,8 +17,8 @@ hl.on("hyprland.start", function()
 	-- hl.exec_cmd("xsetroot -cursor_name left_ptr")
 
 	-- open apps
-	hl.dsp.exec_cmd("zen-browser", { workspace = "1 silent" })
-	hl.dsp.exec_cmd("vesktop", { workspace = "4 silent" })
-	hl.dsp.exec_cmd("keepassxc", { workspace = "special:scratchpad silent" })
-	hl.dsp.exec_cmd("thunderbird", { workspace = "special:scratchpad silent" })
+	hl.exec_cmd("zen-browser", { workspace = "1 silent" })
+	hl.exec_cmd("vesktop", { workspace = "4 silent" })
+	hl.exec_cmd("keepassxc", { workspace = "special:scratchpad silent" })
+	hl.exec_cmd("thunderbird", { workspace = "special:scratchpad silent" })
 end)

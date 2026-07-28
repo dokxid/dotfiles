@@ -37,7 +37,7 @@ hl.window_rule({
 	float = false,
 	size = { "(monitor_w*0.35)", "(monitor_h*0.4)" },
 	workspace = "special:scratchpad",
-	no_screen_share = true,
+	-- no_screen_share = true,
 })
 hl.window_rule({
 	match = { title = "Unlock Database - KeePassXC" },
