@@ -13,8 +13,23 @@ local function paste_wayland(pane)
 end
 
 bindings.disable_default_bindings = false
-bindings.keys = {
+bindings.line_height_toggle = true
 
+bindings.key_tables = {
+	resize_pane = {
+		{ key = "Escape", action = "PopKeyTable" },
+		{ key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
+	},
+}
+
+bindings.keys = {
 	{
 		key = "r",
 		mods = "ALT | CTRL",
@@ -57,7 +72,7 @@ bindings.keys = {
 	},
 	{
 		key = "C",
-		mods = "CTRL",
+		mods = "CTRL|SHIFT",
 		action = act.SendKey({
 			key = "c",
 			mods = "CTRL",
@@ -282,13 +297,18 @@ bindings.keys = {
 	},
 	{
 		key = "f",
-		mods = "CTRL",
+		mods = "CTRL|SHIFT",
 		action = act.Search({ CaseInSensitiveString = "" }),
 	},
 	{
 		key = "/",
 		mods = "CTRL",
-		action = act.Search({ CaseInSensitiveString = "" }),
+		action = act.EmitEvent("trigger-toggle-lineheight"),
+	},
+	{
+		key = "d",
+		mods = "LEADER",
+		action = act.ShowDebugOverlay,
 	},
 }
 
