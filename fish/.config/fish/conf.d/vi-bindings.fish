@@ -3,7 +3,6 @@ function yank_to_clipboard -d "Insert latest killring entry into the system clip
 end
 
 function fish_user_key_bindings
-    # use system clipboard for vi mode pastes
     bind yy kill-whole-line yank_to_clipboard yank
     bind Y kill-whole-line yank_to_clipboard yank
     bind y,\$ kill-line yank_to_clipboard yank
@@ -37,5 +36,4 @@ function fish_user_key_bindings
     bind -s P fish_clipboard_paste
 end
 
-fish_vi_key_bindings
-
+set -g fish_key_bindings fish_vi_key_bindings
