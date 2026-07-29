@@ -10,7 +10,6 @@ set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 fish_add_path ~/scripts
 fish_add_path $CARGO_HOME/bin
 
-
 if [ -d "$HOME/nvme" ]
   set -gx APP_DIR "$HOME/nvme/apps"
   set -gx CACHE_DIR "$HOME/nvme/.cache"
@@ -24,4 +23,3 @@ end
 if [ -n "$CACHE_DIR" ]
   set -gx BUN_INSTALL_CACHE_DIR "$HOME/nvme/.cache/bun"
 end
-
