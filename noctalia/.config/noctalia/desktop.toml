@@ -1,17 +1,25 @@
 [desktop_widgets]
 enabled = true
 
-[desktop_widgets.widget.clock_main]
-type = "clock"
-output = "DP-1"
-cx = 960.0
-cy = 540.0
+[desktop_widgets.widget.sysmon_main]
+type = "sysmon"
+output = "HDMI-A-1"
+cx = 200.0
+cy = 800.0
 box_width = 0.0
 box_height = 0.0
 rotation = 0.0
 
-[desktop_widgets.widget.clock_main.settings]
-format = "{:%H:%M}"
+[desktop_widgets.widget.sysmon_main.settings]
+display = "graph"
+stat = "cpu_usage"
+stat2 = "ram_pct"
+interface = ""
+color = "primary"
+color2 = "secondary"
+show_label = true
+shadow = true
+background = true
 
 [wallpaper]
 enabled = true
