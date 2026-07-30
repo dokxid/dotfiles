@@ -1,0 +1,11 @@
+[brightness]
+enable_ddcutil = true
+ignore_mmids = []
+minimum_brightness = 0.1
+sync_all_monitors = true
+
+[brightness.monitor.DP-3]
+backend = "auto"
+
+[brightness.monitor.HDMI-A-1]
+backend = "auto"
