@@ -26,13 +26,13 @@ hl.animation({
 })
 hl.config({
 	misc = {
-		force_default_wallpaper = 0,
+		force_default_wallpaper = 1,
 		disable_hyprland_logo = false,
 	},
 	general = {
-		gaps_in = 6,
-		gaps_out = 6,
-		border_size = 3,
+		gaps_in = 5,
+		gaps_out = 10,
+		border_size = 0,
 		col = {
 			active_border = { colors = { "rgba(f38ba8ff)" }, angle = 45 },
 			inactive_border = "rgba(6c7086ff)",
@@ -58,6 +58,9 @@ hl.config({
 			passes = 4,
 			vibrancy = 0.1696,
 		},
+	},
+	layout = {
+		single_window_aspect_ratio = { 4, 3 },
 	},
 	animations = {
 		enabled = true,

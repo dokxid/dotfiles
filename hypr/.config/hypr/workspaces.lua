@@ -59,7 +59,8 @@ ws_rule({
 	gaps_out = {
 		top = 40,
 		bottom = 40,
-		left = 100,
-		right = 100,
+		left = 200,
+		right = 200,
 	},
+	no_border = true,
 })

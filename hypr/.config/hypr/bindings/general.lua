@@ -18,10 +18,12 @@ local focusScript = "omarchy-launch-or-focus -- "
 -- system
 hl.bind(m.SUPER .. "grave", hl.dsp.exec_cmd("omarchy-menu"))
 hl.bind(m.SUPER .. "n", hl.dsp.exec_cmd("noctalia msg nightlight-toggle"))
+-- hl.bind(m.SUPER_SHIFT .. "n", hl.dsp.exec_cmd("noctalia msg panel-toggle noctalia/wallhaven:browser"))
 hl.bind(m.SUPER_SHIFT .. "m", hl.dsp.exec_cmd("/home/dokxid/dotfiles/hypr/.config/hypr/scripts/toggle_decorations.sh"))
 
 -- capture
 hl.bind(m.SUPER_CTRL .. "PRINT", hl.dsp.exec_cmd("pkill hyprpicker || hyprpicker -a"))
+hl.bind(m.SUPER_SHIFT .. "e", hl.dsp.exec_cmd("omarchy-capture-screenrecording"))
 
 -- window control
 hl.bind(m.SUPER .. "mouse:272", hl.dsp.window.drag(), { mouse = true })
@@ -59,7 +61,7 @@ hl.bind(m.SUPER .. "RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(m.SUPER .. "b", hl.dsp.exec_cmd(browser))
 hl.bind(m.SUPER .. "m", hl.dsp.exec_cmd(musicPlayerLocal))
 hl.bind(m.SUPER .. "e", hl.dsp.exec_cmd(tuiScript .. "nvim"))
-hl.bind(m.SUPER_SHIFT .. "e", hl.dsp.exec_cmd("uwsm-app -- neovide"))
+hl.bind(m.SUPER_CTRL .. "e", hl.dsp.exec_cmd("uwsm-app -- neovide"))
 hl.bind(m.SUPER .. "period", hl.dsp.exec_cmd(focusScript .. "vesktop"))
 hl.bind(m.SUPER .. "BACKSLASH", hl.dsp.exec_cmd(focusScript .. passwordManager))
 hl.bind(m.SUPER .. "o", hl.dsp.exec_cmd(focusScript .. "uwsm-app -- obsidian --enable-wayland-ime"))
