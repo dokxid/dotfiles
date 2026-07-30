@@ -4,7 +4,7 @@
 local m = require("globals").MODIFIERS
 
 -- defaults
-local terminal = "uwsm-app -- xdg-terminal-exec"
+local terminal = "wezterm"
 local browser = "zen-browser"
 local passwordManager = "keepassxc"
 local launcher = "vicinae toggle"
@@ -17,7 +17,7 @@ local focusScript = "omarchy-launch-or-focus -- "
 
 -- system
 hl.bind(m.SUPER .. "grave", hl.dsp.exec_cmd("omarchy-menu"))
-hl.bind(m.SUPER_SHIFT .. "n", hl.dsp.exec_cmd("omarchy-toggle-nightlight"))
+hl.bind(m.SUPER .. "n", hl.dsp.exec_cmd("noctalia msg nightlight-toggle"))
 hl.bind(m.SUPER_SHIFT .. "m", hl.dsp.exec_cmd("/home/dokxid/dotfiles/hypr/.config/hypr/scripts/toggle_decorations.sh"))
 
 -- capture
@@ -46,6 +46,7 @@ end
 -- windows
 hl.bind(m.SUPER .. "t", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(m.SUPER .. "q", hl.dsp.window.close())
+hl.bind(m.SUPER_SHIFT .. "q", hl.dsp.window.kill())
 hl.bind(m.SUPER .. "F11", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))
 hl.bind(m.SUPER_CTRL .. "F11", hl.dsp.window.fullscreen({ action = "toggle", mode = "fullscreen" }))
 

@@ -1,6 +1,6 @@
 [nightlight]
 enabled = true
-force = false  # hold night temperature, ignoring the schedule
+force = false
 
-temperature_day = 6500   # Kelvin (must be > temperature_night by at least 100)
-temperature_night = 4500 # Kelvin
+temperature_day = 6500
+temperature_night = 4500
