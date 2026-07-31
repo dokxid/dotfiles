@@ -3,8 +3,8 @@ experimental = true
 dotfiles.root = "~/.dotfiles"
 dotfiles.default_mode = "symlink"
 
-[bootstrap.repos]
-"~/repos/dotfiles" = { url = "https://github.com/dokxid/dotfiles.git", ref = "main" }
+# [bootstrap.repos]
+# "~/repos/dotfiles" = { url = "https://github.com/dokxid/dotfiles.git", ref = "main" }
 
 [dotfiles]
 "~/.dotfiles" = "~/repos/dotfiles"
