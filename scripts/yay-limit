@@ -1,0 +1,16 @@
+#!/usr/bin/env fish
+
+set CORES_AVAILABLE (nproc --all)
+set CORES_TO_USE (
+  gum choose \
+    --output-delimiter "," \
+    --no-limit (seq 0 (math $CORES_AVAILABLE -1)) \
+    --height $CORES_AVAILABLE \
+    --header "what cores to use?"
+)
+
+if [ ! -n "$CORES_TO_USE" ]
+    exit
+end
+
+numactl --physcpubind=$CORES_TO_USE yay $(gum input --prompt 'package name: ')

@@ -1,0 +1,50 @@
+[dotfiles]
+
+# shells
+"~/.config/starship.toml" = "./shells/starship/starship.toml"
+"~/.config/fish" = "./shells/fish"
+"~/.config/zsh" = "./shells/zsh"
+"~/.config/bash" = "./shells/bash"
+
+# editors
+"~/.config/nvim" = "./editors/nvim"
+"~/.config/neovide" = "./editors/neovide"
+
+# services
+"~/.config/mpd" = "./services/mpd"
+"~/.config/mpDris2" = "./services/mpDris2"
+"~/.config/xdg-desktop-portal" = "./services/xdg-desktop-portal/"
+"~/.config/xdg-desktop-portal-termfilechooser" = "./services/xdg-desktop-portal-termfilechooser/"
+
+# tuis
+"~/.config/btop" = "./tuis/btop"
+"~/.config/fastfetch" = "./tuis/fastfetch"
+"~/.config/lazygit" = "./tuis/lazygit"
+"~/.config/lazyjournal" = "./tuis/lazyjournal"
+"~/.config/leaderkey" = "./tuis/leaderkey"
+"~/.config/opencode" = "./tuis/opencode"
+"~/.config/rmpc" = "./tuis/rmpc"
+"~/.config/tmux" = "./tuis/tmux"
+"~/.config/yazi" = "./tuis/yazi"
+
+# terminals
+"~/.config/wezterm" = "./terminals/wezterm/"
+"~/.config/ghostty" = "./terminals/ghostty/"
+
+# operating systems, system shells, scripts
+"~/.config/noctalia" = "./os-managers/noctalia"
+"~/.config/hypr" = "./os-managers/hypr"
+"~/.config/quickshell" = "./os-managers/quickshell"
+"~/.config/sketchybar" = "./os-managers/sketchybar"
+"~/.config/paneru.toml" = "./os-managers/paneru/paneru.toml"
+
+# apps
+"~/.config/karabiner/assets/complex_modifications/*.json" = "./apps/karabiner/*.json"
+"~/.config/mpv" = "./apps/mpv/"
+"~/.config/helium" = "./apps/helium/"
+
+# clis
+"~/.config/git/config" = "./git/config"
+
+# scripts
+"~/scripts" = "./scripts/"

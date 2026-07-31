@@ -1,0 +1,9 @@
+title-hidden = true
+tabs = false
+
+[font]
+hinting = "full"
+edging = "antialias"
+normal = "JetBrainsMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+size = 13

@@ -1,0 +1,1 @@
+abbr ctl systemctl
