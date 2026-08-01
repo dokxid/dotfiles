@@ -7,13 +7,13 @@ end = [
   "gap",
   "group:systray",
   "gap",
-  "tray",
-  "gap",
+  "group:tray",
+  "clipboard",
   "notifications",
 ]
 
 [[bar.main.capsule_group]]
-members = ["weather", "gap2x", "date"]
+members = ["date", "gap2x", "weather"]
 id = "middle"
 fill = "on_primary"
 foreground = "primary"
@@ -28,12 +28,15 @@ foreground = "primary"
 padding = 16.0
 enabled = true
 
-[widget.notifications]
-capsule = true
-capsule_padding = 16
-capsule_fill = "primary"
-icon_color = "on_primary"
-capsule_foreground = "on_primary"
+[[bar.main.capsule_group]]
+id = "tray"
+members = ["tray-button", "tray"]
+accordion = true
+widget_spacing = 10
+padding = 12
+fill = "primary"
+foreground = "on_primary"
+accordion_direction = "end"
 
 [widget.gap]
 type = "spacer"
@@ -59,10 +62,10 @@ inactive_opacity = 0.8
 focused_output_only = true
 
 [widget.workspaces]
-display = "name"                  # none | id | name
-minimal = false                   # true = text-only labels, no animated pills
-max_label_chars = 8               # truncate long workspace names (e.g. "VESKTOP" → "VE")
-labels_only_when_occupied = false # (1) (2*) ( ) (4) - occupied tags and the active tag show labels (*active but empty)
+display = "name"  # none | id | name
+minimal = false  # true = text-only labels, no animated pills
+max_label_chars = 8  # truncate long workspace names (e.g. "VESKTOP" → "VE")
+labels_only_when_occupied = false  # (1) (2*) ( ) (4) - occupied tags and the active tag show labels (*active but empty)
 scale = 1.2
 hide_when_empty = false
 pill_scale = 1.5
@@ -71,7 +74,7 @@ inactive_pill_size = 1.0
 focused_color = "primary"
 occupied_color = "secondary"
 empty_color = "surface_variant"
-focused_output_only = true        # true = only the focused monitor highlights its active workspace
+focused_output_only = true  # true = only the focused monitor highlights its active workspace
 
 [widget.volume]
 show_label = false
@@ -79,10 +82,16 @@ show_label = false
 [widget.network]
 show_label = false
 
+[widget.tray-button]
+type = "custom_button"
+capsule = true
+capsule_fill = "primary"
+scale = 1.3
+glyph = "layout-sidebar-right-expand"
+
 [widget.tray]
 capsule = true
-scale = 1.2
-capsule_fill = "on_primary"
+scale = 1.3
 icon_color = "primary"
 padding = 16.0
 hidden = [
@@ -112,7 +121,23 @@ scale = 1.3
 format = "KW {:%W - %a}\n{:%d.%m.%Y}"
 
 [widget.weather]
-scale = 1
+scale = 0.9
 max_length = 180
-show_condition = true
+show_condition = false
 show_temperature = true
+
+[widget.clipboard]
+capsule = true
+capsule_padding = 12
+scale = 1.3
+capsule_fill = "primary"
+icon_color = "on_primary"
+capsule_foreground = "on_primary"
+
+[widget.notifications]
+capsule = true
+scale = 1.3
+capsule_padding = 12
+capsule_fill = "primary"
+icon_color = "on_primary"
+capsule_foreground = "on_primary"
