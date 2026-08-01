@@ -60,6 +60,10 @@ return {
     default_format_opts = { lsp_format = "fallback" },
     formatters_by_ft = {
       vue = { "prettierd", "prettier" },
+      ["toml.rust"] = { "taplo" },
+      toml = { "tombi" },
+      ["*"] = { "codespell" },
+      ["_"] = { "trim_whitespace" },
     },
     format_on_save = function(bufnr)
       if vim.F.if_nil(vim.b[bufnr].autoformat, vim.g.autoformat, true) then return { lsp_format = "fallback" } end

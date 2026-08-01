@@ -60,6 +60,9 @@ return {
     },
     -- customize language server configuration options passed to `lspconfig`
     config = {
+      taplo = {
+        filetypes = { "toml.rust" },
+      },
       rust_analyzer = {
         settings = {
           ["rust_analyzer"] = {
@@ -159,7 +162,9 @@ return {
             kdl = "kdl",
             gd = "gdscript",
           },
-          filename = {},
+          filename = {
+            ["Cargo.toml"] = "toml.rust",
+          },
           pattern = {
             [".env.*"] = "sh",
             ["compose.*%.ya?ml"] = "yaml.docker-compose",
