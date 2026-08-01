@@ -102,8 +102,11 @@ local custom_sources = {
     },
     win = {
       input = {
+        keys = {},
+      },
+      list = {
         keys = {
-          ["<C-d>"] = { "delete_session", mode = { "n", "i" }, desc = "Delete session" },
+          ["d"] = { "delete_session", mode = { "n", "i" }, desc = "Delete session" },
         },
       },
     },
@@ -189,22 +192,9 @@ return {
         recent = { layout = { preset = "default_layout" } },
         buffers = { layout = { preset = "default_layout" } },
       },
-      ---@class Snacks.picker.buffers.Config: snacks.picker.Config
-      buffers = {
-        win = {
-          list = {
-            keys = {
-              ["c"] = { "bufdelete" },
-            },
-          },
-        },
-      },
     },
   },
-  keys = {
-    { "<leader>bb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-    { "<leader>fz", function() Snacks.picker.zoxide() end, desc = "find zoxide" },
-  },
+  keys = {},
   dependencies = {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
@@ -215,6 +205,8 @@ return {
             function() Snacks.picker.files {} end,
             desc = "pick files",
           },
+          ["<leader>bb"] = { function() Snacks.picker.buffers() end, desc = "Buffers" },
+          ["<leader>fz"] = { function() Snacks.picker.zoxide() end, desc = "find zoxide" },
           ["<Leader>fw"] = {
             function() Snacks.picker.grep { dirs = { vim.fn.getcwd() } } end,
             desc = "grep",

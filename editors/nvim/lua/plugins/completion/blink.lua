@@ -179,7 +179,7 @@ return {
     {
       "milanglacier/minuet-ai.nvim",
       lazy = true,
-      enabled = false,
+      enabled = true,
       opts = {
         provider = "openai_compatible",
         request_timeout = 2.5,
@@ -189,7 +189,7 @@ return {
           openai_compatible = {
             api_key = "COMPLETION_PROVIDER_API_KEY",
             end_point = os.getenv "COMPLETION_PROVIDER_ENDPOINT",
-            model = "gwdg/qwen3-coder-next",
+            model = "default_router",
             stream = true,
             optional = {
               stream = true,

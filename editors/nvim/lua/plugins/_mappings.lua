@@ -95,7 +95,8 @@ return {
         ["<C-s>"] = {
           function()
             vim.cmd.write()
-            require("resession").save(vim.uv.cwd(), { dir = "dirsession" })
+            local cwd = vim.uv.cwd()
+            if not (cwd == os.getenv "HOME") then require("resession").save(vim.uv.cwd(), { dir = "dirsession" }) end
           end,
           desc = "file and dirses 󰆓",
         },
