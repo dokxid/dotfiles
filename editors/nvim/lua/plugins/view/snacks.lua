@@ -1,5 +1,115 @@
 local Snacks = require "snacks"
 
+---@type table<string, snacks.picker.Config>
+local custom_sources = {
+  --[[
+  mostly taken from https://github.com/scottmckendry/pick-resession.nvim
+  MIT License https://github.com/scottmckendry/pick-resession.nvim/blob/main/LICENSE
+  Copyright (c) 2024 Scott McKendry
+  --]]
+  sessions = {
+    title = "sessions",
+    dir = "dirsession",
+    finder = function(opts)
+      local sessions = {}
+      for idx, session in ipairs(require("resession").list { dir = "dirsession" }) do
+        local sanitized_dirpath = session:gsub("__", ":/"):gsub("_", "/")
+        local path_structure = {}
+        local display_value
+
+        for item in string.gmatch(sanitized_dirpath, "[^/]+") do
+          table.insert(path_structure, item)
+        end
+
+        if string.match(sanitized_dirpath, "/dotfiles/") then
+          display_value = string.format(".dot/%s", (".dots/" .. path_structure[#path_structure]))
+        elseif string.match(sanitized_dirpath, os.getenv "HOME" .. "/projects/") then
+          display_value = string.format(".projects/%s", (".proj/" .. path_structure[#path_structure]))
+        elseif string.match(sanitized_dirpath, "/repos") then
+          display_value = string.format(".repos/%s", (".repo/" .. path_structure[#path_structure]))
+        else
+          display_value = sanitized_dirpath
+        end
+
+        sessions[#sessions + 1] = {
+          score = 0,
+          text = session,
+          value = session,
+          idx = idx,
+          display_value = display_value,
+          file = sanitized_dirpath,
+        }
+      end
+      return sessions
+    end,
+    layout = { preset = "default_layout" },
+    format = function(item)
+      local default_icon = { icon = " ", highlight = "Directory" }
+      local path_icons = {
+        {
+          match = os.getenv "XDG_CONFIG_HOME" or os.getenv "HOME" .. "/.config/",
+          icon = " ",
+          highlight = "Special",
+        },
+        {
+          match = ".dot/",
+          icon = " ",
+          highlight = "Special",
+        },
+        {
+          match = ".repos/",
+          icon = " ",
+          highlight = "Special",
+        },
+        {
+          match = ".projects/",
+          icon = "󰄛 ",
+          highlight = "Special",
+        },
+        {
+          match = os.getenv "HOME",
+          icon = "󰄛 ",
+          highlight = "Directory",
+        },
+      }
+      local toReturn = {}
+      for _, icon in ipairs(path_icons) do
+        if item.display_value:find(icon.match) then
+          toReturn = {
+            { icon.icon, icon.highlight },
+            { item.display_value:gsub(icon.match, ""), "Normal" },
+          }
+          return toReturn
+        end
+      end
+      toReturn = {
+        { default_icon.icon, default_icon.highlight },
+        { item.display_value, "Normal" },
+      }
+      return toReturn
+    end,
+    confirm = function(self, item)
+      self:close()
+      require("resession").load(item.value, { dir = "dirsession" })
+    end,
+    actions = {
+      delete_session = function(self, item)
+        require("resession").delete(item.value, { dir = "dirsession", notify = true })
+        self:find {
+          refresh = true,
+        }
+      end,
+    },
+    win = {
+      input = {
+        keys = {
+          ["<C-d>"] = { "delete_session", mode = { "n", "i" }, desc = "Delete session" },
+        },
+      },
+    },
+  },
+}
+
 return {
   "folke/snacks.nvim",
   opts = {
@@ -60,46 +170,24 @@ return {
             ["<Tab>"] = "toggle_focus",
             ["<Space>"] = "select_and_next",
             ["a"] = "select_all",
-            ["<c-a>"] = nil,
-            ["<c-r>#"] = nil,
-            ["<c-r>%"] = nil,
+            ["<c-a>"] = false,
+            ["<c-r>#"] = false,
+            ["<c-r>%"] = false,
           },
         },
       },
       sources = {
-        files = { layout = { preset = "default_layout" } },
+        files = {
+          layout = { preset = "default_layout" },
+          hidden = true,
+          ignored = false,
+        },
+        sessions = custom_sources.sessions,
         grep = { layout = { preset = "default_layout" } },
         grep_word = { layout = { preset = "default_layout" } },
         keymaps = { layout = { preset = "vertical_layout" } },
         recent = { layout = { preset = "default_layout" } },
         buffers = { layout = { preset = "default_layout" } },
-        projects = {
-          finder = "recent_projects",
-          format = "file",
-          dev = { "~/repos", "~/projects", "~/dotfiles" },
-          confirm = "load_session",
-          -- patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "package.json", "Makefile", ".config" },
-          recent = true,
-          matcher = {
-            frecency = true, -- use frecency boosting
-            sort_empty = true, -- sort even when the filter is empty
-            cwd_bonus = false,
-          },
-          sort = { fields = { "score:desc", "idx" } },
-          win = {
-            preview = { minimal = true },
-            input = {
-              keys = {
-                -- every action will always first change the cwd of the current tabpage to the project
-                ["<c-e>"] = { { "tcd", "picker_explorer" }, mode = { "n", "i" } },
-                ["<c-f>"] = { { "tcd", "picker_files" }, mode = { "n", "i" } },
-                ["<c-g>"] = { { "tcd", "picker_grep" }, mode = { "n", "i" } },
-                ["<c-r>"] = { { "tcd", "picker_recent" }, mode = { "n", "i" }, nowait = true },
-                ["<c-w>"] = { { "tcd" }, mode = { "n", "i" } },
-              },
-            },
-          },
-        },
       },
       ---@class Snacks.picker.buffers.Config: snacks.picker.Config
       buffers = {
@@ -144,6 +232,10 @@ return {
               }
             end,
             desc = "show keymaps",
+          },
+          ["<Leader>fe"] = {
+            function() require("snacks").picker.sessions() end,
+            desc = "find session",
           },
         },
       },

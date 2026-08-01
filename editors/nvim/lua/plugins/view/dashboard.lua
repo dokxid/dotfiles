@@ -1,3 +1,5 @@
+local Snacks = require "snacks"
+
 return {
   "folke/snacks.nvim",
   opts = {
@@ -23,21 +25,13 @@ return {
             icon = " ",
             key = "e",
             desc = "sessions",
-            action = function()
-              require("pick-resession").pick { snacks_finder = GENERATE_DIRSESSIONS, dir = "dirsession" }
-            end,
+            action = function() Snacks.picker.sessions() end,
           },
           {
             icon = " ",
             key = "f",
             desc = "find",
-            action = function()
-              require("snacks").picker.smart {
-                layout = {
-                  preset = "vscode",
-                },
-              }
-            end,
+            action = function() Snacks.picker.recent() end,
           },
           {
             icon = " ",
