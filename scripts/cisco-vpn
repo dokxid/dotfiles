@@ -1,0 +1,18 @@
+#!/usr/bin/env fish
+
+argparse 'c/connect' 'd/disconnect' -- $argv
+
+if set -q _flag_connect
+    set secrets (secret-tool search --unlock application cisco 2>&1 | \
+        grep -e "TOTP = " -e "secret =" -e "vpn_host" -e "UserName")
+    set sed_command 's/.*= \(.*\)$/\1/'
+    set pass (echo "$secrets[1]" | sed "$sed_command")
+    set totp (echo "$secrets[2]" | sed "$sed_command")
+    set user (echo "$secrets[3]" | sed "$sed_command")
+    set host (echo "$secrets[4]" | sed "$sed_command")
+    printf "$user\n$pass\n$totp" | /opt/cisco/secureclient/bin/vpn -s connect "$host"
+end
+
+if set -q _flag_disconnect
+    /opt/cisco/secureclient/bin/vpn -s disconnect
+end
