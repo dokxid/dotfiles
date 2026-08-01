@@ -1,4 +1,9 @@
 local global = {
+	helpers = {
+		array_to_regex = function(arr)
+			return "(" .. table.concat(arr, "|") .. ")"
+		end,
+	},
 	EXECS = {
 		uwsm = "uwsm-app -- ",
 		launch_tui = "~/scripts/launch-tui.sh ",

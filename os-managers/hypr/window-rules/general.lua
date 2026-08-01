@@ -1,3 +1,20 @@
+local tag_floating = {
+	"launched.tui.yazi",
+	"launched.tui.btop",
+	"org.gnome.NautilusPreviewer",
+	"com.gabm.satty",
+	"imv",
+	"mpv",
+}
+
+hl.window_rule({
+	name = "tag windows to be floating",
+	match = {
+		class = require("globals").helpers.array_to_regex(tag_floating),
+	},
+	tag = "+floating-window",
+})
+
 -- windows / workspaces
 hl.window_rule({
 	-- Ignore maximize requests from all apps. You'll probably like this.
@@ -33,52 +50,22 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = { initial_class = ".*(keepassxc|Thunderbird).*" },
-	float = false,
-	size = { "(monitor_w*0.35)", "(monitor_h*0.4)" },
-	workspace = "special:scratchpad",
-	-- no_screen_share = true,
-})
-hl.window_rule({
-	match = { title = "Unlock Database - KeePassXC" },
-	float = true,
-	no_initial_focus = false,
-	focus_on_activate = true,
-	stay_focused = true,
-	size = { "(monitor_w*0.35)", "(monitor_h*0.4)" },
-	workspace = "current",
-	no_screen_share = true,
-})
-
-hl.window_rule({
 	match = { initial_class = "dragon-drop" },
 	float = true,
 	pin = true,
 	no_initial_focus = true,
 })
 
--- tag gtk apps
-hl.window_rule({
-	match = {
-		initial_class = "(gimp|file_png|org.nomacs.ImageLounge)",
-	},
-	workspace = "name:tools",
-	tag = "+gtk",
-})
-hl.window_rule({
-	match = { tag = "gtk" },
-	float = true,
-})
+-- tag rules
 
--- tag floating windows
-hl.window_rule({
-	match = {
-		class = "(launched.tui.yazi|launched.tui.wiremix|launched.tui.btop|org.gnome.NautilusPreviewer|com.gabm.satty|imv|mpv)",
-	},
-	tag = "+floating-window",
-})
 hl.window_rule({
 	match = { tag = "floating-window" },
 	size = { "(monitor_w*0.7)", "(monitor_h*0.9)" },
-	no_focus = false,
+	float = true,
+	-- no_focus = false,
+})
+
+hl.window_rule({
+	match = { tag = "secret" },
+	no_screen_share = true,
 })

@@ -1,3 +1,5 @@
+require("window-rules.special-workspace")
 require("window-rules.general")
 require("window-rules.noctalia")
 require("window-rules.terminal")
+require("window-rules.gtk")
