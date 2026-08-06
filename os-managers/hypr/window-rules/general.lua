@@ -5,6 +5,8 @@ local tag_floating = {
 	"com.gabm.satty",
 	"imv",
 	"mpv",
+	"hyprland-share-picker",
+	"com.obsproject.Studio",
 }
 
 hl.window_rule({
@@ -15,16 +17,23 @@ hl.window_rule({
 	tag = "+floating-window",
 })
 
+hl.window_rule({
+	name = "tag modals to be floating",
+	match = {
+		modal = true,
+	},
+	tag = "+floating-window",
+})
+
 -- windows / workspaces
 hl.window_rule({
-	-- Ignore maximize requests from all apps. You'll probably like this.
-	name = "suppress-maximize-events",
+	name = "global window rules",
 	match = { class = ".*" },
 	suppress_event = "maximize",
+	persistent_size = true,
 })
 
 hl.window_rule({
-	-- Fix some dragging issues with XWayland
 	name = "fix-xwayland-drags",
 	match = {
 		class = "^$",
@@ -57,10 +66,9 @@ hl.window_rule({
 })
 
 -- tag rules
-
 hl.window_rule({
 	match = { tag = "floating-window" },
-	size = { "(monitor_w*0.7)", "(monitor_h*0.9)" },
+	-- size = { "(monitor_w*0.7)", "(monitor_h*0.9)" },
 	float = true,
 	-- no_focus = false,
 })

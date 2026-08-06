@@ -14,7 +14,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd(uwsm .. "fcitx5 --disable notificationitem")
 
 	-- fix xwayland cursor not showing up
-	-- hl.exec_cmd("xsetroot -cursor_name left_ptr")
+	hl.exec_cmd("xsetroot -cursor_name left_ptr")
 
 	-- open apps
 	hl.exec_cmd("zen-browser", { workspace = "1 silent" })

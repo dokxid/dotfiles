@@ -14,5 +14,5 @@ hl.bind(m.SUPER .. "backspace", hl.dsp.exec_cmd(ipc .. "panel-toggle control-cen
 hl.bind(m.SUPER .. "comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
 
 -- util
-hl.bind("mouse:276", hl.dsp.exec_cmd(ipc .. "window-switcher"))
+-- hl.bind("mouse:276", hl.dsp.exec_cmd(ipc .. "window-switcher"))
 hl.bind(m.SUPER .. "r", hl.dsp.exec_cmd(ipc .. "screenshot-region"))

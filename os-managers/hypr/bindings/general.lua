@@ -12,7 +12,7 @@ local fileManagerPrimary = "yazi"
 local fileManagerSecondary = "nautilus"
 local musicPlayerLocal = "rmpc"
 local musicPlayerStreaming = "cider"
-local tuiScript = "~/scripts/launch-tui.sh "
+local tuiScript = "~/scripts/hyprland/launch-tui.sh "
 local focusScript = "omarchy-launch-or-focus -- "
 
 -- system
@@ -49,8 +49,8 @@ end
 hl.bind(m.SUPER .. "t", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(m.SUPER .. "q", hl.dsp.window.close())
 hl.bind(m.SUPER_SHIFT .. "q", hl.dsp.window.kill())
-hl.bind(m.SUPER .. "F11", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))
-hl.bind(m.SUPER_CTRL .. "F11", hl.dsp.window.fullscreen({ action = "toggle", mode = "fullscreen" }))
+hl.bind(m.SUPER .. "F11", hl.dsp.window.fullscreen({ action = "toggle", mode = "fullscreen" }))
+hl.bind(m.SUPER_CTRL .. "F11", hl.dsp.window.fullscreen({ action = "toggle", mode = "maximized" }))
 
 -- app launch
 hl.bind(m.SUPER .. "d", hl.dsp.exec_cmd("pkill -SIGUSR1 wayscriber"))
@@ -58,6 +58,7 @@ hl.bind(m.SUPER .. "f", hl.dsp.exec_cmd(tuiScript .. fileManagerPrimary))
 hl.bind(m.SUPER .. "DELETE", hl.dsp.exec_cmd(tuiScript .. "btop"))
 hl.bind(m.SUPER .. "SPACE", hl.dsp.exec_cmd(launcher))
 hl.bind(m.SUPER .. "RETURN", hl.dsp.exec_cmd(terminal))
+hl.bind(m.SUPER_CTRL .. "RETURN", hl.dsp.exec_cmd("uwsm-app -- ghostty"))
 hl.bind(m.SUPER .. "b", hl.dsp.exec_cmd(browser))
 hl.bind(m.SUPER .. "m", hl.dsp.exec_cmd(musicPlayerLocal))
 hl.bind(m.SUPER .. "e", hl.dsp.exec_cmd(tuiScript .. "nvim"))

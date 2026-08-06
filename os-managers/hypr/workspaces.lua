@@ -36,7 +36,6 @@ ws_rule({
 })
 w_rule({
 	match = { workspace = "name:tools" },
-	float = false,
 })
 
 ws_rule({
@@ -47,6 +46,13 @@ ws_rule({
 hl.window_rule({
 	match = { workspace = "name:social" },
 	opaque = true,
+})
+
+ws_rule({
+	workspace = "9",
+	default_name = "game",
+	persistent = true,
+	monitor = displays[1],
 })
 
 ws_rule({
