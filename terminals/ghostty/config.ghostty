@@ -3,15 +3,14 @@
 
 adjust-cell-height = 20
 async-backend = epoll
-background = #1e1e2e
-background-blur = macos-glass-regular
-background-opacity = 0.9
+# background-blur = macos-glass-regular
+background-blur = false
+background-opacity = 1.0
 background-opacity-cells = true
 clipboard-read = allow
 config-file = ?local
 confirm-close-surface = false
 copy-on-select = clipboard
-cursor-color = #f5e0dc
 cursor-style = "bar"
 cursor-style-blink = false
 cursor-text = #1e1e2e
@@ -19,7 +18,6 @@ focus-follows-mouse = true
 font-family = "JetBrainsMono Nerd Font"
 font-size = 12
 font-style = Regular
-foreground = #cdd6f4
 gtk-toolbar-style = flat
 macos-icon = paper
 macos-option-as-alt = true
@@ -28,29 +26,11 @@ macos-window-buttons = hidden
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 4.0
 notify-on-command-finish = always
-palette = 0=#45475a
-palette = 1=#f38ba8
-palette = 2=#a6e3a1
-palette = 3=#f9e2af
-palette = 4=#89b4fa
-palette = 5=#f5c2e7
-palette = 6=#94e2d5
-palette = 7=#bac2de
-palette = 8=#585b70
-palette = 9=#f7aec2
-palette = 10=#c2ecbf
-palette = 11=#fcd682
-palette = 12=#aeccfc
-palette = 13=#f398da
-palette = 14=#b1eae1
-palette = 15=#a6adc8
 quit-after-last-window-closed = false
 resize-overlay = never
 scrollbar = never
-selection-background = #f5e0dc
-selection-foreground = #1e1e2e
 split-preserve-zoom = true
-theme = Catppuccin Mocha
+theme = dark:Catppuccin Mocha, light:Catppuccin Latte
 wait-after-command = false
 window-new-tab-position = current
 window-padding-x = 20
