@@ -1,4 +1,4 @@
-require("folder-rules"):setup()
+-- require("folder-rules"):setup()
 require("git"):setup()
 -- require("autosession"):setup()
 require("recycle-bin"):setup()
