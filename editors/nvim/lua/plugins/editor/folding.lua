@@ -1,59 +1,61 @@
 return {
-  -- https://github.com/chrisgrieser/nvim-origami
-  "chrisgrieser/nvim-origami",
-  event = "VeryLazy",
-  dependencies = {
-    {
-      "AstroNvim/astrocore",
-      ---@type AstroCoreOpts
-      opts = {
-        mappings = {
-          n = {
-            ["<Left>"] = { function() require("origami").h() end },
-            ["<Right>"] = { function() require("origami").l() end },
-            ["`"] = { function() require("origami").caret() end },
-            ["~"] = { function() require("origami").dollar() end },
-            ["zc"] = "<Nop>",
+  {
+    -- https://github.com/chrisgrieser/nvim-origami
+    "chrisgrieser/nvim-origami",
+    event = "VeryLazy",
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        ---@type AstroCoreOpts
+        opts = {
+          mappings = {
+            n = {
+              ["<Left>"] = { function() require("origami").h() end },
+              ["<Right>"] = { function() require("origami").l() end },
+              ["`"] = { function() require("origami").caret() end },
+              ["~"] = { function() require("origami").dollar() end },
+              ["zc"] = "<Nop>",
+            },
           },
         },
       },
     },
-  },
-  opts = {
-    useLspFoldsWithTreesitterFallback = {
-      enabled = true,
-      foldmethodIfNeitherIsAvailable = "indent", ---@type string|fun(bufnr: number): string
-    },
-    pauseFoldsOnSearch = true,
-    foldtext = {
-      enabled = true,
-      padding = {
-        character = " ",
-        width = 3, ---@type number|fun(win: number, foldstart: number, currentVirtualTextLength: number): number
-        hlgroup = nil,
+    opts = {
+      useLspFoldsWithTreesitterFallback = {
+        enabled = true,
+        foldmethodIfNeitherIsAvailable = "indent", ---@type string|fun(bufnr: number): string
       },
-      lineCount = {
-        template = "%d lines", -- `%d` is replaced with the number of folded lines
-        hlgroup = "Comment",
+      pauseFoldsOnSearch = true,
+      foldtext = {
+        enabled = true,
+        padding = {
+          character = " ",
+          width = 3, ---@type number|fun(win: number, foldstart: number, currentVirtualTextLength: number): number
+          hlgroup = nil,
+        },
+        lineCount = {
+          template = "%d lines", -- `%d` is replaced with the number of folded lines
+          hlgroup = "Comment",
+        },
+        diagnosticsCount = true, -- uses hlgroups and icons from `vim.diagnostic.config().signs`
+        gitsignsCount = true, -- requires `gitsigns.nvim`
+        disableOnFt = { "snacks_picker_input" }, ---@type string[]
       },
-      diagnosticsCount = true, -- uses hlgroups and icons from `vim.diagnostic.config().signs`
-      gitsignsCount = true, -- requires `gitsigns.nvim`
-      disableOnFt = { "snacks_picker_input" }, ---@type string[]
+      autoFold = {
+        enabled = true,
+        kinds = { "imports" }, ---@type lsp.FoldingRangeKind[]
+      },
+      foldKeymaps = {
+        setup = true, -- modifies `h`, `l`, `^`, and `$`
+        closeOnlyOnFirstColumn = true, -- `h` and `^` only fold in the 1st column
+        scrollLeftOnCaret = false, -- `^` should scroll left (basically mapped to `0^`)
+      },
     },
-    autoFold = {
-      enabled = true,
-      kinds = { "imports" }, ---@type lsp.FoldingRangeKind[]
-    },
-    foldKeymaps = {
-      setup = true, -- modifies `h`, `l`, `^`, and `$`
-      closeOnlyOnFirstColumn = true, -- `h` and `^` only fold in the 1st column
-      scrollLeftOnCaret = false, -- `^` should scroll left (basically mapped to `0^`)
-    },
-  },
 
-  -- disable vim's auto-folding
-  init = function()
-    vim.opt.foldlevel = 99
-    vim.opt.foldlevelstart = 99
-  end,
+    -- disable vim's auto-folding
+    init = function()
+      vim.opt.foldlevel = 99
+      vim.opt.foldlevelstart = 99
+    end,
+  },
 }

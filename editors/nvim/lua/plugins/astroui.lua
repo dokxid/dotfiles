@@ -112,10 +112,10 @@ return {
             NeoTreeTabActive = { bg = colors.mantle },
             NeoTreeTabInactive = { bg = colors.mantle },
             SnacksDashboardHeader = { bg = colors.base, fg = colors.peach },
-            SnacksDashboardTitle = { bg = colors.base, fg = colors.peach },
-            SnacksDashboardKey = { bg = colors.base, fg = colors.peach },
-            SnacksDashboardIcon = { bg = colors.base, fg = colors.peach },
-            SnacksDashboardDesc = { bg = colors.base, fg = colors.subtext0 },
+            -- SnacksDashboardTitle = { bg = colors.base, fg = colors.peach },
+            -- SnacksDashboardKey = { bg = colors.base, fg = colors.peach },
+            SnacksDashboardIcon = { fg = colors.peach },
+            -- SnacksDashboardDesc = { bg = colors.base, fg = colors.subtext0 },
             -- comment = { fg = colors.flamingo },
           }
         end,
@@ -183,7 +183,7 @@ return {
           enabled = false,
         },
         signature = {
-          enabled = true,
+          enabled = false,
           auto_open = {
             enabled = true,
             trigger = true, -- Automatically show signature help when typing a trigger character from the LSP

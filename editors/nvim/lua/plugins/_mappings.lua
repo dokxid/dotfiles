@@ -24,32 +24,22 @@ return {
         -- buffers
         ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-        ["}"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["{"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["[["] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["]]"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- leaders
-        ["<Leader>E"] = { function() require("yazi").yazi() end, desc = "yazi" },
+        ["<Leader><Space>"] = { function() require("yazi").yazi() end, desc = "yazi" },
+        ["<Leader><S-Space>"] = {
+          function() require("yazi").yazi { change_neovim_cwd_on_close = true } end,
+          desc = "yazi with cwd",
+        },
         ["<Leader>c"] = { close_buffer, desc = " bfr" },
-        ["<Leader>C"] = {
-          function() require("astrocore.buffer").close_all(true) end,
-          desc = " bfrs",
-        },
-        ["<Leader>a"] = { desc = "misc" },
-        ["<Leader>R"] = {
-          "<cmd>AstroRoot<cr>",
-          desc = "astroroot",
-        },
-        ["<Leader>ar"] = {
-          "<cmd>AstroReload<cr>",
-          desc = "astroreload",
-        },
-        ["<Leader>ad"] = {
-          "<cmd>DiffviewOpen<ct>",
-          desc = "diff_view",
-        },
+
         ["<Leader>p"] = { desc = " pacmans" },
         ["<Leader>pp"] = { function() require("lazy").home() end, desc = "lazy" },
         ["<Leader>po"] = { "<cmd>Mason<cr>", desc = "mason" },
+
+        ["<Leader>q"] = false,
         ["<Leader>pm"] = false,
         ["<Leader>pM"] = false,
         ["<Leader>ps"] = false,
@@ -58,7 +48,7 @@ return {
         ["<Leader>pU"] = false,
         ["<Leader>pi"] = false,
         ["<Leader>bb"] = false,
-        ["<Leader>bc"] = false,
+        ["<Leader>C"] = false,
         ["<Leader>w"] = false,
         ["<Leader>Q"] = false,
         ["<Leader>n"] = false,
@@ -77,20 +67,14 @@ return {
         ["<Leader>S."] = false,
 
         -- session / cwd
-        ["<Leader>s"] = { desc = "󱀀 sessions" },
-        ["<Leader>sc"] = {
-          function() require("yazi").yazi { change_neovim_cwd_on_close = true } end,
-          desc = "yazi with cwd",
-        },
+        ["<Leader>s"] = { desc = "󱀀 sessions/save" },
         ["<Leader>ss"] = {
           function() require("resession").save(vim.uv.cwd(), { dir = "dirsession" }) end,
           desc = "dirsession 󰆓",
         },
 
-        -- terminal
-        ["<F12>"] = { "<Cmd>ToggleTerm name=default<CR>", desc = "ToggleTerm" },
-
         -- util
+        ["<F12>"] = { "<Cmd>ToggleTerm name=default<CR>", desc = "ToggleTerm" },
         ["<Esc>"] = { "<Cmd>nohlsearch<CR>", desc = "Clear search highlights" },
         ["<C-s>"] = {
           function()
@@ -101,6 +85,18 @@ return {
           desc = "file and dirses 󰆓",
         },
         ["<C-S>"] = {
+          function() vim.cmd.write() end,
+          desc = "file 󰆓",
+        },
+        ["<D-s>"] = {
+          function()
+            vim.cmd.write()
+            local cwd = vim.uv.cwd()
+            if not (cwd == os.getenv "HOME") then require("resession").save(vim.uv.cwd(), { dir = "dirsession" }) end
+          end,
+          desc = "file and dirses 󰆓",
+        },
+        ["<D-S>"] = {
           function() vim.cmd.write() end,
           desc = "file 󰆓",
         },
@@ -116,6 +112,8 @@ return {
         ["<C-/>"] = { require("vim._comment").operator() .. "_", desc = "Toggle comment" },
         ["<C-c>"] = { function() vim.cmd [[normal! "+y]] end, desc = "copy to clipboard" },
         ["<C-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
+        ["<D-c>"] = { function() vim.cmd [[normal! "+y]] end, desc = "copy to clipboard" },
+        ["<D-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
 
         -- splits
         ["<C-Left>"] = { function() require("smart-splits").move_cursor_left() end, desc = "Move to left split" },
@@ -147,6 +145,7 @@ return {
 
         -- text manipulation
         ["<C-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
+        ["<D-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
       },
       t = {
         ["<F12>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "ToggleTerm" },
@@ -158,12 +157,14 @@ return {
 
         -- text manipulation
         ["<C-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
+        ["<D-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
       },
       v = {
         ["v"] = { "<Esc><C-V>", desc = "block select" },
 
         -- text manipulation
         ["<C-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
+        ["<D-v>"] = { function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end, desc = "paste from clipboard" },
 
         -- nops
         ["q"] = "<Nop>",

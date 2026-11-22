@@ -161,7 +161,7 @@ return {
         },
         input = {
           keys = {
-            ["<Esc>"] = { "close", mode = { "n", "i" } },
+            ["<Esc>"] = { "close", mode = { "n" } },
             ["??"] = { "toggle_help_input", mode = { "n", "i" } },
             ["<Tab>"] = { "toggle_focus", mode = { "n", "i" } },
             ["<Up>"] = { "toggle_focus", mode = { "n", "i" } },

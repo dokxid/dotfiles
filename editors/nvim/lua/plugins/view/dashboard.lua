@@ -45,17 +45,11 @@ return {
             desc = "browse",
             action = function() require("yazi").toggle() end,
           },
-          {
-            icon = " ",
-            key = " ",
-            desc = " ",
-          },
         },
       },
       sections = {
         { section = "header", padding = 0 },
-        { title = [[  
-    the potato editor]], section = "keys", indent = 4, padding = 2, pane = 2 },
+        { section = "keys", indent = 4, padding = 4 },
       },
     },
   },

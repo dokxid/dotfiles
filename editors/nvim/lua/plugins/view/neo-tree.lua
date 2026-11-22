@@ -77,7 +77,6 @@ return {
           ["C"] = "close_node",
 
           -- preview
-          ["l"] = "focus_preview",
           ["o"] = {
             "toggle_preview",
             config = {
