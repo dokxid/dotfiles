@@ -31,9 +31,7 @@ hl.window_rule({
 hl.window_rule({
 	match = { tag = "launcher" },
 	workspace = "name:tools",
-	float = true,
-	suppress_event = "activate activatefocus",
-	no_initial_focus = true,
+	-- float = true,
 })
 
 hl.window_rule({
@@ -46,4 +44,11 @@ hl.window_rule({
 	-- idle_inhibit = "none",
 	-- float = true,
 	-- no_focus = false,
+})
+
+-- steam
+hl.window_rule({
+	match = { initial_class = "steam" },
+	suppress_event = "activate activatefocus",
+	no_initial_focus = true,
 })

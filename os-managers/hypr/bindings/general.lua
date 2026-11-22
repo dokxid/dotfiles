@@ -4,7 +4,7 @@
 local m = require("globals").MODIFIERS
 
 -- defaults
-local terminal = "wezterm"
+local terminal = "uwsm-app -- wezterm"
 local browser = "zen-browser"
 local passwordManager = "keepassxc"
 local launcher = "vicinae toggle"

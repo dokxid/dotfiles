@@ -12,11 +12,11 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = { title = "Unlock Database - KeePassXC" },
+	match = { initial_title = "Unlock Database - KeePassXC" },
 	float = true,
 	no_initial_focus = false,
 	focus_on_activate = true,
-	stay_focused = true,
+	stay_focused = false,
 	size = { "(monitor_w*0.35)", "(monitor_h*0.4)" },
 	workspace = "current",
 	no_screen_share = true,

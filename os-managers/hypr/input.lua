@@ -8,6 +8,8 @@ hl.config({
 	},
 	cursor = {
 		hide_on_key_press = false,
+		no_hardware_cursors = 1,
+		use_cpu_buffer = false,
 		no_warps = false,
 		warp_on_toggle_special = 0,
 	},
@@ -32,4 +34,9 @@ hl.config({
 			scroll_factor = 0.4,
 		},
 	},
+})
+
+hl.device({
+	name = "zsa-technology-labs-ergodox-ez",
+	kb_options = "",
 })

@@ -21,16 +21,16 @@ hl.config({
 		allow_tearing = false,
 	},
 	decoration = {
-		inactive_opacity = 0.8,
-		active_opacity = 0.99,
+		inactive_opacity = 0.95,
+		active_opacity = 1.00,
 		rounding = 24,
 		rounding_power = 2,
-		dim_special = 0.5,
+		dim_special = 0.7,
 		shadow = {
 			enabled = true,
 			range = 4,
 			render_power = 3,
-			color = 0xee1a1a1a,
+			color = "rgba(ee1a1a1a)",
 		},
 		blur = {
 			enabled = true,
