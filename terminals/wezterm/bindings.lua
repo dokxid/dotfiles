@@ -212,8 +212,8 @@ bindings.keys = {
 
 	-- forwards leader key if hit twice
 	{
-		key = "F1",
-		mods = "LEADER",
+		key = "a",
+		mods = "LEADER|CTRL",
 		action = act.SendKey({ key = "F1", mods = "" }),
 	},
 	{

@@ -28,7 +28,7 @@ c.default_prog = { "/usr/bin/fish", "-l" }
 
 -- keys
 c.disable_default_key_bindings = bindings.disable_default_bindings
-c.leader = { key = "F1", mods = "", timeout_milliseconds = 5000 }
+c.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 }
 c.enable_kitty_keyboard = false
 c.keys = bindings.keys
 
