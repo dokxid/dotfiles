@@ -11,8 +11,18 @@ if set -q _flag_connect
     set user (echo "$secrets[3]" | sed "$sed_command")
     set host (echo "$secrets[4]" | sed "$sed_command")
     printf "$user\n$pass\n$totp" | /opt/cisco/secureclient/bin/vpn -s connect "$host"
-end
-
-if set -q _flag_disconnect
+    if [ $status -eq 0 ]
+        notify-send "connected to vpn"
+    else
+        notify-send "could not connect to vpn" && false
+    end
+else if set -q _flag_disconnect
     /opt/cisco/secureclient/bin/vpn -s disconnect
+    if [ $status -eq 0 ]
+        notify-send "disconnected from vpn"
+    else
+        notify-send "could not disconnect from vpn" && false
+    end
+else
+    /opt/cisco/secureclient/bin/vpn stats | grep -E '(Connection State|Duration):'
 end
